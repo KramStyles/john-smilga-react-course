@@ -1,28 +1,13 @@
-// import dependencies
-import React from "react"
-import root from "react-dom"
+import React from "react";
+import ReactDOM from "react-dom";
 
-// Import external components
-import './app.css'
-import Header from './Header'
-import Footer from './Footer'
-import Main from './Main'
-import App from './App'
+const Greetings = () => (
+  <div style={{ fontFamily: "poppins" }}>
+    <Person />
+    <h2>This is my message</h2>
+  </div>
+);
 
-let facts = (
-    <div>
-        <Header/>
-        <Main/>
-        <Footer/>
-    </div>
-)
+const Person = () => <h1>Michael</h1>;
 
-
-function Temporary() {
-    return (facts)
-}
-
-
-root.render(<Temporary/>, document.getElementById('root'));
-root.render(facts, document.getElementById('root'));
-root.render(<App/>, document.getElementById('root'))
+ReactDOM.render(<Greetings />, document.getElementById("root"));
