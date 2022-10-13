@@ -4,14 +4,20 @@ import ReactDOM from "react-dom";
 import "./index.css";
 
 const BookList = () => (
-  <section style={{ fontFamily: "poppins" }}>
+  <section className="booklist">
+    <Book />
+    <Book />
+    <Book />
+    <Book />
+    <Book />
+    <Book />
     <Book />
     <Book />
   </section>
 );
 
 const Book = () => (
-  <article>
+  <article className="book">
     <Image />
     <Title />
     <Author />

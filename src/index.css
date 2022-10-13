@@ -9,3 +9,27 @@ body {
   background-color: #f1f5f8;
   color: #222;
 }
+
+.booklist {
+  margin: 5rem auto;
+  width: 90%;
+  display: grid;
+  gap: 2rem;
+}
+.book {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.book h4 {
+  margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 900px) {
+  .booklist {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
