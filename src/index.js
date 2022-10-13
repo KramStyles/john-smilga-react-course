@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const Greetings = () => (
-  <div style={{ fontFamily: "poppins" }}>
-    <Person />
-    <h2>This is my message</h2>
-  </div>
+const BookList = () => (
+  <section style={{ fontFamily: "poppins" }}>
+    <Book />
+  </section>
 );
 
-const Person = () => <h1>Michael</h1>;
+const Book = () => <article>This is a book</article>;
 
-ReactDOM.render(<Greetings />, document.getElementById("root"));
+ReactDOM.render(<BookList />, document.getElementById("root"));
