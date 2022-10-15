@@ -12,9 +12,9 @@ const first = {
 
 const second = {
   image:
-    "https://images-na.ssl-images-amazon.com/images/I/51znoqd9roL._AC_SX184_.jpg",
-  title: "Cash Money Focus",
-  author: "Random Guy",
+    "https://images-na.ssl-images-amazon.com/images/I/51+GySc8ExL._AC_SX184_.jpg",
+  title: "A brief history of time",
+  author: "Stephen Hawking",
 };
 
 const BookList = () => (
@@ -24,13 +24,16 @@ const BookList = () => (
   </section>
 );
 
-const Book = (props) => (
-  <article className="book">
-    <Image source={props.image} title={props.title} />
-    <Title title={props.title} />
-    <Author name={props.author} />
-  </article>
-);
+const Book = (props) => {
+  const { image, title, author } = props; // Destructuring to prevent using props each time
+  return (
+    <article className="book">
+      <Image source={image} title={title} />
+      <Title title={title} />
+      <Author name={author} />
+    </article>
+  );
+};
 const Image = ({ source, title }) => <img src={source} alt={title} />;
 const Title = ({ title }) => <h4>{title}</h4>;
 const Author = ({ name }) => <p>{name}</p>;
