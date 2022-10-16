@@ -93,8 +93,8 @@ const Image = ({ source, title }) => (
 const Title = ({ title }) => <h4>{title}</h4>;
 const Author = ({ name }) => <p>{name}</p>;
 
-const BookInformation = books.map((book) => (
-  <Book image={book.image} title={book.title} author={book.author}>
+const BookInformation = books.map((book, index) => (
+  <Book image={book.image} title={book.title} author={book.author} key={index}>
     <p className="desc">{book.desc}</p>
   </Book>
 ));
