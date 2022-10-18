@@ -10,14 +10,11 @@ const Example = () => {
 
   return (
     <>
-      <div className="bg-primary p-5 text-white text-center fs-3 fw-bold text-capitalize">
+      <div className="bg-primary p-5 text-white text-center fs-3 fw-bold text-capitalize mb-5">
         {title}
       </div>
 
-      <button
-        className="btn mt-3 btn-primary d-block m-auto"
-        onClick={handleClick}
-      >
+      <button className="btn btn-primary d-block m-auto" onClick={handleClick}>
         Change Title
       </button>
     </>
