@@ -12,9 +12,21 @@ const UseStateCounter = () => {
           {value}
         </p>
         <div className="d-flex justify-content-evenly">
-          <button className="btn btn-danger btn-lg">Decrease</button>
-          <button className="btn btn-light btn-lg">Reset</button>
-          <button className="btn btn-success btn-lg">Increase</button>
+          <button
+            className="btn btn-danger btn-lg"
+            onClick={() => setValue(value - 1)}
+          >
+            Decrease
+          </button>
+          <button className="btn btn-light btn-lg" onClick={() => setValue(0)}>
+            Reset
+          </button>
+          <button
+            className="btn btn-success btn-lg"
+            onClick={() => setValue(value + 1)}
+          >
+            Increase
+          </button>
         </div>
       </div>
     </>
