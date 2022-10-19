@@ -2,7 +2,8 @@
 // N:B You can change Booklist to anyname because it's a default and not named export
 // import Setup from "./assets/tutorial/useState/01-example";
 // import Setup from "./assets/tutorial/useState/02-array";
-import Setup from "./assets/tutorial/useState/03-object";
+// import Setup from "./assets/tutorial/useState/03-object";
+import Setup from "./assets/tutorial/useState/04-counter";
 
 import "./assets/styles/bootstrap.css";
 
