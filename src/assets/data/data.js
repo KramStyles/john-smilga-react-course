@@ -4,3 +4,9 @@ export const individuals = [
   { name: "karm" },
   { name: "blue flames" },
 ];
+
+export const profile = {
+  name: "peter",
+  age: 24,
+  message: "random message to user",
+};
