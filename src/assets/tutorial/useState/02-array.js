@@ -6,8 +6,7 @@ const UseArray = () => {
   const [people, setPeople] = useState(individuals);
 
   const removePerson = (id) => {
-    const newPeople = people.slice(id, 1);
-    console.log(newPeople);
+    let newPeople = people.filter((person, index) => index !== id);
     setPeople(newPeople);
   };
   return (
