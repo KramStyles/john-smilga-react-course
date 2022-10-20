@@ -10,7 +10,7 @@ const FetchData = () => {
     const getUsers = async ()=>{
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data);
+        setUsers(data);
     }
 
     useEffect(()=>{
@@ -20,21 +20,25 @@ const FetchData = () => {
     <>
         <Jumbotron title={title}/>
         <div className="container">
-            <h2>Github Users</h2>
+            <h2>Github Founders</h2>
             <div className="row">
-                <div className="col-md-4 col-sm-12 mt-4">
-                    <div className="card" style={{width: '300px'}}>
-                        <img className="card-img-top" src="https://avatars.githubusercontent.com/u/45?v=4" alt="Card image"/>
-                        <div className="card-body">
-                            <h4 className="card-title text-primary text-capitalize">John Doe</h4>
-                            <p className="card-text border-bottom border-primary">ID:<span className='fw-bold float-end'> 1</span></p>
-                            <p className="card-text border-bottom border-primary">Node ID:<span className='fw-bold float-end'> iindie</span></p>
-                            <p className="card-text border-bottom border-primary">Type:<span className='fw-bold float-end'> user</span></p>
-                            <p className="card-text border-bottom border-primary">Site Admin:<span className='fw-bold float-end'> Yes</span></p>
-                            <a href="#" className="btn btn-dark mt-2">See Profile</a>
+                {users.map((user) => {
+                    const {login, avatar_url, id, node_id, type, site_admin} = user;
+                    return (<div className="col-md-4 col-sm-12 mt-4" key={id}>
+                        <div className="card" style={{minWidth: '200px'}}>
+                            <img className="card-img-top" src={avatar_url} alt={login}/>
+                            <div className="card-body">
+                                <h4 className="card-title text-primary text-capitalize">{login}</h4>
+                                <p className="card-text border-bottom border-primary">ID:<span className='fw-bold float-end'>{id}</span></p>
+                                <p className="card-text border-bottom border-primary">Node ID:<span className='fw-bold float-end'>{node_id}</span></p>
+                                <p className="card-text border-bottom border-primary">Type:<span className='fw-bold float-end'>{type}</span></p>
+                                <p className="card-text border-bottom border-primary">Site Admin:<span className='fw-bold float-end'> {site_admin ? 'Yes' : 'No'}</span></p>
+                                <a href={user.html_url} className="btn btn-dark mt-2" target="_blank">See Profile</a>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div>)
+                })}
+                
             </div>
         </div>
     </>
