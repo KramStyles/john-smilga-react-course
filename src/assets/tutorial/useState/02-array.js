@@ -6,8 +6,15 @@ const UseArray = () => {
   const [people, setPeople] = useState(individuals);
 
   const removePerson = (id) => {
-    let newPeople = people.filter((person, index) => index !== id);
+    const newPeople = people.filter((person, index) => index !== id);
     setPeople(newPeople);
+
+    // attempting with functional update
+    // setPeople((oldPeople) => {
+    //   oldPeople.splice(id, 1);
+    //   console.log(oldPeople);
+    //   return oldPeople;
+    // });
   };
   return (
     <div>
