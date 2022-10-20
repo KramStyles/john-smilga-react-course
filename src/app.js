@@ -6,7 +6,8 @@
 // import Setup from "./assets/tutorial/01useState/03-object";
 // import Setup from "./assets/tutorial/01useState/04-counter";
 
-import Setup from "./assets/tutorial/02UseEffect/01-basics";
+// import Setup from "./assets/tutorial/02UseEffect/01-basics";
+import Setup from "./assets/tutorial/02UseEffect/02FetchData";
 
 import "./assets/styles/bootstrap.css";
 
