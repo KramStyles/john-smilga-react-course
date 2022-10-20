@@ -7,6 +7,10 @@ const UseEffectBasics = () => {
     const [size, setSize] = useState(window.innerWidth)
     const [value, setValue] = useState(0)
 
+    const CheckSize = ()=>{
+            setSize(window.innerWidth);
+        }
+
     useEffect(()=>{
         if (value > 1) {
             document.title = `Messages (${value})`;
@@ -15,9 +19,11 @@ const UseEffectBasics = () => {
     // You can always add as many use effects as possible
 
     useEffect(() => {
-        window.addEventListener('resize', ()=>{
-            setSize(window.innerWidth);
-        }) 
+        window.addEventListener('resize', CheckSize);
+        // Clean up to avoid window hanging
+        return ()=>{
+            window.addEventListener('resize', CheckSize);
+        }
     }, [size])
   return (
     <>
