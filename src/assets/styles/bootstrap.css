@@ -7405,6 +7405,10 @@ fieldset:disabled .btn {
   font-size: 1rem !important;
 }
 
+.fs-bg {
+  font-size: 15rem !important;
+}
+
 .fst-italic {
   font-style: italic !important;
 }
