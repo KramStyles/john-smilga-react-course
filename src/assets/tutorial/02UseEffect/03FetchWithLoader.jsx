@@ -17,10 +17,22 @@ const FetchWithLoader = () => {
         }
     }
 
+    const reportError = (response) => {
+        setIsLoading(false);
+        setIsError(true);
+        setErrorMsg(response.statusText ? response.statusText : response.status);
+        setTimeout(() => {
+        setIsError(false);
+        }, 2000);
+    }
+
     useEffect(() => {
         setIsLoading(true);
       fetch(url)
-      .then((response) => response.json())
+      .then((response) => {
+          if (response.status >= 200 && response.status <= 299) return response.json();
+          else reportError(response);
+      })
       .then((user) => {
           setIsLoading(false);
           console.log(user);
