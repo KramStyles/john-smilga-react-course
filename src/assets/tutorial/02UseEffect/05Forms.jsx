@@ -5,10 +5,15 @@ import Jumbotron from "../../components/Jumbotron";
 const Forms = () => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
+    const [db, setDb] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(name, password);
+        if(name && password){
+            console.log(name, password);
+            setName('');
+            setPassword('');
+        } else alert('Please ensure all fields are complete')
     }
     return (
         <>
@@ -31,6 +36,22 @@ const Forms = () => {
                                 </div>
                             </div>
                         </form>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="table mt-5">
+                            <table className="table table-light table-hover">
+                                <thead>
+                                <th>Fullname</th>
+                                <th>Password</th>
+                                </thead>
+                                <tbody>
+                                <td>Michael Jamie</td>
+                                <td>kilsdks</td>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
