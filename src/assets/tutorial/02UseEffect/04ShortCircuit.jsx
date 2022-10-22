@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 import Jumbotron from "../../components/Jumbotron";
 
@@ -8,18 +8,43 @@ const ShortCircuit = () => {
     const firstValue = text || 'Hello'; // This would pick hello if text is empty
     const secondValue = text && 'Hi'; // This would pick hi if text exist
 
-    const toggleValues=()=>{
+    const [show, setShow] = useState(false);
+    const [size, setSize] = useState(window.innerWidth);
+
+    const toggleValues = () => {
         if (secondValue) setText('');
         else setText('Bye');
     }
-    return(
+
+    const Item = () => {
+        return (
+            <h3 className="mt-3">Window Size: <span className="text-primary fw-bold">{size}px</span></h3>
+        )
+    }
+
+    const checkSize = () => {
+        setSize(window.innerWidth);
+    }
+
+    useEffect(()=>{
+        window.addEventListener('resize', checkSize);
+    }, [])
+    return (
         <>
             <Jumbotron title="short circuit example"/>
             <div className="container">
-                <p>{firstValue}</p>
-                <p>{secondValue ? secondValue : ' '}</p>
-                <p>{secondValue || ' '}</p>
-                <button className="btn btn-outline-primary mt-2" onClick={toggleValues}>Toggle values</button>
+                <div className="row">
+                    <div className="col-md-6">
+                        <p>{firstValue}</p>
+                        <p>{secondValue ? secondValue : ' '}</p>
+                        <p>{secondValue || ' '}</p>
+                        <button className="btn btn-outline-primary mt-2" onClick={toggleValues}>Toggle values</button>
+                    </div>
+                    <div className="col-md-6">
+                        <button className="btn btn-primary" onClick={() => setShow(!show)}>Show/Hide</button>
+                        {show && <Item />}
+                    </div>
+                </div>
             </div>
         </>
     )
