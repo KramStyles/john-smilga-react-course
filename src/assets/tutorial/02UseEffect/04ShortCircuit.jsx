@@ -28,6 +28,9 @@ const ShortCircuit = () => {
 
     useEffect(()=>{
         window.addEventListener('resize', checkSize);
+        // return ()=>{
+        //     window.removeEventListener('resize', checkSize);
+        // }
     }, [])
     return (
         <>
@@ -40,7 +43,7 @@ const ShortCircuit = () => {
                         <p>{secondValue || ' '}</p>
                         <button className="btn btn-outline-primary mt-2" onClick={toggleValues}>Toggle values</button>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-6 mt-sm-3">
                         <button className="btn btn-primary" onClick={() => setShow(!show)}>Show/Hide</button>
                         {show && <Item />}
                     </div>

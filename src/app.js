@@ -9,7 +9,9 @@
 // import Setup from "./assets/tutorial/02UseEffect/01-basics";
 // import Setup from "./assets/tutorial/02UseEffect/02FetchData";
 // import Setup from "./assets/tutorial/02UseEffect/03FetchWithLoader";
-import Setup from "./assets/tutorial/02UseEffect/04ShortCircuit";
+// import Setup from "./assets/tutorial/02UseEffect/04ShortCircuit";
+import Setup from "./assets/tutorial/02UseEffect/05Forms";
+
 import "./assets/styles/bootstrap.css";
 
 const app = () => {
