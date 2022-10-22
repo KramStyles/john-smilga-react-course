@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 
 import Jumbotron from "../../components/Jumbotron";
 import Loader from "../../components/Loader";
@@ -45,9 +45,9 @@ const FetchWithLoader = () => {
 
   return (
     <>
-      <Jumbotron title="fetch data with Loader" />
-      {isLoading ? <Loader /> : ""}
-      {isError ? <Loader error={errorMsg} /> : ""}
+      <Jumbotron title="fetch data with Loader"/>
+      {isLoading ? <Loader/> : ""}
+      {isError ? <Loader error={errorMsg}/> : ""}
 
       <div className="container">
         <div className="row">
