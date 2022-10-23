@@ -10,7 +10,10 @@ const Forms = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(name && password){
-            console.log(name, password);
+            setDb((prev)=>{
+                const createdAt = new Date().getTime().toString();
+                return [...db, [name, password, createdAt]]
+            })
             setName('');
             setPassword('');
         } else alert('Please ensure all fields are complete')
@@ -43,12 +46,24 @@ const Forms = () => {
                         <div className="table mt-5">
                             <table className="table table-light table-hover">
                                 <thead>
-                                <th>Fullname</th>
-                                <th>Password</th>
+                                    <tr>
+                                        <th>Fullname</th>
+                                        <th>Password</th>
+                                        <th>Time ID</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <td>Michael Jamie</td>
-                                <td>kilsdks</td>
+                                {db.length > 0 ?
+                                    db.map(detail =>{
+                                       return (
+                                           <tr key={detail[2]}>
+                                               <td>{detail[0]}</td>
+                                               <td>{detail[1]}</td>
+                                               <td>{detail[2]}</td>
+                                           </tr>
+                                       )
+                                    }) : ''
+                                }
                                 </tbody>
                             </table>
                         </div>
