@@ -24,7 +24,9 @@ const Forms = () => {
   const handleChange = (e) => {
     const name = e.target.id;
     const value = e.target.value;
-    console.log(name, value);
+
+    // Next we dynamically update the state values
+    setPerson({ ...person, [name]: value });
   };
 
   const handleSubmit = (e) => {};
@@ -42,8 +44,7 @@ const Forms = () => {
                     type="text"
                     className="form-control"
                     placeholder="Enter Name"
-                    id="name"
-                    name="name"
+                    id="fullname"
                     value={person.fullname}
                     onChange={handleChange}
                   />
@@ -54,7 +55,6 @@ const Forms = () => {
                     className="form-control"
                     placeholder="Age"
                     id="age"
-                    name="age"
                     value={person.age}
                     onChange={handleChange}
                     autoComplete="on"
@@ -65,8 +65,7 @@ const Forms = () => {
                     type="password"
                     className="form-control"
                     placeholder="Enter password"
-                    id="pswd"
-                    name="pswd"
+                    id="password"
                     value={person.password}
                     onChange={handleChange}
                     autoComplete="on"
