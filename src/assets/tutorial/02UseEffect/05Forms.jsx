@@ -3,22 +3,32 @@ import { useState } from "react";
 import Jumbotron from "../../components/Jumbotron";
 
 const Forms = () => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [age, setAge] = useState("");
+  //   const [name, setName] = useState("");
+  //   const [password, setPassword] = useState("");
+  //   const [age, setAge] = useState("");
+  const [person, setPerson] = useState({ fullname: "", age: "", password: "" });
   const [db, setDb] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (name && password) {
-      setDb((prev) => {
-        const createdAt = new Date().getTime().toString();
-        return [...db, [name, password, age, createdAt]];
-      });
-      setName("");
-      setPassword("");
-    } else alert("Please ensure all fields are complete");
+  //   const handleSubmit = (e) => {
+  //     e.preventDefault();
+  //     if (name && password) {
+  //       setDb((prev) => {
+  //         const createdAt = new Date().getTime().toString();
+  //         return [...db, [name, password, age, createdAt]];
+  //       });
+  //       setName("");
+  //       setPassword("");
+  //     } else alert("Please ensure all fields are complete");
+  //   };
+
+  const handleChange = (e) => {
+    const name = e.target.id;
+    const value = e.target.value;
+    console.log(name, value);
   };
+
+  const handleSubmit = (e) => {};
+
   return (
     <>
       <Jumbotron title="Form Examples" />
@@ -34,8 +44,8 @@ const Forms = () => {
                     placeholder="Enter Name"
                     id="name"
                     name="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={person.fullname}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="col-md-4">
@@ -45,8 +55,8 @@ const Forms = () => {
                     placeholder="Age"
                     id="age"
                     name="age"
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
+                    value={person.age}
+                    onChange={handleChange}
                     autoComplete="on"
                   />
                 </div>
@@ -57,8 +67,8 @@ const Forms = () => {
                     placeholder="Enter password"
                     id="pswd"
                     name="pswd"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={person.password}
+                    onChange={handleChange}
                     autoComplete="on"
                   />
                 </div>
@@ -87,18 +97,24 @@ const Forms = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {db.length > 0
-                    ? db.map((detail) => {
-                        return (
-                          <tr key={detail[2]}>
-                            <td>{detail[0]}</td>
-                            <td>{detail[1]}</td>
-                            <td>{detail[2]}</td>
-                            <td>{detail[3]}</td>
-                          </tr>
-                        );
-                      })
-                    : ""}
+                  {db.length > 0 ? (
+                    db.map((detail) => {
+                      return (
+                        <tr key={detail[2]}>
+                          <td>{detail[0]}</td>
+                          <td>{detail[1]}</td>
+                          <td>{detail[2]}</td>
+                          <td>{detail[3]}</td>
+                        </tr>
+                      );
+                    })
+                  ) : (
+                    <tr>
+                      <td colSpan="4" className="text-center">
+                        Nothing in Database yet!
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
