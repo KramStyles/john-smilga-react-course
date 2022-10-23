@@ -9,17 +9,17 @@ const Forms = () => {
   const [person, setPerson] = useState({ fullname: "", age: "", password: "" });
   const [db, setDb] = useState([]);
 
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     if (name && password) {
-  //       setDb((prev) => {
-  //         const createdAt = new Date().getTime().toString();
-  //         return [...db, [name, password, age, createdAt]];
-  //       });
-  //       setName("");
-  //       setPassword("");
-  //     } else alert("Please ensure all fields are complete");
-  //   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { fullname, password, age } = person;
+    if (fullname && password && age) {
+      setDb((prev) => {
+        const createdAt = new Date().getTime().toString();
+        return [...db, [fullname, password, age, createdAt]];
+      });
+      setPerson({ fullname: "", age: "", password: "" });
+    } else alert("Please ensure all fields are complete");
+  };
 
   const handleChange = (e) => {
     const name = e.target.id;
@@ -28,8 +28,6 @@ const Forms = () => {
     // Next we dynamically update the state values
     setPerson({ ...person, [name]: value });
   };
-
-  const handleSubmit = (e) => {};
 
   return (
     <>
