@@ -12,7 +12,9 @@
 // import Setup from "./assets/tutorial/02UseEffect/04ShortCircuit";
 // import Setup from "./assets/tutorial/02UseEffect/05Forms";
 
-import Setup from "./assets/tutorial/03useRef/01UseRef";
+// import Setup from "./assets/tutorial/03useRef/01UseRef";
+
+import Setup from "./assets/tutorial/04useReducer/01UseReducerBasics";
 
 import "./assets/styles/bootstrap.css";
 
