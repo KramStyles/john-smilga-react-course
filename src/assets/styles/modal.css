@@ -1,0 +1,15 @@
+.my-modal {
+  background: #fbfbfb;
+  padding: 1rem;
+  width: auto;
+  display: inline-block;
+  border-radius: 0.5rem;
+  transition: 0.5s ease all;
+  position: fixed;
+  right: 20px;
+  transform: translateY(-300px);
+}
+
+.show-my-modal {
+  transform: translateY(0);
+}
