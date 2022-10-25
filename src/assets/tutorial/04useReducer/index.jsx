@@ -2,6 +2,9 @@ import { useReducer } from "react";
 
 import Jumbotron from "../../components/Jumbotron";
 
+// A simple usestate would go well with a simple todo list but use reducer is for more
+// complicated structures. Use reducer relies heavily on redux
+
 const UseReducerBasics = () => {
   return (
     <>
