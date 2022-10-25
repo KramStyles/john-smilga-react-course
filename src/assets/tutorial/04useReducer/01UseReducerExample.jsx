@@ -7,7 +7,7 @@ import Modal from "../../components/modal";
 // A simple usestate would go well with a simple todo list but use reducer is for more
 // complicated structures. Use reducer relies heavily on redux
 
-const Index = () => {
+const UseReducerBasics = () => {
   const [modalShow, setModalShow] = useState(false);
   const [modalText, setModalText] = useState("");
   const [value, setValue] = useState("");
@@ -84,4 +84,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default UseReducerBasics;
