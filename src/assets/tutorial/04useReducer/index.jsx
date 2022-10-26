@@ -2,11 +2,17 @@ import { useReducer, useState } from "react";
 
 import Jumbotron from "../../components/Jumbotron";
 import Modal from "../../components/modal";
+import {people} from "../../data/data";
 
 // A simple usestate would go well with a simple todo list but use reducer is for more
 // complicated structures. Use reducer relies heavily on redux
 
-const reducer = () => {};
+const reducer = (state, action) => {
+  if(action === 'CHANGE'){
+    return {...state, db: people, modalShow: true, modalText: "hello"}
+  }
+  return state
+};
 
 const defaultState = {
   db: [],
@@ -21,7 +27,12 @@ const Index = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (value) {
+      // const action = {type : 'TESTING'};
+      const action = "CHANGE";
+      dispatch(action)
       setTimeout(() => {}, 2000);
+    } else {
+      dispatch('hello')
     }
   };
   return (
