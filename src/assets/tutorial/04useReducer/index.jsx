@@ -1,38 +1,34 @@
 import { useReducer, useState } from "react";
 
 import Jumbotron from "../../components/Jumbotron";
-import { people } from "../../data/data";
 import Modal from "../../components/modal";
 
 // A simple usestate would go well with a simple todo list but use reducer is for more
 // complicated structures. Use reducer relies heavily on redux
 
+const reducer = () => {};
+
+const defaultState = {
+  db: [],
+  modalShow: false,
+  modalText: "",
+};
+
 const Index = () => {
-  const [modalShow, setModalShow] = useState(false);
-  const [modalText, setModalText] = useState("");
   const [value, setValue] = useState("");
-  const [db, setDb] = useState(people);
+  const [state, dispatch] = useReducer(reducer, defaultState);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (value) {
-      setModalText(value + " added!");
-      setModalShow(true);
-      setValue("");
-
-      const data = { id: new Date().getTime().toString(), value: value };
-      setDb([...db, data]);
-
-      setTimeout(() => {
-        setModalShow(false);
-      }, 2000);
+      setTimeout(() => {}, 2000);
     }
   };
   return (
     <>
       <Jumbotron title="use-reducer basics" />
       <div className="container">
-        <Modal text={modalText} show={modalShow} />
+        <Modal text={state.modalText} show={state.modalShow} />
         <form className="form mb-3" onSubmit={handleSubmit}>
           <div className="form-group">
             <input
@@ -57,8 +53,8 @@ const Index = () => {
               </tr>
             </thead>
             <tbody>
-              {db.length > 0 ? (
-                db.map((item, index) => {
+              {state.db.length > 0 ? (
+                state.db.map((item, index) => {
                   return (
                     <tr key={item.id}>
                       <td>{index + 1}</td>
