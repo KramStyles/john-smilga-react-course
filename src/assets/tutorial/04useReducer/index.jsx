@@ -17,7 +17,9 @@ const reducer = (state, action) => {
       modalShow: true,
       modalText: action.payload.value + " added!",
     };
-  } else return { ...state, db: state.db, modalShow: false, modalText: "Bye" };
+  } else if (action.type === "NO_VALUE")
+    return { ...state, modalShow: true, modalText: "Please enter a value" };
+  else return { ...state, modalShow: false, modalText: "Bye" };
 };
 
 const defaultState = {
@@ -36,10 +38,12 @@ const Index = () => {
       const payload = { id: new Date().getTime().toString(), value };
       const action = { type: "ADD_ITEM", payload: payload };
       dispatch(action);
-      setTimeout(() => {
-        dispatch("Nothing");
-      }, 2000);
-    }
+      setValue("");
+    } else dispatch({ type: "NO_VALUE" });
+
+    setTimeout(() => {
+      dispatch("Nothing");
+    }, 2000);
   };
   return (
     <>
