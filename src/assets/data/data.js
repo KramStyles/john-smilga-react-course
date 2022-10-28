@@ -10,3 +10,5 @@ export const profile = {
   age: 24,
   message: "random message to user",
 };
+
+export const people = [];
