@@ -14,7 +14,9 @@
 
 // import Setup from "./assets/tutorial/03useRef/01UseRef";
 
-import Setup from "./assets/tutorial/04useReducer";
+// import Setup from "./assets/tutorial/04useReducer";
+
+import Setup from "./assets/tutorial/05PropDrilling/01PropExample";
 
 import "./assets/styles/bootstrap.css";
 
