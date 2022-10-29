@@ -2,14 +2,14 @@ import { useReducer, useState } from "react";
 
 import Jumbotron from "../../components/Jumbotron";
 import Modal from "../../components/modal";
-import { people } from "../../data/data";
+import { individuals } from "../../data/data";
 import { reducer } from "./reducer";
 
 // A simple usestate would go well with a simple todo list but use reducer is for more
 // complicated structures. Use reducer relies heavily on redux
 
 const defaultState = {
-  db: people,
+  db: individuals,
   modalShow: false,
   modalText: "",
 };
@@ -77,7 +77,7 @@ const Index = () => {
                   return (
                     <tr key={item.id}>
                       <td>{index + 1}</td>
-                      <td>{item.value}</td>
+                      <td className="text-capitalize">{item.value}</td>
                       <td>
                         <button
                           className="btn btn-outline-dark btn-sm"

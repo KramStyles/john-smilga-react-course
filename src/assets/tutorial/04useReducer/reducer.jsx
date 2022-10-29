@@ -1,7 +1,6 @@
 export const reducer = (state, action) => {
   if (action.type === "ADD_ITEM") {
     const details = [...state.db, action.payload];
-    console.log(details);
     return {
       ...state,
       db: details,
