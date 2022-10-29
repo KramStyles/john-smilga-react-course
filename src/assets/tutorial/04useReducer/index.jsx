@@ -18,12 +18,31 @@ const reducer = (state, action) => {
       modalText: action.payload.value + " added!",
     };
   } else if (action.type === "NO_VALUE")
-    return { ...state, modalShow: true, modalText: "Please enter a value" };
-  else return { ...state, modalShow: false, modalText: "Bye" };
+    return {
+      ...state,
+      modalShow: true,
+      modalText: "Please enter a value",
+    };
+  else if (action.type === "REMOVE_ITEM") {
+    const index = action.payload.index;
+    const item = state.db[index].value;
+    const id = state.db[index].id;
+    return {
+      ...state,
+      db: state.db.filter((person) => person.id !== id),
+      modalText: item + " Deleted",
+      modalShow: true,
+    };
+  } else
+    return {
+      ...state,
+      modalShow: false,
+      modalText: "Bye",
+    };
 };
 
 const defaultState = {
-  db: [],
+  db: people,
   modalShow: false,
   modalText: "",
 };
@@ -31,6 +50,12 @@ const defaultState = {
 const Index = () => {
   const [value, setValue] = useState("");
   const [state, dispatch] = useReducer(reducer, defaultState);
+
+  const closeModal = () => {
+    setTimeout(() => {
+      dispatch({ type: "CLOSE_MODAL" });
+    }, 2000);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,9 +66,15 @@ const Index = () => {
       setValue("");
     } else dispatch({ type: "NO_VALUE" });
 
-    setTimeout(() => {
-      dispatch("Nothing");
-    }, 2000);
+    closeModal();
+  };
+
+  const deleteItem = (type, payload) => {
+    dispatch({
+      type: type,
+      payload: { index: payload },
+    });
+    closeModal();
   };
   return (
     <>
@@ -81,7 +112,10 @@ const Index = () => {
                       <td>{index + 1}</td>
                       <td>{item.value}</td>
                       <td>
-                        <button className="btn btn-outline-dark btn-sm">
+                        <button
+                          className="btn btn-outline-dark btn-sm"
+                          onClick={() => deleteItem("REMOVE_ITEM", index)}
+                        >
                           Remove
                         </button>
                       </td>
