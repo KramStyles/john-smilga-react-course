@@ -2,20 +2,14 @@ import { useReducer, useState } from "react";
 
 import Jumbotron from "../../components/Jumbotron";
 import Modal from "../../components/modal";
-import {people} from "../../data/data";
+import { individuals } from "../../data/data";
+import { reducer } from "./reducer";
 
 // A simple usestate would go well with a simple todo list but use reducer is for more
 // complicated structures. Use reducer relies heavily on redux
 
-const reducer = (state, action) => {
-  if(action === 'CHANGE'){
-    return {...state, db: people, modalShow: true, modalText: "hello"}
-  }
-  return state
-};
-
 const defaultState = {
-  db: [],
+  db: individuals,
   modalShow: false,
   modalText: "",
 };
@@ -24,16 +18,30 @@ const Index = () => {
   const [value, setValue] = useState("");
   const [state, dispatch] = useReducer(reducer, defaultState);
 
+  const closeModal = () => {
+    setTimeout(() => {
+      dispatch({ type: "CLOSE_MODAL" });
+    }, 2000);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (value) {
-      // const action = {type : 'TESTING'};
-      const action = "CHANGE";
-      dispatch(action)
-      setTimeout(() => {}, 2000);
-    } else {
-      dispatch('hello')
-    }
+      const payload = { id: new Date().getTime().toString(), value };
+      const action = { type: "ADD_ITEM", payload: payload };
+      dispatch(action);
+      setValue("");
+    } else dispatch({ type: "NO_VALUE" });
+
+    closeModal();
+  };
+
+  const deleteItem = (type, payload) => {
+    dispatch({
+      type: type,
+      payload: { index: payload },
+    });
+    closeModal();
   };
   return (
     <>
@@ -69,9 +77,12 @@ const Index = () => {
                   return (
                     <tr key={item.id}>
                       <td>{index + 1}</td>
-                      <td>{item.value}</td>
+                      <td className="text-capitalize">{item.value}</td>
                       <td>
-                        <button className="btn btn-outline-dark btn-sm">
+                        <button
+                          className="btn btn-outline-dark btn-sm"
+                          onClick={() => deleteItem("REMOVE_ITEM", index)}
+                        >
                           Remove
                         </button>
                       </td>
