@@ -2,40 +2,47 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const NavDropdown = ({ name, links }) => {
+  console.log(links);
   return (
     <>
-      <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0)">
-          Link
-        </a>
-      </li>
-      <li class="nav-item dropdown">
-        <a
-          class="nav-link dropdown-toggle"
-          href="#"
-          role="button"
-          data-bs-toggle="dropdown"
-        >
-          Dropdown
-        </a>
-        <ul class="dropdown-menu">
-          <li>
-            <a class="dropdown-item" href="#">
-              Link
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">
-              Another link
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">
-              A third link
-            </a>
-          </li>
-        </ul>
-      </li>
+      {links.length !== 0 ? (
+        <li className="nav-item dropdown">
+          <a
+            className="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+          >
+            Dropdown
+          </a>
+          <ul className="dropdown-menu">
+            <li>
+              <a className="dropdown-item" href="#">
+                Link
+              </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Another link
+              </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                A third link
+              </a>
+            </li>
+          </ul>
+        </li>
+      ) : (
+        <li className="nav-item">
+          <a
+            className="nav-link text-capitalize"
+            href={`/${name.replace(" ", "_")}`}
+          >
+            {name}
+          </a>
+        </li>
+      )}
     </>
   );
 };

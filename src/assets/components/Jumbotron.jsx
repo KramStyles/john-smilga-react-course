@@ -7,21 +7,21 @@ const Jumbotron = (props) => {
   const { title } = props;
   return (
     <>
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="javascript:void(0)">
+      <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="javascript:void(0)">
             My React Tutorial
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#mynavbar"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav me-auto">
+          <div className="collapse navbar-collapse" id="mynavbar">
+            <ul className="navbar-nav me-auto">
               {navData.map((navitem) => {
                 return <NavDropdown {...navitem} />;
               })}
