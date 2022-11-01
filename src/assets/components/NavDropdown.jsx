@@ -18,9 +18,9 @@ const NavDropdown = ({ name, links }) => {
           </Link>
           <ul className="dropdown-menu">
             {links.map((link) => {
-              const routingLink = `${routingName}/${link.replace(" ", "_")}`;
+              const routingLink = `/${routingName}/${link.replace(" ", "_")}`;
               return (
-                <li>
+                <li key={routingLink}>
                   <Link
                     className="dropdown-item text-capitalize"
                     to={routingLink}

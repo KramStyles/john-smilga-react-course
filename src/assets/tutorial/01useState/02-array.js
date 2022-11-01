@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { individuals } from "../../data/data";
+import Jumbotron from "../../components/Jumbotron";
 
 const UseArray = () => {
   const title = "usestate array example";
@@ -18,9 +19,7 @@ const UseArray = () => {
   };
   return (
     <div>
-      <div className="bg-primary p-5 text-white text-center fs-3 fw-bold text-capitalize mb-5">
-        {title}
-      </div>
+      <Jumbotron title={title} />
       <div className="container">
         <ul className="list-group">
           {people.map((persons, index) => {

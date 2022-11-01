@@ -10,7 +10,7 @@ const Jumbotron = (props) => {
     <>
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
         <div className="container-fluid">
-          <Link className="navbar-brand" to=".">
+          <Link className="navbar-brand" to="/">
             My React Tutorial
           </Link>
           <button
@@ -24,7 +24,7 @@ const Jumbotron = (props) => {
           <div className="collapse navbar-collapse" id="mynavbar">
             <ul className="navbar-nav me-auto">
               {navData.map((navitem) => {
-                return <NavDropdown {...navitem} />;
+                return <NavDropdown {...navitem} key={navitem.name} />;
               })}
             </ul>
           </div>

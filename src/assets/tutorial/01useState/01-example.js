@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Jumbotron from "../../components/Jumbotron";
 
 const Example = () => {
   const [title, setTitle] = useState("use state example");
@@ -10,9 +11,7 @@ const Example = () => {
 
   return (
     <>
-      <div className="bg-primary p-5 text-white text-center fs-3 fw-bold text-capitalize mb-5">
-        {title}
-      </div>
+      <Jumbotron title={title} />
 
       <button className="btn btn-primary d-block m-auto" onClick={handleClick}>
         Change Title
