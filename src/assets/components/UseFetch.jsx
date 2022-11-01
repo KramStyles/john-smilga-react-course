@@ -11,6 +11,7 @@ const useFetch = (url) => {
 
       setData(data);
       setLoading(false);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -18,7 +19,6 @@ const useFetch = (url) => {
 
   useEffect(() => {
     getProducts();
-    console.log(data);
   }, [url]);
 
   return { loading, data };
