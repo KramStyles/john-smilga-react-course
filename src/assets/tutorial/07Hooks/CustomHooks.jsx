@@ -19,7 +19,8 @@ const CustomHooks = () => {
           <Loader />
         ) : (
           data.map((product) => {
-            return <UserList product={product} />;
+            // return <UserList product={product} key={product.id} />;
+            return <UserList {...product} key={product.id} />;
           })
         )}
       </div>
