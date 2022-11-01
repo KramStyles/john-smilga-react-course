@@ -2,43 +2,38 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const NavDropdown = ({ name, links }) => {
-  console.log(links);
+  const routingName = name.replace(" ", "_");
   return (
     <>
       {links.length !== 0 ? (
         <li className="nav-item dropdown">
           <a
-            className="nav-link dropdown-toggle"
+            className="nav-link dropdown-toggle text-capitalize fw-bold"
             href="#"
             role="button"
             data-bs-toggle="dropdown"
           >
-            Dropdown
+            {name}
           </a>
           <ul className="dropdown-menu">
-            <li>
-              <a className="dropdown-item" href="#">
-                Link
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another link
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                A third link
-              </a>
-            </li>
+            {links.map((link) => {
+              const routingLink = `${routingName}/${link.replace(" ", "_")}`;
+              return (
+                <li>
+                  <a
+                    className="dropdown-item text-capitalize"
+                    href={routingLink}
+                  >
+                    {link}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </li>
       ) : (
         <li className="nav-item">
-          <a
-            className="nav-link text-capitalize"
-            href={`/${name.replace(" ", "_")}`}
-          >
+          <a className="nav-link text-capitalize" href={`/${routingName}`}>
             {name}
           </a>
         </li>
