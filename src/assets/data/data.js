@@ -12,3 +12,35 @@ export const profile = {
 };
 
 export const people = [];
+
+export const navData = [
+  {
+    name: "use state",
+    links: ["example", "array", "object", "counter"],
+  },
+  {
+    name: "use effect",
+    links: [
+      "basics",
+      "fetch data",
+      "fetch with loader",
+      "short circuit",
+      "forms",
+    ],
+  },
+  {
+    name: "use ref",
+  },
+  {
+    name: "use reducer",
+  },
+  {
+    name: "prop drilling",
+  },
+  {
+    name: "context api",
+  },
+  {
+    name: "custom hooks",
+  },
+];
