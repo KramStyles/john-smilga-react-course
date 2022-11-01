@@ -18,7 +18,9 @@
 
 // import Setup from "./assets/tutorial/05PropDrilling/01PropExample";
 
-import Setup from "./assets/tutorial/06ContextApi";
+// import Setup from "./assets/tutorial/06ContextApi";
+
+import Setup from "./assets/tutorial/07Hooks/CustomHooks";
 
 import "./assets/styles/bootstrap.css";
 

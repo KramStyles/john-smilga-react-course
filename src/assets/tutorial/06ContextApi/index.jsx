@@ -26,6 +26,8 @@ const Index = () => {
   };
 
   const SinglePerson = ({ value, id }) => {
+    const data = useContext(PersonContext);
+    console.log("Person context", data);
     return (
       <li className="list-group-item list-group-item-action text-capitalize">
         {value}{" "}
@@ -40,12 +42,12 @@ const Index = () => {
   };
 
   return (
-    <>
+    <PersonContext.Provider value={"hello"}>
       <Jumbotron title="context-api example" />
       <div className="container">
         <List people={people} />
       </div>
-    </>
+    </PersonContext.Provider>
   );
 };
 
