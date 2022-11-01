@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const NavDropdown = ({ name, links }) => {
   const routingName = name.replace(" ", "_");
@@ -7,25 +8,25 @@ const NavDropdown = ({ name, links }) => {
     <>
       {links.length !== 0 ? (
         <li className="nav-item dropdown">
-          <a
+          <Link
             className="nav-link dropdown-toggle text-capitalize fw-bold"
-            href="#"
+            to="#"
             role="button"
             data-bs-toggle="dropdown"
           >
             {name}
-          </a>
+          </Link>
           <ul className="dropdown-menu">
             {links.map((link) => {
               const routingLink = `${routingName}/${link.replace(" ", "_")}`;
               return (
                 <li>
-                  <a
+                  <Link
                     className="dropdown-item text-capitalize"
-                    href={routingLink}
+                    to={routingLink}
                   >
                     {link}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
@@ -33,9 +34,9 @@ const NavDropdown = ({ name, links }) => {
         </li>
       ) : (
         <li className="nav-item">
-          <a className="nav-link text-capitalize" href={`/${routingName}`}>
+          <Link className="nav-link text-capitalize" to={`/${routingName}`}>
             {name}
-          </a>
+          </Link>
         </li>
       )}
     </>

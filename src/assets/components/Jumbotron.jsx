@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { navData } from "../data/data";
 import NavDropdown from "./NavDropdown";
@@ -9,9 +10,9 @@ const Jumbotron = (props) => {
     <>
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="javascript:void(0)">
+          <Link className="navbar-brand" to=".">
             My React Tutorial
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
