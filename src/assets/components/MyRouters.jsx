@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
+import ErrorPage from "../tutorial/07Hooks/ErrorPage";
+
 import StateExample from "../../assets/tutorial/01useState/01-example";
 import StateArray from "../../assets/tutorial/01useState/02-array";
 import StateObject from "../../assets/tutorial/01useState/03-object";
@@ -49,6 +51,8 @@ const MyRouters = () => {
       <Route path="/context_api" element={<ContextAPI />} />
 
       <Route path="/custom_hooks" element={<CustomHooks />} />
+
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 };
