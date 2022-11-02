@@ -21,10 +21,13 @@ import PropDrilling from "../../assets/tutorial/05PropDrilling/01PropExample";
 
 import ContextAPI from "../../assets/tutorial/06ContextApi";
 import CustomHooks from "../tutorial/07Hooks/CustomHooks";
+import Setup from "../tutorial/07Hooks/CustomHooks";
 
 const MyRouters = () => {
   return (
     <Routes>
+      <Route path="/" element={<Setup />} />
+
       <Route path="/use_state/example" element={<StateExample />} />
       <Route path="/use_state/array" element={<StateArray />} />
       <Route path="/use_state/object" element={<StateObject />} />
