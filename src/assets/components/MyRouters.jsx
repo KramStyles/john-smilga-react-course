@@ -21,6 +21,7 @@ import PropDrilling from "../../assets/tutorial/05PropDrilling/01PropExample";
 
 import ContextAPI from "../../assets/tutorial/06ContextApi";
 import CustomHooks from "../tutorial/07Hooks/CustomHooks";
+
 import Setup from "../tutorial/07Hooks/CustomHooks";
 
 const MyRouters = () => {
@@ -35,6 +36,10 @@ const MyRouters = () => {
 
       <Route path="/use_effect/basics" element={<EffectBasics />} />
       <Route path="/use_effect/fetch_data" element={<EffectFetchData />} />
+      <Route
+        path="/use_effect/fetch_data/:username"
+        element={<EffectFetchLoader />}
+      />
       <Route
         path="/use_effect/fetch_with_loader"
         element={<EffectFetchLoader />}

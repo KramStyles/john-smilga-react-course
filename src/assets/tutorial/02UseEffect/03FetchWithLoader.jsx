@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
 import Jumbotron from "../../components/Jumbotron";
 import Loader from "../../components/Loader";
@@ -45,9 +45,9 @@ const FetchWithLoader = () => {
 
   return (
     <>
-      <Jumbotron title="fetch data with Loader"/>
-      {isLoading ? <Loader/> : ""}
-      {isError ? <Loader error={errorMsg}/> : ""}
+      <Jumbotron title="fetch data with Loader" />
+      {isLoading ? <Loader /> : ""}
+      {isError ? <Loader error={errorMsg} /> : ""}
 
       <div className="container">
         <div className="row">
@@ -68,7 +68,7 @@ const FetchWithLoader = () => {
                   <div className="col-md-4">
                     <img
                       src={profile.avatar_url}
-                      class="img-fluid rounded-start"
+                      className="img-fluid rounded-start"
                       alt={profile.login}
                     />
                   </div>
@@ -77,32 +77,32 @@ const FetchWithLoader = () => {
                       <h5 className="card-title">{profile.login}</h5>
                       <p className="card-text">{profile.bio}</p>
                       <p className="card-text">
-                        <small class="text-muted">
+                        <small className="text-muted">
                           Followers: <span>{profile.followers}</span>
                         </small>
                       </p>
                       <p className="card-text">
-                        <small class="text-muted">
+                        <small className="text-muted">
                           Following: <span>{profile.following}</span>
                         </small>
                       </p>
                       <p className="card-text">
-                        <small class="text-muted">
+                        <small className="text-muted">
                           Name: <span>{profile.name}</span>
                         </small>
                       </p>
                       <p className="card-text">
-                        <small class="text-muted">
+                        <small className="text-muted">
                           Location: <span>{profile.location}</span>
                         </small>
                       </p>
                       <p className="card-text">
-                        <small class="text-muted">
+                        <small className="text-muted">
                           Email: <span>{profile.email}</span>
                         </small>
                       </p>
                       <p className="card-text">
-                        <small class="text-muted">
+                        <small className="text-muted">
                           Type: <span>{profile.type}</span>
                         </small>
                       </p>
