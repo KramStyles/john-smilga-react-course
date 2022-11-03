@@ -2,6 +2,6 @@
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  box-shadow: 0 5px 15px silver;
+  box-shadow: 0 5px 15px grey;
   object-fit: cover;
 }
