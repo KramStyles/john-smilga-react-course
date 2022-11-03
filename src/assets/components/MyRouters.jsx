@@ -22,7 +22,9 @@ import PropDrilling from "../../assets/tutorial/05PropDrilling/01PropExample";
 import ContextAPI from "../../assets/tutorial/06ContextApi";
 import CustomHooks from "../tutorial/07Hooks/CustomHooks";
 
-import Setup from "../tutorial/07Hooks/CustomHooks";
+import BirthDayReminders from "../projects/01BirthdayReminders";
+
+import Setup from "../projects/01BirthdayReminders";
 
 const MyRouters = () => {
   return (
@@ -59,6 +61,11 @@ const MyRouters = () => {
       <Route path="/context_api" element={<ContextAPI />} />
 
       <Route path="/custom_hooks" element={<CustomHooks />} />
+
+      <Route
+        path="/projects/birthday_reminders"
+        element={<BirthDayReminders />}
+      />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>
