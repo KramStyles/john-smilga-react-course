@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const useFetch = (url) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
-  const getProducts = async () => {
+  const getProducts = useCallback(async () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
@@ -14,11 +14,11 @@ const useFetch = (url) => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [url]);
 
   useEffect(() => {
-    getProducts();
-  }, [url]);
+    getProducts(); // Would need a use callback to add this to dependency array else infinite loop
+  }, [url, getProducts]);
 
   return { loading, data };
 };
