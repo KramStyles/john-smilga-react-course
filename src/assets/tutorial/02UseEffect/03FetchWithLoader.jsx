@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import Jumbotron from "../../components/Jumbotron";
 import Loader from "../../components/Loader";
 
 const FetchWithLoader = () => {
-  const [username, setUsername] = useState("kramstyles");
+  const [username, setUsername] = useState(
+    useParams().username || "kramstyles"
+  );
   const [profile, Setprofile] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
