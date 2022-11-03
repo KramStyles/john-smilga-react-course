@@ -8,7 +8,7 @@ const Jumbotron = (props) => {
   const { title } = props;
   return (
     <>
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             My React Tutorial
@@ -30,7 +30,7 @@ const Jumbotron = (props) => {
           </div>
         </div>
       </nav>
-      <div className="bg-primary p-5 text-white text-center fs-3 fw-bold text-capitalize mb-5">
+      <div className="bg-primary p-5 text-white text-center fs-3 fw-bold text-capitalize mb-5 mt-5">
         {title}
       </div>
     </>

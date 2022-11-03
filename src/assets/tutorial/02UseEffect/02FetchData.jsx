@@ -25,8 +25,7 @@ const FetchData = () => {
         <h2>Github Founders</h2>
         <div className="row">
           {users.map((user) => {
-            const { login, avatar_url, url, id, node_id, type, site_admin } =
-              user;
+            const { login, avatar_url, id, node_id, type, site_admin } = user;
             return (
               <div className="col-md-4 col-sm-12 mt-4" key={id}>
                 <div className="card" style={{ minWidth: "200px" }}>
