@@ -11,7 +11,7 @@ const Jumbotron = (props) => {
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            My React Tutorial
+            Last React Project
           </Link>
           <button
             className="navbar-toggler"

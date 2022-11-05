@@ -6795,6 +6795,14 @@ fieldset:disabled .btn {
   min-height: 100vh !important;
 }
 
+.vh-90 {
+  height: 90vh !important;
+}
+
+.min-vh-90 {
+  min-height: 90vh !important;
+}
+
 .flex-fill {
   flex: 1 1 auto !important;
 }
@@ -7403,6 +7411,10 @@ fieldset:disabled .btn {
 
 .fs-6 {
   font-size: 1rem !important;
+}
+
+.fs-7 {
+  font-size: 0.75rem !important;
 }
 
 .fs-bg {
