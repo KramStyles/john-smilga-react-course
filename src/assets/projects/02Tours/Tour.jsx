@@ -1,8 +1,9 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-const Tour = ({ image, info, name, price }) => {
+const Tour = ({ id, image, info, name, price, removeTours }) => {
   const [readMore, setReadMore] = useState(false);
+
   return (
     <div className="card mt-3">
       <img className="card-img-top" src={image} alt={name} />
@@ -21,7 +22,10 @@ const Tour = ({ image, info, name, price }) => {
           </button>
         </p>
         <div className="d-grid mt-2">
-          <button className="btn btn-outline-dark btn-sm text-center">
+          <button
+            className="btn btn-outline-dark btn-sm text-center"
+            onClick={() => removeTours(id)}
+          >
             Not Interested
           </button>
         </div>

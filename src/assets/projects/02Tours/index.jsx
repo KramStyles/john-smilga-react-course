@@ -11,6 +11,11 @@ const Index = () => {
   const [tours, setTours] = useState([]);
   const [isError, setIsError] = useState("");
 
+  const removeTours = (id) => {
+    const newTours = tours.filter((tour) => tour.id !== id);
+    setTours(newTours);
+  };
+
   const fetchTours = async () => {
     setLoading(true);
     try {
@@ -38,7 +43,7 @@ const Index = () => {
       ) : (
         <div className="container">
           <div className="row">
-            <Tours tours={tours} />
+            <Tours tours={tours} removeTours={removeTours} />
           </div>
         </div>
       )}
