@@ -37,7 +37,9 @@ const Index = () => {
         <Loader />
       ) : (
         <div className="container">
-          <Tours tours={tours} />
+          <div className="row">
+            <Tours tours={tours} />
+          </div>
         </div>
       )}
     </>
