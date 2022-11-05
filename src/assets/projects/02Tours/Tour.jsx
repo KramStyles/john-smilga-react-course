@@ -5,11 +5,16 @@ const Tour = ({ id, image, info, name, price, removeTours }) => {
   const [readMore, setReadMore] = useState(false);
 
   return (
-    <div className="card mt-3">
-      <img className="card-img-top" src={image} alt={name} />
+    <div className="card mt-3 mb-3">
+      <img
+        className="card-img-top"
+        src={image}
+        alt={name}
+        style={{ height: 300, objectFit: "cover" }}
+      />
       <div className="card-body">
         <div>
-          <h4 className="card-title float-start">{name}</h4>
+          <h6 className="card-title float-start">{name}</h6>
           <span className="badge bg-dark float-end">$ {price}</span>
         </div>
         <p className="card-text" style={{ clear: "both" }}>

@@ -42,8 +42,18 @@ const Index = () => {
         <Loader />
       ) : (
         <div className="container">
-          <div className="row">
-            <Tours tours={tours} removeTours={removeTours} />
+          <div className="row justify-content-center">
+            {tours.length === 0 ? (
+              <div className="col-md-6 offset-md-3">
+                <div className="d-grid">
+                  <button className="btn btn-dark" onClick={fetchTours}>
+                    Refresh
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <Tours tours={tours} removeTours={removeTours} />
+            )}
           </div>
         </div>
       )}
