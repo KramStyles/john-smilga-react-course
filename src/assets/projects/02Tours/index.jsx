@@ -37,7 +37,7 @@ const Index = () => {
         <Loader />
       ) : (
         <div className="container">
-          <Tours />
+          <Tours tours={tours} />
         </div>
       )}
     </>
