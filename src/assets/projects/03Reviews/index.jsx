@@ -1,4 +1,5 @@
 import Jumbotron from "../../components/Jumbotron";
+import "./reviews.css";
 
 const Index = () => {
   return (
