@@ -17,3 +17,11 @@
   border-radius: 50%;
   background-color: #eee;
 }
+.card {
+  min-height: 500px;
+  margin-bottom: 50px;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
