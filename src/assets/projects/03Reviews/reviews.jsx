@@ -37,8 +37,8 @@ const Reviews = () => {
     <>
       <div className="row">
         <div className="col-md-6 offset-md-3 col-sm-8 offset sm-2">
-          <div className="card shadow-lg">
-            <div className="card-body text-center">
+          <div className="card shadow-lg review-card">
+            <div className="card-body text-center review-card-body">
               <div className="avatar-holder">
                 <img src={image} alt={name} className="rounded-circle avatar" />
                 <FaQuoteRight className="avatar-quote" />

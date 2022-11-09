@@ -17,11 +17,11 @@
   border-radius: 50%;
   background-color: #eee;
 }
-.card {
+.review-card {
   min-height: 500px;
   margin-bottom: 50px;
 }
-.card-body {
+.review-card-body {
   display: flex;
   flex-direction: column;
 }
