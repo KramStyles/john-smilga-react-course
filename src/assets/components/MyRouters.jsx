@@ -28,7 +28,9 @@ import Tours from "../projects/02Tours";
 
 import Reviews from "../projects/03Reviews";
 
-import Setup from "../projects/03Reviews";
+import Accordion from "../projects/04Accordion";
+
+import Setup from "../projects/04Accordion";
 
 const MyRouters = () => {
   return (
@@ -73,6 +75,7 @@ const MyRouters = () => {
 
       <Route path="/projects/tours" element={<Tours />} />
       <Route path="/projects/reviews" element={<Reviews />} />
+      <Route path="/projects/accordion" element={<Accordion />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>

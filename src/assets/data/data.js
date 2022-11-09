@@ -89,7 +89,7 @@ export const navData = [
   },
   {
     name: "projects",
-    links: ["birthday reminders", "tours", "reviews", "counter"],
+    links: ["birthday reminders", "tours", "reviews", "accordion"],
   },
 ];
 
