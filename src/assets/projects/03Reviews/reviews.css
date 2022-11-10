@@ -1,0 +1,27 @@
+.avatar {
+  margin: auto;
+  display: block;
+  box-shadow: 0 5px 15px grey;
+  width: 100%;
+}
+.avatar-holder {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  margin: auto;
+}
+.avatar-quote {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  border-radius: 50%;
+  background-color: #eee;
+}
+.review-card {
+  min-height: 500px;
+  margin-bottom: 50px;
+}
+.review-card-body {
+  display: flex;
+  flex-direction: column;
+}
