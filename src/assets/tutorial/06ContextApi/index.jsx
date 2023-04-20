@@ -1,5 +1,5 @@
 import { useState, useContext, createContext } from "react";
-/* Prop drilling also involves passing down function as parameters e.g you can pass down
+/* Prop drilling also involves passing down function as parameters e.g. you can pass down
 removePerson the same way you'd pass down id = person.id etc. This gives rise to context apis and redux
 */
 import Jumbotron from "../../components/Jumbotron";

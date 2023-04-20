@@ -30,7 +30,9 @@ import Reviews from "../projects/03Reviews";
 
 import Accordion from "../projects/04Accordion";
 
-import Setup from "../projects/04Accordion";
+import MenuDisplay from "../projects/05MenuDisplay";
+
+import Setup from "../projects/05MenuDisplay";
 
 const MyRouters = () => {
   return (
@@ -76,6 +78,7 @@ const MyRouters = () => {
       <Route path="/projects/tours" element={<Tours />} />
       <Route path="/projects/reviews" element={<Reviews />} />
       <Route path="/projects/accordion" element={<Accordion />} />
+      <Route path="/projects/menu_display" element={<MenuDisplay />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>

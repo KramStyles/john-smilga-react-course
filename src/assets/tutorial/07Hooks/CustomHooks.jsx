@@ -2,7 +2,7 @@ import React from "react";
 
 import Jumbotron from "../../components/Jumbotron";
 import Loader from "../../components/Loader";
-import useFetch from "../../components/useFetch";
+import useFetch from "../../components/UseFetch";
 import { UserList } from "./userlist";
 
 //Custom hooks let us reuse functionalities, components help reuse HTML elements
