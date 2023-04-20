@@ -1,15 +1,22 @@
 import {useState} from "react";
 import {menuDisplayItems} from "../../data/data";
+import MenuCategory from "./MenuCategory";
 
 const MenuItem = () => {
     const [menuItem, setMenuItem] = useState(menuDisplayItems);
-    return menuItem.map((item) => {
+
+    const filterItems = (category) => {
+        const newItems = menuDisplayItems.filter((item) => item.category === category);
+        setMenuItem(newItems)
+    }
+
+    const result = menuItem.map((item) => {
         const {category, desc, id, img, price, title} = item;
         return (
             <div className="col-md-6" key={id}>
                 <div className="row p-3">
                     <div className="col-md-4">
-                        <img src={img} alt={title} className="rounded img-thumbnail" width="300px"/>
+                        <img src={img} alt={title} className="rounded img-thumbnail" width="100%"/>
                     </div>
                     <div className="col-md-8 d-flex flex-column justify-content-between">
                         <h3 className="text-capitalize">{title} <span className="text-primary">${price}</span></h3>
@@ -20,6 +27,13 @@ const MenuItem = () => {
             </div>
         );
     });
+
+    return (
+        <>
+            <MenuCategory filterItems={filterItems}/>
+            {result}
+        </>
+    )
 };
 
 export default MenuItem;
