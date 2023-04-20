@@ -89,7 +89,13 @@ export const navData = [
   },
   {
     name: "projects",
-    links: ["birthday reminders", "tours", "reviews", "accordion", "menu display"],
+    links: [
+      "birthday reminders",
+      "tours",
+      "reviews",
+      "accordion",
+      "menu display",
+    ],
   },
 ];
 
@@ -156,5 +162,48 @@ export const accordion = [
     id: 5,
     title: "When do I receive a password letter?",
     info: "Laudantium suscipit ad similique eligendi dolor ducimus assumenda, quae consectetur, totam quas nesciunt officiis iure voluptatibus quia obcaecati ratione hic dignissimos. Distinctio facere corrupti ipsam ex doloremque sit alias optio expedita corporis velit architecto fuga sunt id aliquam ducimus, soluta laudantium nesciunt quod dolorem ipsum.",
+  },
+];
+
+export const menuDisplayItems = [
+  {
+    id: 1,
+    title: "buttermilk pancakes",
+    category: "breakfast",
+    price: 15.99,
+    img: Male,
+    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum saepe quas eos ut sunt quae! Incidunt illum est qui, molestias animi dicta fuga dolorum, officiis exercitationem id voluptas a officia sint libero magnam ipsam iusto quo quae corrupti nam obcaecati vitae vel sed. Fugit, cupiditate!",
+  },
+  {
+    id: 2,
+    title: "tea and bread",
+    category: "breakfast",
+    price: 5.99,
+    img: Female,
+    desc: "Id, nihil dolor? Eveniet fugiat eos rem itaque blanditiis deserunt, ex repellat aliquam, accusamus, tenetur quas vero nihil dolorum. A quisquam architecto asperiores laboriosam repellat, consectetur, ut hic sapiente deserunt quos reprehenderit quasi repudiandae voluptatibus cumque nam delectus labore at sit unde? Minus, doloremque earum?",
+  },
+  {
+    id: 3,
+    title: "rice and beef",
+    category: "lunch",
+    price: 8.99,
+    img: Male1,
+    desc: "Distinctio in eligendi perspiciatis voluptatum maiores quis error ex ut, nihil, quidem sed aliquid cum ad et obcaecati maxime doloremque dolorem soluta sapiente? Molestiae reprehenderit commodi non, odio aliquid voluptatem impedit nostrum totam hic, voluptatum laudantium facere sapiente rerum ipsa adipisci quasi esse tempora dignissimos?",
+  },
+  {
+    id: 4,
+    title: "eba and bitter-leaf soup",
+    category: "dinner",
+    price: 10,
+    img: Female1,
+    desc: "Quo doloremque eveniet dicta ipsum, sed quod doloribus a atque ut incidunt adipisci iste possimus omnis, laboriosam quis amet deserunt laborum minima eaque, aspernatur sunt officia. Magnam, eos quae? Repudiandae modi consequuntur voluptatem vero voluptatum expedita sunt vel fuga doloremque dolorum, ullam iusto quis ipsa?",
+  },
+  {
+    id: 5,
+    title: "yam and vegetable sauce",
+    category: "lunch",
+    price: 7.64,
+    img: Male2,
+    desc: "Laudantium suscipit ad similique eligendi dolor ducimus assumenda, quae consectetur, totam quas nesciunt officiis iure voluptatibus quia obcaecati ratione hic dignissimos. Distinctio facere corrupti ipsam ex doloremque sit alias optio expedita corporis velit architecto fuga sunt id aliquam ducimus, soluta laudantium nesciunt quod dolorem ipsum.",
   },
 ];
