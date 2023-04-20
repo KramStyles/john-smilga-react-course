@@ -33,6 +33,9 @@ body {
   margin: 1rem auto;
   text-align: justify;
 }
+.text-justify{
+  text-align: justify !important;
+}
 
 @media screen and (min-width: 900px) {
   .booklist {

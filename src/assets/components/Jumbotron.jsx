@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { navData } from "../data/data";
 import NavDropdown from "./NavDropdown";
 
-const Jumbotron = (props) => {
-  const { title } = props;
+const Jumbotron = ({title}) => {
+  // const { title } = props;
   return (
     <>
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
