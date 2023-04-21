@@ -11,8 +11,8 @@ const MenuItem = () => {
   const [menuItem, setMenuItem] = useState(menuDisplayItems);
   const [categories, setCategories] = useState(allCategories);
 
-  const filterItems = (category_item) => {
-    const category = category_item.category; // I really don't know why I had to do this. 
+  const filterItems = ({category}) => {
+
     if (category === "all") {
       setMenuItem(menuDisplayItems);
       return;
