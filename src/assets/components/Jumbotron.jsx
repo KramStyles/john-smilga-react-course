@@ -5,7 +5,6 @@ import { navData } from "../data/data";
 import NavDropdown from "./NavDropdown";
 
 const Jumbotron = ({title}) => {
-  // const { title } = props;
   return (
     <>
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
