@@ -1,0 +1,24 @@
+.my-card-slider{
+    top: 0;
+    position: absolute;
+    transition: var(--transit-slow);
+}
+.my-card-slider.active-slider {
+    opacity: 1;
+    transform: translateX(0);
+}
+.my-card-slider.last-slider {
+    transform: translate(-100%);
+}
+.my-card-slider.next-slider {
+    transform: translate(100%);
+}
+.left-icon, .right-icon{
+    top: 200px;
+    left: 20px;
+    z-index: 10;
+}
+.right-icon{
+    right: 120px;
+    text-align: right;
+}

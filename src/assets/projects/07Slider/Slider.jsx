@@ -5,16 +5,16 @@ import {
   CgQuoteO,
 } from "react-icons/cg";
 import { reviews } from "../../data/data";
+import "./style.css";
 
 const Slider = () => {
   const [people, setPeople] = useState(reviews);
   const [index, setIndex] = useState(0);
   return (
     <div className="container position-relative">
-      <div className="row" style={{minHeight: 300}}>
+      <div className="row">
         <div
-          className="position-absolute cur-pointer"
-          style={{ top: "50%", left: 10, zIndex: 10, width: "auto" }}
+          className="position-absolute cur-pointer left-icon"
         >
           <CgPushChevronLeftR size={55} className="text-primary" />
         </div>
@@ -23,9 +23,8 @@ const Slider = () => {
             const { image, name, id, job, text } = person;
             return (
               <div
-                className="card position-absolute"
+                className="card position-absolute shadow p-3 my-card-slider"
                 key={personIndex}
-                style={{ top: 0 }}
               >
                 <div className="card-img-top text-center p-3">
                   <img
@@ -48,15 +47,14 @@ const Slider = () => {
                     <p className="fs-5 mt-5 border-start border-5 border-primary">
                       {text}
                     </p>
+                      <CgQuoteO size={67} className="text-center text-primary"/>
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
-        <div
-          className="position-absolute cur-pointer"
-          style={{ top: "50%", right: 10, zIndex: 10, width: "auto" }}
+        <div className="position-absolute cur-pointer right-icon"
         >
           <CgPushChevronRightR size={55} className="text-primary" />
         </div>
