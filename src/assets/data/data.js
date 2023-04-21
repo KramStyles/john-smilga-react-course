@@ -95,6 +95,7 @@ export const navData = [
       "reviews",
       "accordion",
       "menu display",
+      "fetch jobs",
     ],
   },
 ];

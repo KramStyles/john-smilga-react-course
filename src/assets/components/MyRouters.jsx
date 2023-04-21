@@ -23,16 +23,13 @@ import ContextAPI from "../../assets/tutorial/06ContextApi";
 import CustomHooks from "../tutorial/07Hooks/CustomHooks";
 
 import BirthDayReminders from "../projects/01BirthdayReminders";
-
 import Tours from "../projects/02Tours";
-
 import Reviews from "../projects/03Reviews";
-
 import Accordion from "../projects/04Accordion";
-
 import MenuDisplay from "../projects/05MenuDisplay";
+import FetchJobs from "../projects/06FetchJobs";
 
-import Setup from "../projects/05MenuDisplay";
+import Setup from "../projects/06FetchJobs";
 
 const MyRouters = () => {
   return (
@@ -79,6 +76,7 @@ const MyRouters = () => {
       <Route path="/projects/reviews" element={<Reviews />} />
       <Route path="/projects/accordion" element={<Accordion />} />
       <Route path="/projects/menu_display" element={<MenuDisplay />} />
+      <Route path="/projects/fetch_jobs" element={<FetchJobs />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>
