@@ -17,9 +17,10 @@ const FetchJobs = () => {
         const companies = data.map((company, index) => (
             <li className="nav-item" key={company.id}>
                 <a
-                    className={`nav-link text-capitalize ${index === 0 ? "active" : ""}`}
+                    className={`nav-link text-capitalize ${index === value ? "active" : ""}`}
                     data-bs-toggle="pill"
                     href="#home"
+                    onClick={()=> setValue(index)}
                 >
                     {company.company}
                 </a>

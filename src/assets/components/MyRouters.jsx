@@ -28,8 +28,9 @@ import Reviews from "../projects/03Reviews";
 import Accordion from "../projects/04Accordion";
 import MenuDisplay from "../projects/05MenuDisplay";
 import FetchJobs from "../projects/06FetchJobs";
+import Slider from "../projects/07Slider";
 
-import Setup from "../projects/06FetchJobs";
+import Setup from "../projects/07Slider";
 
 const MyRouters = () => {
   return (
@@ -77,6 +78,7 @@ const MyRouters = () => {
       <Route path="/projects/accordion" element={<Accordion />} />
       <Route path="/projects/menu_display" element={<MenuDisplay />} />
       <Route path="/projects/fetch_jobs" element={<FetchJobs />} />
+      <Route path="/projects/slider" element={<Slider />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>
