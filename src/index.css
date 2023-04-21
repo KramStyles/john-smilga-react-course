@@ -36,6 +36,9 @@ body {
 .text-justify{
   text-align: justify !important;
 }
+.cur-pointer{
+  cursor: pointer !important;
+}
 
 @media screen and (min-width: 900px) {
   .booklist {
