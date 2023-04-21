@@ -14,7 +14,7 @@ const UseFetch = (url, cache_name = "") => {
             if (storageDetails) {
                 setData(JSON.parse(storageDetails))
                 setLoading(false);
-                console.log("successful", storageDetails)
+
             } else {
                 const response = await fetch(url);
                 const data = await response.json();
@@ -28,7 +28,7 @@ const UseFetch = (url, cache_name = "") => {
         } catch (error) {
             console.log(error);
         }
-    }, [url]);
+    }, [url, cache_name]);
 
     useEffect(() => {
         getProducts(); // Would need a use callback to add this to dependency array else infinite loop
