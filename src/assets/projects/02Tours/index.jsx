@@ -32,7 +32,7 @@ const Index = () => {
 
   useEffect(() => {
     fetchTours();
-  }, [url]);
+  });
 
   return (
     <>
