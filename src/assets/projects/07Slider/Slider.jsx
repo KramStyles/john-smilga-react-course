@@ -14,7 +14,7 @@ const Slider = () => {
     const lastIndex = reviews.length - 1;
     if (index < 0) setIndex(lastIndex);
     if (index > lastIndex) setIndex(0);
-  }, [index, reviews]);
+  }, [index]);
 
   // useEffect(() => {
   //     let sliderInterval = setInterval(()=> {
