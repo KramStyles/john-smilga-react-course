@@ -10,18 +10,40 @@ import "./style.css";
 const Slider = () => {
   const [people, setPeople] = useState(reviews);
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const lastIndex = people.length - 1;
+    if (index < 0) setIndex(lastIndex);
+    if (index > lastIndex) setIndex(0);
+  }, [index, people]);
+
+  // useEffect(() => {
+  //     let sliderInterval = setInterval(()=> {
+  //         setIndex(index + 1)
+  //     }, 3000)
+  //
+  //     return () => clearInterval(sliderInterval);
+  // }, [index])
   return (
     <div className="container position-relative">
       <div className="row">
-        <div className="position-absolute cur-pointer left-icon" >
-          <CgPushChevronLeftR size={55} className="text-primary" onClick={() => setIndex(index - 1)}/>
+        <div className="position-absolute cur-pointer left-icon">
+          <CgPushChevronLeftR
+            size={55}
+            className="text-primary"
+            onClick={() => setIndex(index - 1)}
+          />
         </div>
         <div className="col-12">
           {people.map((person, personIndex) => {
             const { image, name, id, job, text } = person;
             let position = "next-slider";
             if (personIndex === index) position = "active-slider";
-            if (personIndex === index - 1 || (index === 0 && personIndex === people.length - 1) ) position = "last-slider";
+            if (
+              personIndex === index - 1 ||
+              (index === 0 && personIndex === people.length - 1)
+            )
+              position = "last-slider";
             return (
               <div
                 className={`card position-absolute shadow p-3 my-card-slider ${position}`}
@@ -56,7 +78,11 @@ const Slider = () => {
           })}
         </div>
         <div className="position-absolute cur-pointer right-icon">
-          <CgPushChevronRightR size={55} className="text-primary"  onClick={() => setIndex(index + 1)}/>
+          <CgPushChevronRightR
+            size={55}
+            className="text-primary"
+            onClick={() => setIndex(index + 1)}
+          />
         </div>
       </div>
     </div>

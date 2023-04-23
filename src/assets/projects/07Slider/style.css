@@ -5,13 +5,15 @@
 }
 .my-card-slider.active-slider {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
 }
 .my-card-slider.last-slider {
-    transform: translate(-100%);
+    transform: translateY(-100%);
+    opacity: 0;
 }
 .my-card-slider.next-slider {
-    transform: translate(100%);
+    transform: translateY(100%);
+    opacity: 0;
 }
 .left-icon, .right-icon{
     top: 200px;
