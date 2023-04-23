@@ -29,8 +29,10 @@ import Accordion from "../projects/04Accordion";
 import MenuDisplay from "../projects/05MenuDisplay";
 import FetchJobs from "../projects/06FetchJobs";
 import Slider from "../projects/07Slider";
+import Lorem from "../projects/08Lorem";
+import ColorGenerator from "../projects/09ColorGenerator";
 
-import Setup from "../projects/07Slider";
+import Setup from "../projects/09ColorGenerator";
 
 const MyRouters = () => {
   return (
@@ -79,6 +81,8 @@ const MyRouters = () => {
       <Route path="/projects/menu_display" element={<MenuDisplay />} />
       <Route path="/projects/fetch_jobs" element={<FetchJobs />} />
       <Route path="/projects/slider" element={<Slider />} />
+      <Route path="/projects/lorem_generator" element={<Lorem />} />
+      <Route path="/projects/color_generator" element={<ColorGenerator />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>

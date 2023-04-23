@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import MyRouters from "./assets/components/MyRouters";
 import { ScrollToTop } from "./assets/components/utils";
 
-import "./assets/styles/bootstrap.css";
+import "./assets/styles/bootswatch.css";
 import React from "react";
 
 const app = () => {
