@@ -97,6 +97,7 @@ export const navData = [
       "menu display",
       "fetch jobs",
       "slider",
+      "lorem generator",
     ],
   },
 ];
