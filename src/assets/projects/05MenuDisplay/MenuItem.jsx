@@ -9,7 +9,6 @@ const allCategories = [
 
 const MenuItem = () => {
   const [menuItem, setMenuItem] = useState(menuDisplayItems);
-  const [categories, setCategories] = useState(allCategories);
 
   const filterItems = ({category}) => {
 
@@ -52,7 +51,7 @@ const MenuItem = () => {
 
   return (
     <>
-      <MenuCategory filterItems={filterItems} categories={categories}/>
+      <MenuCategory filterItems={filterItems} categories={allCategories}/>
       {result}
     </>
   );

@@ -8,14 +8,13 @@ import { reviews } from "../../data/data";
 import "./style.css";
 
 const Slider = () => {
-  const [people, setPeople] = useState(reviews);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const lastIndex = people.length - 1;
+    const lastIndex = reviews.length - 1;
     if (index < 0) setIndex(lastIndex);
     if (index > lastIndex) setIndex(0);
-  }, [index, people]);
+  }, [index, reviews]);
 
   // useEffect(() => {
   //     let sliderInterval = setInterval(()=> {
@@ -35,13 +34,13 @@ const Slider = () => {
           />
         </div>
         <div className="col-12">
-          {people.map((person, personIndex) => {
-            const { image, name, id, job, text } = person;
+          {reviews.map((person, personIndex) => {
+            const { image, name, job, text } = person;
             let position = "next-slider";
             if (personIndex === index) position = "active-slider";
             if (
               personIndex === index - 1 ||
-              (index === 0 && personIndex === people.length - 1)
+              (index === 0 && personIndex === reviews.length - 1)
             )
               position = "last-slider";
             return (
