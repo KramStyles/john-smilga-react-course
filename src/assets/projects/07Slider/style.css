@@ -17,8 +17,11 @@
     top: 200px;
     left: 20px;
     z-index: 10;
+    width: auto !important;
+    cursor: alias;
 }
 .right-icon{
-    right: 120px;
+    right: 10px;
     text-align: right;
+    z-index: 8;
 }
