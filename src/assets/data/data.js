@@ -98,6 +98,7 @@ export const navData = [
       "fetch jobs",
       "slider",
       "lorem generator",
+      "color generator",
     ],
   },
 ];
