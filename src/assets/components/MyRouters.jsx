@@ -31,8 +31,9 @@ import FetchJobs from "../projects/06FetchJobs";
 import Slider from "../projects/07Slider";
 import Lorem from "../projects/08Lorem";
 import ColorGenerator from "../projects/09ColorGenerator";
+import GroceryList from "../projects/10Grocery";
 
-import Setup from "../projects/09ColorGenerator";
+import Setup from "../projects/10Grocery";
 
 const MyRouters = () => {
   return (
@@ -83,6 +84,7 @@ const MyRouters = () => {
       <Route path="/projects/slider" element={<Slider />} />
       <Route path="/projects/lorem_generator" element={<Lorem />} />
       <Route path="/projects/color_generator" element={<ColorGenerator />} />
+      <Route path="/projects/grocery_list" element={<GroceryList />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>
