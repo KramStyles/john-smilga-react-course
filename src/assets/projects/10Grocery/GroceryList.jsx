@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { InlineForm } from "../../components/Forms";
-import {
-  MdOutlineLocalGroceryStore,
-  MdLocalGroceryStore,
-} from "react-icons/md";
+import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import List from "./List";
 
 const GroceryList = () => {
@@ -29,21 +26,28 @@ const GroceryList = () => {
     } else if (name && editFlag) {
       // Deal with editing
     } else {
+      const newItem = {
+        id: new Date().getTime().toString(),
+        title: name,
+      };
+      setList([...list, newItem]);
       // show positive feedback
       setFeedback({
         ...feedback,
         type: "is-valid",
-        message: "Congratulations",
+        message: "Successfully saved!",
       });
-    }
-  };
 
-  useEffect(() => {
+      // Update name
+      setName("");
+    }
+
     const newTimer = setTimeout(() => {
       setFeedback(defaultFeedback);
     }, 3000);
     return () => clearTimeout(newTimer);
-  }, [feedback]);
+  };
+
   return (
     <div className="container">
       <h1 className="text-center">Track your Grocery List</h1>
@@ -62,7 +66,7 @@ const GroceryList = () => {
               feedbackMsg={feedback.message}
             />
             <div className="text-end">
-              <List />
+              <List items={list} />
               <button className="btn btn-outline-danger my-4">
                 Clear Items
               </button>
