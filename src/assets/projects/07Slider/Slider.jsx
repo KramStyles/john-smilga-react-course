@@ -16,13 +16,13 @@ const Slider = () => {
     if (index > lastIndex) setIndex(0);
   }, [index]);
 
-  // useEffect(() => {
-  //     let sliderInterval = setInterval(()=> {
-  //         setIndex(index + 1)
-  //     }, 3000)
-  //
-  //     return () => clearInterval(sliderInterval);
-  // }, [index])
+  useEffect(() => {
+      let sliderInterval = setInterval(()=> {
+          setIndex(index + 1)
+      }, 3000)
+
+      return () => clearInterval(sliderInterval);
+  }, [index])
   return (
     <div className="container position-relative">
       <div className="row">

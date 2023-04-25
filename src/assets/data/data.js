@@ -99,6 +99,7 @@ export const navData = [
       "slider",
       "lorem generator",
       "color generator",
+      "grocery list",
     ],
   },
 ];

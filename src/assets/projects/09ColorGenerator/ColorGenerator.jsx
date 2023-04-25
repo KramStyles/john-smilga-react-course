@@ -7,7 +7,7 @@ import SingleColor from "./SingleColor";
 const ColorGenerator = () => {
   const [invalid, setInvalid] = useState(false);
   const [color, setColor] = useState("");
-  const [colorList, setColorList] = useState([]);
+  const [colorList, setColorList] = useState(new Values("dodgerblue").all(10));
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
@@ -26,7 +26,7 @@ const ColorGenerator = () => {
         <form action="" onSubmit={handleSubmit}>
           <div className="form-group">
             <label className="form-label mt-4">
-              Enter Color Code (RGB, Hex)
+              Enter Color Code (RGB, HEX, Colour name)
             </label>
             <div className="form-group">
               <div className="input-group mb-3">
@@ -38,7 +38,7 @@ const ColorGenerator = () => {
                   value={color}
                   onChange={(e) => setColor(e.target.value)}
                   className={`form-control ${invalid ? "is-invalid" : ""}`}
-                  placeholder="rgb(0,0,0) OR #000"
+                  placeholder="Dodgerblue OR #000 OR rgb(0,0,0)"
                 />
                 <button className="btn btn-primary" type="submit">
                   Generate
