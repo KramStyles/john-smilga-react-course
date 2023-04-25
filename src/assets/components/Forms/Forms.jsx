@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import PropTypes from "prop-types";
 
 export const InlineForm = ({
@@ -6,6 +6,7 @@ export const InlineForm = ({
   feedback,
   handleSubmit,
   handleChange,
+    clearAlert,
   label,
   value,
   feedbackMsg = "",
@@ -13,6 +14,12 @@ export const InlineForm = ({
   placeholder = "Placeholder...",
   btnText = "submit",
 }) => {
+  useEffect(() => {
+    const newTimer = setTimeout(() => {
+      clearAlert();
+    }, 3000);
+    return () => clearTimeout(newTimer);
+  });
   return (
     <form action="" onSubmit={handleSubmit}>
       <div className="form-group">
@@ -44,6 +51,7 @@ InlineForm.propTypes = {
   feedback: PropTypes.string.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
+  clearAlert: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   inputType: PropTypes.string,

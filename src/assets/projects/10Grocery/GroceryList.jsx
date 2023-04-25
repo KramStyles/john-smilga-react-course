@@ -4,25 +4,20 @@ import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import List from "./List";
 
 const GroceryList = () => {
-  const defaultFeedback = {
-    message: "",
-    type: "",
-  };
   const [name, setName] = useState("");
   const [list, setList] = useState([]);
   const [editFlag, setEditFlag] = useState(false);
   const [editID, setEditID] = useState(null);
-  const [feedback, setFeedback] = useState(defaultFeedback);
+  const [feedback, setFeedback] = useState({
+    message: "",
+    type: "",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name) {
       // show negative feedback
-      setFeedback({
-        ...feedback,
-        type: "is-invalid",
-        message: "Name is missing",
-      });
+      updateFeedback("Name is missing", "is-invalid");
     } else if (name && editFlag) {
       // Deal with editing
     } else {
@@ -32,20 +27,19 @@ const GroceryList = () => {
       };
       setList([...list, newItem]);
       // show positive feedback
-      setFeedback({
-        ...feedback,
-        type: "is-valid",
-        message: "Successfully saved!",
-      });
+      updateFeedback("Successfully saved!", "is-valid");
 
       // Update name
       setName("");
     }
+  };
 
-    const newTimer = setTimeout(() => {
-      setFeedback(defaultFeedback);
-    }, 3000);
-    return () => clearTimeout(newTimer);
+  const updateFeedback = (message = "", type = "") =>
+    setFeedback({ message, type });
+
+  const clearList = () => {
+    updateFeedback("Grocery list cleared!", "is-valid");
+    setList([]);
   };
 
   return (
@@ -64,10 +58,14 @@ const GroceryList = () => {
               btnText={editFlag ? "edit" : "submit"}
               placeholder="e.g. Python Course..."
               feedbackMsg={feedback.message}
+              clearAlert={updateFeedback}
             />
             <div className="text-end">
               <List items={list} />
-              <button className="btn btn-outline-danger my-4">
+              <button
+                className="btn btn-outline-danger my-4"
+                onClick={clearList}
+              >
                 Clear Items
               </button>
             </div>
