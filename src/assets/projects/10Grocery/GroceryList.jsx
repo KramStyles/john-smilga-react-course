@@ -20,6 +20,14 @@ const GroceryList = () => {
       updateFeedback("Name is missing", "is-invalid");
     } else if (name && editFlag) {
       // Deal with editing
+      setList(list.map(item => {
+        if(item.id === editID)return {...item, title: name}
+        return item
+      }))
+      setEditFlag(false)
+      setEditID(null)
+      setName("")
+      updateFeedback("Value Updated Successfully!", "is-valid")
     } else {
       const newItem = {
         id: new Date().getTime().toString(),
@@ -42,6 +50,18 @@ const GroceryList = () => {
     setList([]);
   };
 
+  const removeItem = (id) => {
+    setList(list.filter((item) => item.id !== id));
+    updateFeedback("Item removed", "is-valid");
+  }
+
+  const editItem = (id) => {
+    const specificItem = list.find(item => item.id === id);
+    setEditID(id);
+    setEditFlag(true);
+    setName(specificItem.title);
+  }
+
   return (
     <div className="container">
       <h1 className="text-center">Track your Grocery List</h1>
@@ -61,7 +81,7 @@ const GroceryList = () => {
               clearAlert={updateFeedback}
             />
             <div className="text-end">
-              <List items={list} />
+              <List items={list} removeItem={removeItem} editItem={editItem}/>
               <button
                 className="btn btn-outline-danger my-4"
                 onClick={clearList}
