@@ -1,17 +1,27 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { InlineForm } from "../../components/Forms";
 import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import List from "./List";
 
+const getLocalStorage = () => {
+  // Gets the local stored value if present
+  let local = localStorage.getItem("john-smilga-grocery");
+  if (local) return JSON.parse(local);
+  else return []
+}
 const GroceryList = () => {
   const [name, setName] = useState("");
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(getLocalStorage());
   const [editFlag, setEditFlag] = useState(false);
   const [editID, setEditID] = useState(null);
   const [feedback, setFeedback] = useState({
     message: "",
     type: "",
   });
+
+  useEffect(() => {
+    localStorage.setItem("john-smilga-grocery", JSON.stringify(list))
+  }, [list])
 
   const handleSubmit = (e) => {
     e.preventDefault();
