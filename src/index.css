@@ -48,16 +48,62 @@ body {
   cursor: pointer !important;
 }
 
+.transit-slow{
+  transition: var(--transit-slow);
+}
+.transit-fast{
+  transition: var(--transit-fast);
+}
+.transit-med{
+  transition: var(--transit-med);
+}
+
+.my-custom-hide-nav-menu{
+  height: 0;
+  overflow: hidden;
+}
+.my-custom-show-nav-menu{
+  height: 200px;
+}
 h1, h2, h3, h4, h5, h6 {
-  font-family: Poppins, sans-serif;
+  font-family: Raleway, sans-serif;
 }
 
 a {
   font-family: Raleway, sans-serif !important;
 }
 
+.throb {
+  animation: 1.4s linear infinite Throb;
+}
+
 @media screen and (min-width: 900px) {
   .booklist {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+@media screen and (min-width: 700px){
+  .show-on-small-devices {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .hide-on-small-devices {
+    display: none;
+  }
+}
+
+@keyframes Throb {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.5);
+  }
+  100%{
+    transform: scale(1);
+  }
+
 }
