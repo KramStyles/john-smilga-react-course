@@ -1,14 +1,13 @@
 import {
   AiFillFacebook,
   AiFillTwitterCircle,
-  AiFillTwitterSquare,
   AiFillLinkedin,
   AiFillGithub,
   AiOutlineLink,
 } from "react-icons/ai";
 export const links = [
     {
-        url: '/',
+        url: '/home',
         text: 'home'
     },
     {

@@ -3,9 +3,13 @@
 * Filename: Home.jsx
 */
 
+import {useContext} from "react";
+import {AppContext} from "./context";
 import {GiHamburgerMenu} from "react-icons/gi";
 
 const Home = () => {
+    const data = useContext(AppContext);
+    alert(data);
     return (
         <div className="fs-1 d-flex m-5" style={{height: "75vh"}}>
             <GiHamburgerMenu className="cur-pointer text-primary throb position-absolute"/>

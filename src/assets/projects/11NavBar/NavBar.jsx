@@ -10,7 +10,7 @@ const NavBar = () => {
         <div className="container">
             <nav className="navbar navbar-expand-sm navbar-light bg-secondary">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="javascript:void(0)">Custom Navbar</a>
+                    <a className="navbar-brand" href="https://mark-eke.netlify.app">Custom Navbar</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#my-custom-navbar-1">
                         <span className="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@ const NavBar = () => {
                             {links.map((link, index) => {
                                 const {text, url} = link;
                                 return (<li className="nav-item" key={index}>
-                                    <a className="nav-link text-capitalize text-primary" href="javascript:void(0)">{text}</a>
+                                    <a className="nav-link text-capitalize text-primary" href={`https:/${url}.com`}>{text}</a>
                                 </li>)
                             })}
                         </ul>
