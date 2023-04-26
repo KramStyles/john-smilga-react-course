@@ -32,22 +32,27 @@ export const links = [
 export const socialLinks = [
     {
         url: 'https://facebook.com/kramstyles',
+        name: 'facebook',
         icon: <AiFillFacebook/>
     },
     {
         url: 'https://twitter.com/kramstyles',
+        name: 'twitter',
         icon: <AiFillTwitterCircle/>
     },
     {
         url: 'https://github.com/kramstyles',
+        name: 'github',
         icon: <AiFillGithub/>
     },
     {
         url: 'https://linkedin.com/in/eke-mark',
+        name: 'linkedin',
         icon: <AiFillLinkedin/>
     },
     {
         url: 'https://mark-eke.netlify.app',
+        name: 'website',
         icon: <AiOutlineLink/>
     }
 ]

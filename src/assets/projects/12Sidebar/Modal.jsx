@@ -7,7 +7,7 @@ import {FaTimesCircle} from "react-icons/fa";
 
 const Modal = () => {
     return (
-        <div className="my-modal-overlay show">
+        <div className="my-modal-overlay">
             <div className="my-modal-dialog">
                 <div className="card w-100">
                     <div className="card-header text-end">

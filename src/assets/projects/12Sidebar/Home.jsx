@@ -8,7 +8,7 @@ import {GiHamburgerMenu} from "react-icons/gi";
 const Home = () => {
     return (
         <div className="fs-1 d-flex m-5" style={{height: "75vh"}}>
-            <GiHamburgerMenu className="cur-pointer text-primary throb"/>
+            <GiHamburgerMenu className="cur-pointer text-primary throb position-absolute"/>
             <button className="btn btn-dark m-auto">SHOW MODAL</button>
         </div>
     );
