@@ -101,6 +101,7 @@ export const navData = [
       "color generator",
       "grocery list",
       "custom navbar",
+      "sidebar",
     ],
   },
 ];
