@@ -32,8 +32,9 @@ import Slider from "../projects/07Slider";
 import Lorem from "../projects/08Lorem";
 import ColorGenerator from "../projects/09ColorGenerator";
 import GroceryList from "../projects/10Grocery";
+import CustomNavBar from "../projects/11NavBar";
 
-import Setup from "../projects/10Grocery";
+import Setup from "../projects/11NavBar";
 
 const MyRouters = () => {
   return (
@@ -85,6 +86,7 @@ const MyRouters = () => {
       <Route path="/projects/lorem_generator" element={<Lorem />} />
       <Route path="/projects/color_generator" element={<ColorGenerator />} />
       <Route path="/projects/grocery_list" element={<GroceryList />} />
+      <Route path="/projects/custom_navbar" element={<CustomNavBar />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>

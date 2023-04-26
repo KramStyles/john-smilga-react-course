@@ -100,6 +100,7 @@ export const navData = [
       "lorem generator",
       "color generator",
       "grocery list",
+      "custom navbar",
     ],
   },
 ];

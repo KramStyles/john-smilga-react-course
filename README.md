@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# General React Course
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a compilation of anything I'm going to learn in React as Individual Components.
+Most if not all are from John Smilga's React Course on Udemy
+
+## Website
+
+[Click to visit the site (https://karm-react-course.netlify.app)](https://karm-react-course.netlify.app)
 
 ## Available Scripts
 

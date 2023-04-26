@@ -48,6 +48,23 @@ body {
   cursor: pointer !important;
 }
 
+.transit-slow{
+  transition: var(--transit-slow);
+}
+.transit-fast{
+  transition: var(--transit-fast);
+}
+.transit-med{
+  transition: var(--transit-med);
+}
+
+.my-custom-hide-nav-menu{
+  height: 0;
+  overflow: hidden;
+}
+.my-custom-show-nav-menu{
+  height: 200px;
+}
 h1, h2, h3, h4, h5, h6 {
   font-family: Poppins, sans-serif;
 }
@@ -59,5 +76,17 @@ a {
 @media screen and (min-width: 900px) {
   .booklist {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 700px){
+  .show-on-small-devices {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .hide-on-small-devices {
+    display: none;
   }
 }

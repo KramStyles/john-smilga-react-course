@@ -76,7 +76,7 @@ const GroceryList = () => {
     <div className="container">
       <h1 className="text-center">Track your Grocery List</h1>
       <div className="row">
-        <div className="col-md-8 offset-2">
+        <div className="col-md-8 offset-md-2">
           <div className="card rounded border-0 shadow p-5 mt-3">
             <InlineForm
               feedback={feedback.type}
