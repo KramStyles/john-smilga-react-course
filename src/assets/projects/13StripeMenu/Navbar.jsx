@@ -3,10 +3,27 @@
 * Filename: Navbar.jsx
 */
 
+import {useStripeContext} from "./context";
+import {FaHamburger} from "react-icons/fa";
+
 const Navbar = () => {
+    const {toggleSidebar, toggleSubmenu} = useStripeContext();
     return (
-        <div className="container">
-            <h1>Navbar</h1>
+        <div className="my-navbar d-flex justify-content-between p-3 align-items-center">
+            <a href="https://mark-eke.netlify.app" className="fs-2 text-decoration-none text-dark">Stripe Menu</a>
+            <section className="hide-on-small-devices">
+                <div className="my-link-group justify-content-between">
+                    <button className="btn p-1 px-5">Product</button>
+                    <button className="btn p-1 px-5">Product</button>
+                    <button className="btn p-1 px-5">Product</button>
+                </div>
+            </section>
+            <div className="hide-on-small-devices">
+                <button className="btn btn-outline-dark">Sign In</button>
+            </div>
+            <div className="show-on-small-devices">
+                <button className="btn btn-outline-dark"><FaHamburger className="fs-3"/></button>
+            </div>
         </div>
     );
 };

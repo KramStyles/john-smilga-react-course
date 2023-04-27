@@ -1,0 +1,7 @@
+.my-navbar {
+    background-color: #00000027;
+    height: 75px;
+}
+.my-link-group {
+    display: flex;
+}
