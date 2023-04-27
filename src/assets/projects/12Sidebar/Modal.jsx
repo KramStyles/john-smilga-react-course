@@ -4,14 +4,16 @@
 */
 
 import {FaTimesCircle} from "react-icons/fa";
+import {useGlobalContext} from "./context";
 
 const Modal = () => {
+    const {isModalOpen, closeModal} = useGlobalContext();
     return (
-        <div className="my-modal-overlay">
+        <div className={`my-modal-overlay ${isModalOpen ? "show": ""}`}>
             <div className="my-modal-dialog">
                 <div className="card w-100">
                     <div className="card-header text-end">
-                        <FaTimesCircle className="text-primary cur-pointer fs-4"/>
+                        <FaTimesCircle className="text-primary cur-pointer fs-4" onClick={closeModal}/>
                     </div>
                     <div className="card-body d-flex align-items-center text-justify p-4">
                         <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias blanditiis
@@ -19,7 +21,7 @@ const Modal = () => {
                         </div>
                     </div>
                     <div className="card-footer">
-                        <button className="btn btn-sm btn-primary">Close</button>
+                        <button className="btn btn-sm btn-primary" onClick={closeModal}>Close</button>
                     </div>
                 </div>
             </div>

@@ -3,17 +3,15 @@
 * Filename: Home.jsx
 */
 
-import {useContext} from "react";
-import {AppContext} from "./context";
+import {useGlobalContext} from "./context";
 import {GiHamburgerMenu} from "react-icons/gi";
 
 const Home = () => {
-    const data = useContext(AppContext);
-    alert(data);
+    const {toggleSidebar, openModal} = useGlobalContext();
     return (
         <div className="fs-1 d-flex m-5" style={{height: "75vh"}}>
-            <GiHamburgerMenu className="cur-pointer text-primary throb position-absolute"/>
-            <button className="btn btn-dark m-auto">SHOW MODAL</button>
+            <GiHamburgerMenu className="cur-pointer text-primary throb position-absolute" onClick={toggleSidebar}/>
+            <button className="btn btn-dark m-auto" onClick={openModal}>SHOW MODAL</button>
         </div>
     );
 };
