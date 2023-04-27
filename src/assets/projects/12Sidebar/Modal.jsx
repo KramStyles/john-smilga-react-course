@@ -9,7 +9,7 @@ import {useGlobalContext} from "./context";
 const Modal = () => {
     const {isModalOpen, closeModal} = useGlobalContext();
     return (
-        <div className={`my-modal-overlay ${isModalOpen ? "show": ""}`}>
+        <div className={`my-modal-overlay ${isModalOpen ? "show": ""}`} style={{zIndex: isModalOpen ? 3 : 1}}>
             <div className="my-modal-dialog">
                 <div className="card w-100">
                     <div className="card-header text-end">

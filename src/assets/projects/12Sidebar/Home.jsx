@@ -10,7 +10,7 @@ const Home = () => {
     const {toggleSidebar, openModal} = useGlobalContext();
     return (
         <div className="fs-1 d-flex m-5" style={{height: "75vh"}}>
-            <GiHamburgerMenu className="cur-pointer text-primary throb position-absolute" onClick={toggleSidebar}/>
+            <GiHamburgerMenu className="cur-pointer text-primary throb position-absolute" style={{zIndex: 2}} onClick={toggleSidebar}/>
             <button className="btn btn-dark m-auto" onClick={openModal}>SHOW MODAL</button>
         </div>
     );

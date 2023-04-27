@@ -15,6 +15,7 @@
   width: 50%;
   display: flex;
   margin: auto;
+    position: relative;
 }
 
 .my-modal-overlay.show {
@@ -42,7 +43,7 @@
 }
 
 @media screen and (max-width: 700px) {
-  .my-modal-dialog {
+  .my-modal-dialog, .my-sidebar-container.show {
     width: 90%;
   }
 }
