@@ -102,6 +102,7 @@ export const navData = [
       "grocery list",
       "custom navbar",
       "sidebar",
+      "stripe_menu",
     ],
   },
 ];

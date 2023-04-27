@@ -34,8 +34,9 @@ import ColorGenerator from "../projects/09ColorGenerator";
 import GroceryList from "../projects/10Grocery";
 import CustomNavBar from "../projects/11NavBar";
 import Sidebar from "../projects/12Sidebar";
+import StripeMenu from "../projects/13StripeMenu";
 
-import Setup from "../projects/12Sidebar";
+import Setup from "../projects/13StripeMenu";
 
 const MyRouters = () => {
   return (
@@ -89,6 +90,7 @@ const MyRouters = () => {
       <Route path="/projects/grocery_list" element={<GroceryList />} />
       <Route path="/projects/custom_navbar" element={<CustomNavBar />} />
       <Route path="/projects/sidebar" element={<Sidebar />} />
+      <Route path="/projects/stripe_menu" element={<StripeMenu />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>

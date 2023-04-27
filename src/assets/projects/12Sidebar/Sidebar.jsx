@@ -10,7 +10,11 @@ import { useGlobalContext } from "./context";
 const Sidebar = () => {
   const { isSidebarOpen, toggleSidebar } = useGlobalContext();
   return (
-    <div className={`position-absolute my-sidebar-container ${isSidebarOpen ? "show": ""}`}>
+    <div
+      className={`position-absolute my-sidebar-container ${
+        isSidebarOpen ? "show" : ""
+      }`}
+    >
       <div className="my-sidebar border-primary border-end">
         <div className="text-end p-5">
           <FaTimes
