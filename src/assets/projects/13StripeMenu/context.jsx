@@ -7,7 +7,7 @@ export const useStripeContext = () => useContext(AppContext);
 
 export const AppProvider = ({ children }) => {
   const [isSidebar, setIsSidebar] = useState(false);
-  const [isSubmenu, setIsSubmenu] = useState(true);
+  const [isSubmenu, setIsSubmenu] = useState(false);
 
   const toggleSidebar = () => setIsSidebar(!isSidebar);
   const toggleSubmenu = () => setIsSubmenu(!isSubmenu);

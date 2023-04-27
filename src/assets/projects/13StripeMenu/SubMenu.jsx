@@ -3,10 +3,12 @@
 * Filename: SubMenu.jsx
 */
 
+import {useStripeContext} from "./context";
 const SubMenu = () => {
+    const {isSubmenu} = useStripeContext();
     return (
         <div className="container">
-            <h1>SubMenu</h1>
+            <div className={`my-tooltip shadow${isSubmenu? " show": ""}`}></div>
         </div>
     );
 };
