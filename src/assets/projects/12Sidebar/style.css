@@ -15,6 +15,7 @@
   width: 50%;
   display: flex;
   margin: auto;
+  position: relative;
 }
 
 .my-modal-overlay.show {
@@ -23,26 +24,27 @@
 }
 
 .my-sidebar {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80vh;
-    z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+  z-index: 10;
 }
 
 .my-sidebar-container {
-    margin-top: -50px;
-    width: 0%;
-    opacity: 0;
-    transition: var(--transit-slow);
+  margin-top: -50px;
+  width: 0%;
+  opacity: 0;
+  transition: var(--transit-slow);
 }
 .my-sidebar-container.show {
-    opacity: 1;
-    width: 30%;
+  opacity: 1;
+  width: 30%;
 }
 
 @media screen and (max-width: 700px) {
-  .my-modal-dialog {
+  .my-modal-dialog,
+  .my-sidebar-container.show {
     width: 90%;
   }
 }

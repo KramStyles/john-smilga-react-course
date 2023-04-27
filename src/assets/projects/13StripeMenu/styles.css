@@ -1,0 +1,58 @@
+.my-navbar {
+    background-color: #00000027;
+    height: 75px;
+}
+.my-link-group {
+    display: flex;
+}
+.sidebar-wrapper {
+     position: absolute;
+    background-color: #00000025;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transition: var(--transit-fast);
+    display: flex;
+    transform: scale(0);
+}
+.sidebar-dialog {
+    height: 80%;
+    width: 75%;
+    margin: auto;
+    transition: var(--transit-med);
+    transform: translateX(-200%);
+}
+.sidebar-wrapper.show {
+    opacity: 1;
+    transform: scale(1);
+}
+.sidebar-wrapper.show .sidebar-dialog{
+    transform: translateX(0);
+}
+
+.my-tooltip{
+    width: 40%;
+    background-color: silver;
+    padding: 1.2rem;
+    min-height: 200px;
+    border-radius: 7px;
+    margin-top: 10px;
+    position: relative;
+    transition: var(--transit-fast);
+    transform: scale(0);
+}
+.my-tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent grey transparent;
+}
+.my-tooltip.show{
+    opacity: 1;
+    transform: scale(1);
+}

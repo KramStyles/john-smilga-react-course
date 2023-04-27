@@ -5,27 +5,38 @@
 
 import { socialLinks } from "../11NavBar/data";
 import { FaTimes } from "react-icons/fa";
+import { useGlobalContext } from "./context";
 
 const Sidebar = () => {
+  const { isSidebarOpen, toggleSidebar } = useGlobalContext();
   return (
-    <div className="position-absolute my-sidebar-container">
+    <div
+      className={`position-absolute my-sidebar-container ${
+        isSidebarOpen ? "show" : ""
+      }`}
+    >
       <div className="my-sidebar border-primary border-end">
         <div className="text-end p-5">
-          <FaTimes className="fs-1 text-danger cur-pointer" />
+          <FaTimes
+            className="fs-1 text-danger cur-pointer position-absolute"
+            style={{ zIndex: 10, right: 25 }}
+            onClick={toggleSidebar}
+          />
         </div>
-          <div className="p-2 list-group">
-              {socialLinks.map((link, index) => {
-                  const { icon, url, name } = link;
-                  return (
-                      <a
-                          href={url} key={index}
-                          className="list-group-item list-group-item-action text-capitalize text-primary p-3"
-                      >
-                          {icon} {name}
-                      </a>
-                  );
-              })}
-          </div>
+        <div className="p-2 list-group">
+          {socialLinks.map((link, index) => {
+            const { icon, url, name } = link;
+            return (
+              <a
+                href={url}
+                key={index}
+                className="list-group-item list-group-item-action text-capitalize text-primary p-3"
+              >
+                {icon} {name}
+              </a>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
