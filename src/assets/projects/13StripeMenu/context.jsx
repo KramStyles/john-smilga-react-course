@@ -6,7 +6,7 @@ const AppContext = createContext();
 export const useStripeContext = () => useContext(AppContext);
 
 export const AppProvider = ({ children }) => {
-  const [isSidebar, setIsSidebar] = useState(true);
+  const [isSidebar, setIsSidebar] = useState(false);
   const [isSubmenu, setIsSubmenu] = useState(true);
 
   const toggleSidebar = () => setIsSidebar(!isSidebar);
@@ -14,7 +14,7 @@ export const AppProvider = ({ children }) => {
 
   return (
     <AppContext.Provider
-      value={{ isSidebar, isSubmenu, toggleSubmenu, toggleSidebar }}
+      value={{ isSidebar, isSubmenu, toggleSubmenu, toggleSidebar, sublinks }}
     >
       {children}
     </AppContext.Provider>

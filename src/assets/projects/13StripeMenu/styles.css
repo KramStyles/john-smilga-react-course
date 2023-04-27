@@ -5,3 +5,28 @@
 .my-link-group {
     display: flex;
 }
+.sidebar-wrapper {
+     position: absolute;
+    background-color: #00000025;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transition: var(--transit-fast);
+    display: flex;
+    transform: scale(0);
+}
+.sidebar-dialog {
+    height: 80%;
+    width: 75%;
+    margin: auto;
+    transition: var(--transit-med);
+    transform: translateX(-200%);
+}
+.sidebar-wrapper.show {
+    opacity: 1;
+    transform: scale(1);
+}
+.sidebar-wrapper.show .sidebar-dialog{
+    transform: translateX(0);
+}

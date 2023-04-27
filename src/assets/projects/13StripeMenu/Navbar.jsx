@@ -10,7 +10,7 @@ const Navbar = () => {
     const {toggleSidebar, toggleSubmenu} = useStripeContext();
     return (
         <div className="my-navbar d-flex justify-content-between p-3 align-items-center">
-            <a href="https://mark-eke.netlify.app" className="fs-2 text-decoration-none text-dark">Stripe Menu</a>
+            <a href="https://mark-eke.netlify.app" className="fs-2 text-decoration-none text-light text-shadow fw-bold">Stripe Menu</a>
             <section className="hide-on-small-devices">
                 <div className="my-link-group justify-content-between">
                     <button className="btn p-1 px-5">Product</button>
@@ -22,7 +22,7 @@ const Navbar = () => {
                 <button className="btn btn-outline-dark">Sign In</button>
             </div>
             <div className="show-on-small-devices">
-                <button className="btn btn-outline-dark"><FaHamburger className="fs-3"/></button>
+                <button className="btn btn-outline-dark" onClick={toggleSidebar}><FaHamburger className="fs-3"/></button>
             </div>
         </div>
     );
