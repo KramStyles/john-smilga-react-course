@@ -9,8 +9,11 @@ import { FaHamburger } from "react-icons/fa";
 const Navbar = () => {
   const { toggleSidebar, toggleSubmenu, sublinks } = useStripeContext();
   const displaySubmenu = (e) => {
-      console.log("hello world");
-      toggleSubmenu();
+      const tempButton = e.target.getBoundingClientRect();
+      const page = e.target.textContent;
+      const center = (tempButton.left + tempButton.right) / 2;
+      const bottom = tempButton.bottom;
+      toggleSubmenu(page, {center, bottom});
   }
   return (
     <div className="my-navbar d-flex justify-content-between p-3 align-items-center">
@@ -26,7 +29,7 @@ const Navbar = () => {
             const { page } = item;
             return (
               <button
-                className="btn p-1 px-5 text-capitalize fw-bold"
+                className="btn p-1 px-4 mx-4 text-capitalize fw-bold"
                 key={index}
                 onMouseLeave={toggleSubmenu}
                 onMouseOver={(e)=> displaySubmenu(e)}

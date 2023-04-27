@@ -8,13 +8,17 @@ export const useStripeContext = () => useContext(AppContext);
 export const AppProvider = ({ children }) => {
   const [isSidebar, setIsSidebar] = useState(false);
   const [isSubmenu, setIsSubmenu] = useState(false);
+  const [location, setLocation] = useState({});
 
   const toggleSidebar = () => setIsSidebar(!isSidebar);
-  const toggleSubmenu = () => setIsSubmenu(!isSubmenu);
+  const toggleSubmenu = (text="", coordinates={}) => {
+      setLocation(coordinates);
+      return setIsSubmenu(!isSubmenu)
+  };
 
   return (
     <AppContext.Provider
-      value={{ isSidebar, isSubmenu, toggleSubmenu, toggleSidebar, sublinks }}
+      value={{ isSidebar, isSubmenu, toggleSubmenu, toggleSidebar, sublinks, location }}
     >
       {children}
     </AppContext.Provider>

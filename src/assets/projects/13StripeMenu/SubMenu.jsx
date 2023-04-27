@@ -4,11 +4,20 @@
 */
 
 import {useStripeContext} from "./context";
+import {useEffect, useRef} from "react";
 const SubMenu = () => {
-    const {isSubmenu} = useStripeContext();
+    const {isSubmenu, location} = useStripeContext();
+    const container = useRef(null);
+
+    useEffect(()=> {
+        const subMenu = container.current;
+        const {center} = location;
+        subMenu.style.left = `${center - (subMenu.offsetWidth / 2)}px`;
+    }, [location])
+
     return (
-        <div className="container">
-            <div className={`my-tooltip shadow${isSubmenu? " show": ""}`}></div>
+        <div className="position-relative">
+            <div className={`my-tooltip shadow${isSubmenu? " show": ""}`} ref={container}></div>
         </div>
     );
 };
