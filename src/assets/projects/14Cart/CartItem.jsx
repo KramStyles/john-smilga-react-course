@@ -3,12 +3,37 @@
 * Filename: CartItem.jsx
 */
 
-const CartItem = () => {
+import PropTypes from "prop-types";
+
+import {useCartContext} from "./context";
+import {AiFillCaretDown, AiFillCaretUp} from "react-icons/ai";
+
+const CartItem = ({image, price, title, amount, id}) => {
+    const {cart} = useCartContext();
     return (
-        <div className="container">
-            <h1>CartItem</h1>
+        <div className="col-md-6 offset-md-3 d-flex my-2 justify-content-between">
+            <div className="d-flex">
+                <img src={image} alt={title} width={100}/>
+                <div className="d-flex flex-column ms-5 justify-content-around align-top">
+                    <b>{title}</b>
+                    <p className="text-muted">${price}</p>
+                    <button className="btn btn-outline-secondary btn-sm" style={{width: "150px"}}>Remove</button>
+                </div>
+            </div>
+            <div className="text-center fs-4">
+                <AiFillCaretUp className="cur-pointer text-secondary"/>
+                <p className="mb-0">{amount}</p>
+                <AiFillCaretDown className="cur-pointer text-secondary"/>
+            </div>
         </div>
     );
 };
 
+CartItem.propTypes = {
+    image: PropTypes.element.isRequired,
+    price: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+}
 export default CartItem;

@@ -3,10 +3,37 @@
 * Filename: CartContainer.jsx
 */
 
+import {useCartContext} from "./context";
+import CartItem from "./CartItem";
+
 const CartContainer = () => {
+    const {cart} = useCartContext();
+    if (cart.length === 0) {
+        return (
+            <div className="container text-center mb-5">
+                <h2>Your Cart</h2>
+                <h4>is currently empty!</h4>
+            </div>
+        )
+    }
     return (
-        <div className="container">
-            <h1>CartContainer</h1>
+        <div className="container mb-5">
+            <h2 className="text-center fw-bold">Your Cart</h2>
+            <div className="row">
+                {cart.map((item, index) => (
+                    <CartItem key={index} id={index} {...item}/>
+                ))}
+            </div>
+            <div className="border-1 border-top border-dark mt-5" />
+            <div className="row mb-3">
+                <div className="col-md-6 offset-md-3 fw-bold d-flex justify-content-between py-3">
+                    <p>Total</p>
+                    <p>$0.00</p>
+                </div>
+            </div>
+            <div className="text-center">
+                <button className="btn btn-outline-danger px-5">Clear Items</button>
+            </div>
         </div>
     );
 };

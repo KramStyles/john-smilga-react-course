@@ -4,11 +4,18 @@
 */
 
 import {useCartContext} from "./context";
+import Cart from "../../images/cart/cart.png"
 
 const Navbar = () => {
     return (
-        <div className="container">
-            <h1>Navbar {useCartContext()}</h1>
+        <div className="bg-secondary mb-5" style={{height: "100px"}}>
+            <div className="container d-flex align-items-center justify-content-between h-100">
+                <h1 className="text-light text-shadow fw-bold">Cart Component</h1>
+                <div className="cur-pointer">
+                    <img src={Cart} alt="Cart logo" width={50}/>
+                    <span className="fs-3 p-1 text-light text-shadow fw-bold">3</span>
+                </div>
+            </div>
         </div>
     );
 };

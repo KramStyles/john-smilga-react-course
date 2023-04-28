@@ -1,10 +1,12 @@
 import Jumbotron from "../../components/Jumbotron";
 import Navbar from "./Navbar";
-import {AppProvider} from "./context";
+import { AppProvider } from "./context";
+import CartContainer from "./CartContainer";
 const Index = () => (
   <AppProvider>
     <Jumbotron title="Cart with Reducer and Context" />
     <Navbar />
+    <CartContainer />
   </AppProvider>
 );
 
