@@ -3,7 +3,8 @@ import "./styles.css";
 import NavBar from "./Navbar";
 import SubMenu from "./SubMenu";
 import SideBar from "./SideBar";
-import {AppProvider} from "./context";
+import { AppProvider } from "./context";
+import Body from "./Body";
 
 const Index = () => (
   <AppProvider>
@@ -11,6 +12,7 @@ const Index = () => (
     <NavBar />
     <SideBar />
     <SubMenu />
+    <Body />
   </AppProvider>
 );
 

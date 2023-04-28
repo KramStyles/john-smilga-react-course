@@ -27,7 +27,7 @@ const SubMenu = () => {
                     {links.map((item, index) => {
                         const {label, icon, url} = item;
                         return <div className={`col-md-${columns}`}>
-                            <a href={url} className="text-dark text-decoration-none fs-4">{icon} {label}</a>
+                            <a href={url} className="text-dark text-decoration-none fs-4 my-nav-link">{icon} {label}</a>
                         </div>
                     })}
                 </div>

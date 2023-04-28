@@ -7,16 +7,23 @@ import { useStripeContext } from "./context";
 import { FaHamburger } from "react-icons/fa";
 
 const Navbar = () => {
-  const { toggleSidebar, openSubmenu, closeSubmenu, sublinks } = useStripeContext();
+  const { toggleSidebar, openSubmenu, closeSubmenu, sublinks } =
+    useStripeContext();
   const displaySubmenu = (e) => {
-      const tempButton = e.target.getBoundingClientRect();
-      const page = e.target.textContent;
-      const center = (tempButton.left + tempButton.right) / 2;
-      const bottom = tempButton.bottom;
-      openSubmenu(page, {center, bottom});
-  }
+    const tempButton = e.target.getBoundingClientRect();
+    const page = e.target.textContent;
+    const center = (tempButton.left + tempButton.right) / 2;
+    const bottom = tempButton.bottom;
+    openSubmenu(page, { center, bottom });
+  };
+  const handleCloseSubmenu = (e) => {
+    if(!e.target.classList.contains("my-nav-link")) closeSubmenu();
+  };
   return (
-    <div className="my-navbar d-flex justify-content-between p-3 align-items-center">
+    <div
+      className="my-navbar d-flex justify-content-between p-3 align-items-center"
+      onMouseOver={(e) => handleCloseSubmenu(e)}
+    >
       <a
         href="https://mark-eke.netlify.app"
         className="fs-2 text-decoration-none text-light text-shadow fw-bold"
@@ -29,9 +36,9 @@ const Navbar = () => {
             const { page } = item;
             return (
               <button
-                className="btn p-1 px-5 text-capitalize fw-bold"
+                className="btn p-5 text-capitalize fw-bold my-nav-link"
                 key={index}
-                onMouseOver={(e)=> displaySubmenu(e)}
+                onMouseOver={(e) => displaySubmenu(e)}
               >
                 {page}
               </button>
