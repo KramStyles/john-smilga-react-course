@@ -8,7 +8,7 @@ import CartItem from "./CartItem";
 import Loader from "../../components/Loader";
 
 const CartContainer = () => {
-    const {cart, loading, total} = useCartContext();
+    const {cart, loading, total, clearCart} = useCartContext();
     if(loading) return <Loader/>
     if (cart.length === 0) {
         return (
@@ -34,7 +34,7 @@ const CartContainer = () => {
                 </div>
             </div>
             <div className="text-center">
-                <button className="btn btn-outline-danger px-5">Clear Items</button>
+                <button className="btn btn-outline-danger px-5" onClick={clearCart}>Clear Items</button>
             </div>
         </div>
     );
