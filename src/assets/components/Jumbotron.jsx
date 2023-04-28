@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { navData } from "../data/data";
 import NavDropdown from "./NavDropdown";
@@ -35,5 +36,9 @@ const Jumbotron = ({title}) => {
     </>
   );
 };
+
+Jumbotron.propTypes = {
+    title: PropTypes.string.isRequired
+}
 
 export default Jumbotron;

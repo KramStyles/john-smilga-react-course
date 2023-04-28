@@ -35,8 +35,9 @@ import GroceryList from "../projects/10Grocery";
 import CustomNavBar from "../projects/11NavBar";
 import Sidebar from "../projects/12Sidebar";
 import StripeMenu from "../projects/13StripeMenu";
+import Cart from "../projects/14Cart";
 
-import Setup from "../projects/13StripeMenu";
+import Setup from "../projects/14Cart";
 
 const MyRouters = () => {
   return (
@@ -91,6 +92,7 @@ const MyRouters = () => {
       <Route path="/projects/custom_navbar" element={<CustomNavBar />} />
       <Route path="/projects/sidebar" element={<Sidebar />} />
       <Route path="/projects/stripe_menu" element={<StripeMenu />} />
+      <Route path="/projects/cart" element={<Cart />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>
