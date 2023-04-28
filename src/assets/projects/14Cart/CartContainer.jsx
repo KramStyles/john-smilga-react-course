@@ -5,9 +5,11 @@
 
 import {useCartContext} from "./context";
 import CartItem from "./CartItem";
+import Loader from "../../components/Loader";
 
 const CartContainer = () => {
-    const {cart} = useCartContext();
+    const {cart, loading, total} = useCartContext();
+    if(loading) return <Loader/>
     if (cart.length === 0) {
         return (
             <div className="container text-center mb-5">
@@ -28,7 +30,7 @@ const CartContainer = () => {
             <div className="row mb-3">
                 <div className="col-md-6 offset-md-3 fw-bold d-flex justify-content-between py-3">
                     <p>Total</p>
-                    <p>$0.00</p>
+                    <p>${total}</p>
                 </div>
             </div>
             <div className="text-center">
