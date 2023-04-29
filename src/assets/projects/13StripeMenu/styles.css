@@ -32,10 +32,9 @@
 }
 
 .my-tooltip{
-    width: 40%;
-    background-color: silver;
+    background-color: #eee;
     padding: 1.2rem;
-    min-height: 200px;
+    min-height: 100px;
     border-radius: 7px;
     margin-top: 10px;
     position: relative;
@@ -55,4 +54,12 @@
 .my-tooltip.show{
     opacity: 1;
     transform: scale(1);
+}
+.my-nav-link{
+    transition: var(--transit-fast);
+    padding: 1rem;
+}
+.my-nav-link:hover {
+    border-radius: 10px;
+    border-bottom: 1px solid black;
 }

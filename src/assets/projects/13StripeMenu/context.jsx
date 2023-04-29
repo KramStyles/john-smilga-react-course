@@ -9,16 +9,30 @@ export const AppProvider = ({ children }) => {
   const [isSidebar, setIsSidebar] = useState(false);
   const [isSubmenu, setIsSubmenu] = useState(false);
   const [location, setLocation] = useState({});
+  const [page, setPage] = useState({ page: "", links: [] });
 
   const toggleSidebar = () => setIsSidebar(!isSidebar);
-  const toggleSubmenu = (text="", coordinates={}) => {
-      setLocation(coordinates);
-      return setIsSubmenu(!isSubmenu)
+  const openSubmenu = (text = "", coordinates = {}) => {
+        const page = sublinks.find((item) => item.page === text);
+        setPage(page);
+    setLocation(coordinates);
+    return setIsSubmenu(true);
   };
+
+  const closeSubmenu = () => setIsSubmenu(false);
 
   return (
     <AppContext.Provider
-      value={{ isSidebar, isSubmenu, toggleSubmenu, toggleSidebar, sublinks, location }}
+      value={{
+        isSidebar,
+        isSubmenu,
+        openSubmenu,
+        closeSubmenu,
+        toggleSidebar,
+        sublinks,
+        location,
+        page,
+      }}
     >
       {children}
     </AppContext.Provider>

@@ -103,6 +103,7 @@ export const navData = [
       "custom navbar",
       "sidebar",
       "stripe_menu",
+      "cart",
     ],
   },
 ];

@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from "prop-types";
 
 import "./../styles/loader.css";
 
@@ -15,6 +15,10 @@ const Loader = ({error}) => {
         </div>
     </div>
   )
+}
+
+Loader.propTypes = {
+    error: PropTypes.string
 }
 
 export default Loader
