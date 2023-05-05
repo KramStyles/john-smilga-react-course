@@ -1,6 +1,6 @@
 import Jumbotron from "../../components/Jumbotron";
 import Navbar from "./Navbar";
-import { AppProvider, useCartContext } from "./context";
+import { AppProvider } from "./context";
 import CartContainer from "./CartContainer";
 const Index = () => {
   return (
