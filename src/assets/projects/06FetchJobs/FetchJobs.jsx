@@ -6,7 +6,7 @@ import UseFetch from "../../components/UseFetch";
 const url = "https://course-api.com/react-tabs-project";
 
 const FetchJobs = () => {
-    const {loading, data} = UseFetch(url, "fetch_jobs");
+    const { loading, data } = UseFetch(url, "fetch_jobs");
     const [value, setValue] = useState(0);
 
     if (loading) return <Loader/>;

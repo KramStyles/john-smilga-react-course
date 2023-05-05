@@ -8,7 +8,7 @@ import CartItem from "./CartItem";
 import Loader from "../../components/Loader";
 
 const CartContainer = () => {
-    const {cart, loading, total, clearCart} = useCartContext();
+    const { cart, loading, total, clearCart } = useCartContext();
     if(loading) return <Loader/>
     if (cart.length === 0) {
         return (
