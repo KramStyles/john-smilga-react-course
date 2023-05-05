@@ -52,6 +52,9 @@ const reducer = (state, action) => {
 
     case "DISPLAY_ITEMS":
       return { ...state, loading: false, cart: action.payload };
+
+    default:
+      console.log("Added this to fix default error")
   }
   return state;
 };
