@@ -9,7 +9,7 @@ import { useCartContext } from "./context";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 const CartItem = ({ image, price, title, amount, id }) => {
-  const { remove } = useCartContext();
+  const { remove, increase, decrease } = useCartContext();
   return (
     <div className="col-md-6 offset-md-3 d-flex my-2 justify-content-between">
       <div className="d-flex">
@@ -20,16 +20,22 @@ const CartItem = ({ image, price, title, amount, id }) => {
           <button
             className="btn btn-outline-secondary btn-sm"
             style={{ width: "150px" }}
-            onClick={()=> remove(id)}
+            onClick={() => remove(id)}
           >
             Remove
           </button>
         </div>
       </div>
       <div className="text-center fs-4">
-        <AiFillCaretUp className="cur-pointer text-secondary" />
+        <AiFillCaretUp
+          className="cur-pointer text-secondary"
+          onClick={() => increase(id)}
+        />
         <p className="mb-0">{amount}</p>
-        <AiFillCaretDown className="cur-pointer text-secondary" />
+        <AiFillCaretDown
+          className="cur-pointer text-secondary"
+          onClick={() => decrease(id)}
+        />
       </div>
     </div>
   );
