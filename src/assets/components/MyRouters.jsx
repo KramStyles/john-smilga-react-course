@@ -36,7 +36,11 @@ import CustomNavBar from "../projects/11NavBar";
 import Sidebar from "../projects/12Sidebar";
 import StripeMenu from "../projects/13StripeMenu";
 import Cart from "../projects/14Cart";
+
+// Cocktail routes
 import Cocktails from "../projects/15Cocktail";
+import CocktailDetail from "../projects/15Cocktail/page/CocktailDetail";
+
 
 import Setup from "../projects/15Cocktail";
 
@@ -94,7 +98,9 @@ const MyRouters = () => {
       <Route path="/projects/sidebar" element={<Sidebar />} />
       <Route path="/projects/stripe_menu" element={<StripeMenu />} />
       <Route path="/projects/cart" element={<Cart />} />
+
       <Route path="/projects/cocktails" element={<Cocktails />} />
+      <Route path="/projects/cocktails/:id" element={<CocktailDetail />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>

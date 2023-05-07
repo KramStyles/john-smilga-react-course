@@ -7,6 +7,7 @@ import { useState } from "react";
 
 import { InlineForm } from "../../components/Forms";
 import {FaCocktail} from "react-icons/fa";
+import {useCocktailContext} from "./context";
 
 const SearchForm = () => {
   const [searchValue, setSearchValue] = useState("");
