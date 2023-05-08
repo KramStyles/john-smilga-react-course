@@ -4,6 +4,7 @@
  */
 
 import { useCocktailContext } from "./context";
+import Single from "./Single";
 import Loader from "../../components/Loader";
 
 const CocktailList = () => {
@@ -13,15 +14,21 @@ const CocktailList = () => {
   }
   if (cocktails.length < 1)
     return (
-      <h2 className="text-center">
-        No cocktail matched your search criteria.
-      </h2>
+      <h2 className="text-center">No cocktail matched your search criteria.</h2>
     );
-  return (
-    <div className="container">
-      <h1>CocktailList</h1>
-    </div>
-  );
+  else
+    return (
+      <div className="row justify-content-center">
+        <h1 className="text-center my-3">CocktailList</h1>
+        {cocktails.map((item) => {
+          return (
+            <div className="col-md-4 my-2">
+              <Single key={item.id} {...item} />
+            </div>
+          );
+        })}
+      </div>
+    );
 };
 
 export default CocktailList;
