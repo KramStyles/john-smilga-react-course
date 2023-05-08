@@ -6,18 +6,18 @@
 import { useState } from "react";
 
 import { InlineForm } from "../../components/Forms";
-import {FaCocktail} from "react-icons/fa";
-import {useCocktailContext} from "./context";
+import { FaCocktail } from "react-icons/fa";
+import { useCocktailContext } from "./context";
 
 const SearchForm = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const { searchValue, setSearchValue } = useCocktailContext();
   const [feedback, setFeedback] = useState({
     message: "",
     type: "",
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!searchValue) updateFeedback("Cocktail is missing", "is-invalid");
+    if (!searchValue) updateFeedback("Cocktail is missing", "is-invalid");
     else updateFeedback(searchValue, "is-valid");
   };
   const updateFeedback = (message = "", type = "") =>
@@ -35,7 +35,7 @@ const SearchForm = () => {
           btnText="Search"
           feedbackMsg={feedback.message}
           placeholder={"Enter Cocktail"}
-          icon={<FaCocktail/>}
+          icon={<FaCocktail />}
         />
       </div>
     </div>
