@@ -19,11 +19,11 @@ const CocktailList = () => {
   else
     return (
       <div className="row justify-content-center">
-        <h1 className="text-center my-3">CocktailList</h1>
+        <h1 className="my-3"></h1>
         {cocktails.map((item) => {
           return (
-            <div className="col-md-4 my-2">
-              <Single key={item.id} {...item} />
+            <div className="col-md-4 my-2" key={item.id} >
+              <Single {...item} />
             </div>
           );
         })}

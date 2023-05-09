@@ -1,52 +1,63 @@
-import {
-  useState,
-  useContext,
-  createContext,
-  useEffect,
-  useCallback,
-} from "react";
+import { useState, useContext, createContext, useEffect } from "react";
 
-let url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
-  const [searchValue, setSearchValue] = useState("m");
+  const [searchValue, setSearchValue] = useState("ada");
   const [loading, setLoading] = useState(true);
   const [cocktails, setCocktails] = useState([]);
 
   const fetchDrinks = async (value) => {
     setLoading(true);
-    url = url.concat(value);
+    let search_url = `${url}${searchValue}`;
+    console.log(search_url);
     try {
       const storageName = `cocktail_${searchValue}`;
-      const storageDetails = localStorage.getItem(storageName);
+      const storageDetails = sessionStorage.getItem(storageName);
 
       if (storageDetails) {
         setCocktails(JSON.parse(storageDetails));
         setLoading(false);
       } else {
-        const response = await fetch(url);
+        const response = await fetch(search_url);
         const data = await response.json();
         const { drinks } = data;
         if (drinks) {
-            // Change name of incoming identifier
+          // Change name of incoming identifier
           const newCocktails = drinks.map((item) => {
-            const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
-              item;
+            const {
+              idDrink,
+              strDrink,
+              strDrinkThumb,
+              strAlcoholic,
+              strGlass,
+              strInstructions,
+              strIngredient1,
+              strIngredient2,
+              strIngredient3,
+              strIngredient4,
+              strIngredient5,
+            } = item;
             return {
               id: idDrink,
               name: strDrink,
               image: strDrinkThumb,
               info: strAlcoholic,
               glass: strGlass,
+              strIngredient1,
+              strIngredient2,
+              strIngredient3,
+              strIngredient4,
+              strIngredient5,
             };
           });
 
-            setCocktails(newCocktails);
+          setCocktails(newCocktails);
 
-            // send details to localstorage
-            localStorage.setItem(storageName, JSON.stringify(newCocktails));
+          // send details to sessionStorage
+          sessionStorage.setItem(storageName, JSON.stringify(newCocktails));
         } else setCocktails([]);
       }
     } catch (e) {

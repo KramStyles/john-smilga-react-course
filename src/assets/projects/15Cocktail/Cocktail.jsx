@@ -10,7 +10,6 @@ const Cocktail = () => {
     return (
         <div className="container">
             <SearchForm />
-            <h1>Cocktail</h1>
             <CocktailList/>
         </div>
     );

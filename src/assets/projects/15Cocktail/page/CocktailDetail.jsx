@@ -4,14 +4,16 @@
 */
 
 import Jumbotron from "../../../components/Jumbotron";
+import {useParams} from "react-router-dom";
 
 const CocktailDetail = () => {
+    const {id} = useParams();
     return (
         <>
-            <Jumbotron title={"Single Cocktail"} />
+            <Jumbotron title={`Cocktail ${id}`} />
             <div className="container">
                 <div className="row">
-                    <h1>Details about the cocktail in a card</h1>
+
                 </div>
             </div>
         </>

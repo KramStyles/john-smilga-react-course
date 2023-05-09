@@ -28,7 +28,7 @@ const Single = ({ id, name, info, image, glass }) => {
 };
 
 Single.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   info: PropTypes.string.isRequired,
