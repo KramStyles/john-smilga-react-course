@@ -46,6 +46,7 @@ const AppProvider = ({ children }) => {
               image: strDrinkThumb,
               info: strAlcoholic,
               glass: strGlass,
+              instructions: strInstructions,
               strIngredient1,
               strIngredient2,
               strIngredient3,
