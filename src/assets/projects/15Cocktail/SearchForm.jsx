@@ -18,7 +18,9 @@ const SearchForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!searchValue) updateFeedback("Cocktail is missing", "is-invalid");
-    else updateFeedback(searchValue, "is-valid");
+    else {
+      updateFeedback(searchValue, "is-valid");
+    }
   };
   const updateFeedback = (message = "", type = "") =>
     setFeedback({ message, type });
