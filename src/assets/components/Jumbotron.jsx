@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { navData } from "../data/data";
 import NavDropdown from "./NavDropdown";
 
-const Jumbotron = ({title}) => {
+const Jumbotron = ({ title }) => {
   return (
     <>
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
@@ -38,7 +38,7 @@ const Jumbotron = ({title}) => {
 };
 
 Jumbotron.propTypes = {
-    title: PropTypes.string.isRequired
-}
+  title: PropTypes.string.isRequired,
+};
 
 export default Jumbotron;

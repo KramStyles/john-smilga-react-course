@@ -54,7 +54,7 @@ const reducer = (state, action) => {
       return { ...state, loading: false, cart: action.payload };
 
     default:
-      console.log("Added this to fix default error")
+      console.log("Added this to fix default error");
   }
   return state;
 };

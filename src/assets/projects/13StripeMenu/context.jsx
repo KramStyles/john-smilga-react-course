@@ -13,8 +13,8 @@ export const AppProvider = ({ children }) => {
 
   const toggleSidebar = () => setIsSidebar(!isSidebar);
   const openSubmenu = (text = "", coordinates = {}) => {
-        const page = sublinks.find((item) => item.page === text);
-        setPage(page);
+    const page = sublinks.find((item) => item.page === text);
+    setPage(page);
     setLocation(coordinates);
     return setIsSubmenu(true);
   };

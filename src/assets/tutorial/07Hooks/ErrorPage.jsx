@@ -1,10 +1,10 @@
 import Jumbotron from "../../components/Jumbotron";
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
   const Wrapper = styled.section`
-    .error-title{
+    .error-title {
       font-size: 10rem;
     }
   `;
@@ -12,11 +12,11 @@ const ErrorPage = () => {
     <Wrapper>
       <Jumbotron title="You accessed an invalid page" />
       <div className="container text-center ">
-        <p className="fw-bold text-danger error-title">
-          404!
-        </p>
+        <p className="fw-bold text-danger error-title">404!</p>
         <h1>You entered an unrecognized URI.</h1>
-          <Link to="/" className="btn btn-primary">Go back Home</Link>
+        <Link to="/" className="btn btn-primary">
+          Go back Home
+        </Link>
       </div>
     </Wrapper>
   );

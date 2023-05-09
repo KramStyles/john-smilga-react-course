@@ -43,7 +43,7 @@ import CocktailDetail from "../projects/15Cocktail/page/CocktailDetail";
 
 // GitHub routes
 import Github from "../github";
-import {GitLogin} from "../github/pages"
+import { GitLogin } from "../github/pages";
 
 import Setup from "../github";
 

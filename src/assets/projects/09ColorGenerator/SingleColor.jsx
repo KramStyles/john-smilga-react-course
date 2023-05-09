@@ -98,7 +98,8 @@ const SingleColor = ({ rgb, index, weight, hexColor }) => {
             </button>
           </div>
           <div className="toast-body text-success">
-            Color code: <span className="fw-bold">{`${copiedCode.toUpperCase()}`}</span>{" "}
+            Color code:{" "}
+            <span className="fw-bold">{`${copiedCode.toUpperCase()}`}</span>{" "}
             copied!
           </div>
         </div>
