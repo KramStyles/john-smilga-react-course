@@ -107,6 +107,7 @@ export const navData = [
       "cocktails",
     ],
   },
+  { name: "github" },
 ];
 
 export const reviews = [
