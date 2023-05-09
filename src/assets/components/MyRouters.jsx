@@ -103,7 +103,7 @@ const MyRouters = () => {
       <Route path="/projects/cart" element={<Cart />} />
       <Route path="/projects/cocktails" element={<Cocktails />} />
       <Route path="/projects/cocktails/:id" element={<CocktailDetail />} />
-        
+
       <Route path="/github/home" element={<Github />} />
       <Route path="/github/login" element={<GitLogin />} />
 

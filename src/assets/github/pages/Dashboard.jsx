@@ -3,10 +3,16 @@
 * Filename: Dashboard.jsx
 */
 
+import {Info, Repos, User, NavBar, Search} from "../components"
+
 const Dashboard = () => {
     return (
         <div className="container">
-            <h1>Dashboard</h1>
+            <NavBar/>
+            <Search/>
+            <Info/>
+            <User/>
+            <Repos/>
         </div>
     );
 };
