@@ -5,19 +5,18 @@
 
 import Jumbotron from "../../../components/Jumbotron";
 import { useParams } from "react-router-dom";
-import { AppProvider } from "../context";
 import CocktailCard from "./CocktailCard";
 
 const CocktailDetail = () => {
   const { id } = useParams();
 
   return (
-    <AppProvider>
+    <>
       <Jumbotron title={`Cocktail ID: ${id}`} />
       <div className="container">
         <CocktailCard cocktailID={id} />
       </div>
-    </AppProvider>
+    </>
   );
 };
 

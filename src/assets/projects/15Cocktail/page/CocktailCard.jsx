@@ -3,11 +3,11 @@
  * Filename: CocktailCard.jsx
  */
 import PropTypes from "prop-types";
-import { useCocktailContext } from "../context";
 const CocktailCard = ({ cocktailID }) => {
   /* We would use the context searchValue and cocktailID to fetch existing cocktail data saved
    * in our session storage. This is to limit the number of API calls and improve speed.*/
-  const { searchValue } = useCocktailContext();
+  const searchValue = sessionStorage.getItem("cocktailSearchTerm");
+  console.log(searchValue, 'This')
 
   // Fetch data from session storage
   let cocktailCollection = sessionStorage.getItem(`cocktail_${searchValue}`);
@@ -66,6 +66,7 @@ const CocktailCard = ({ cocktailID }) => {
                 {ingredients.map((item) => {
                   if (item)
                     return <span className="badge bg-dark mx-1">{item}</span>;
+                  else return null
                 })}
               </div>
             </div>

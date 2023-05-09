@@ -1,18 +1,18 @@
-import { useState, useContext, createContext, useEffect } from "react";
+import {useState, useContext, createContext, useEffect, useCallback} from "react";
 
 const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
-  const [searchValue, setSearchValue] = useState("ada");
+  const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(true);
   const [cocktails, setCocktails] = useState([]);
 
-  const fetchDrinks = async (value) => {
+  const fetchDrinks = useCallback(async (value) => {
     setLoading(true);
     let search_url = `${url}${searchValue}`;
-    console.log(search_url);
+    sessionStorage.setItem("cocktailSearchTerm", searchValue);
     try {
       const storageName = `cocktail_${searchValue}`;
       const storageDetails = sessionStorage.getItem(storageName);
@@ -66,11 +66,11 @@ const AppProvider = ({ children }) => {
       console.log(e);
     }
     setLoading(false);
-  };
+  }, [searchValue]);
 
   useEffect(() => {
     fetchDrinks(searchValue);
-  }, [searchValue]);
+  }, [searchValue, fetchDrinks]);
 
   return (
     <AppContext.Provider
