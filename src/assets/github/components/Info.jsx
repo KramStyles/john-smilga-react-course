@@ -3,38 +3,80 @@
  * Filename: Info.jsx
  */
 
-import {useGithubContext} from "../context/context";
-import {VscRepo, VscGist, VscPerson, VscPersonAdd} from "react-icons/vsc";
+import { useGithubContext } from "../context/context";
+import { VscRepo, VscGist, VscPerson, VscPersonAdd } from "react-icons/vsc";
+import styled from "styled-components";
 
 const Info = () => {
-    const {gitUser} = useGithubContext();
-    const {public_repos, followers, following, public_gists} = gitUser;
-    const userInfo = [
-        {title: "repos", icon: <VscRepo className="text-primary"/>, value: public_repos},
-        {title: "gists", icon: <VscGist className="text-secondary"/>, value: public_gists},
-        {title: "followers", icon: <VscPerson className="text-success"/>, value: followers},
-        {title: "following", icon: <VscPersonAdd className="text-info"/>, value: following},
-    ]
+  const { gitUser } = useGithubContext();
+  const { public_repos, followers, following, public_gists } = gitUser;
+  const userInfo = [
+    {
+      title: "repos",
+      icon: <VscRepo className="text-primary fs-1" />,
+      value: public_repos,
+      bg: "primary",
+    },
+    {
+      title: "gists",
+      icon: <VscGist className="text-dark fs-1" />,
+      value: public_gists,
+      bg: "dark",
+    },
+    {
+      title: "followers",
+      icon: <VscPerson className="text-success fs-1" />,
+      value: followers,
+      bg: "success",
+    },
+    {
+      title: "following",
+      icon: <VscPersonAdd className="text-warning fs-1" />,
+      value: following,
+      bg: "warning",
+    },
+  ];
 
-    const InfoCard = ({icon, title, value}) => (
-        <div className="col-md-3">
-            <div className="card shadow d-flex justify-content-center">
-                <div className="rounded-circle">{icon}</div>
-            </div>
-            <div className="text-center">
-                <h2>{value}</h2>
-                <p>{title}</p>
-            </div>
+  const Wrapper = styled.section`
+    .primary {
+      border: 2px solid #2fa4e7;
+      background-color: #2fa4e755;
+    }
+    .dark {
+      border: 2px solid #666;
+      background-color: #e9ecef55;
+    }
+    .success {
+      border: 2px solid #73a839;
+      background-color: #73a83955;
+    }
+    .warning {
+      border: 2px solid #dd5600;
+      background-color: #dd560055;
+    }
+  `;
+
+  const InfoCard = ({ icon, title, value, bg }) => (
+    <div className="col-md-3">
+      <div className="card shadow flex-row py-3 justify-content-center align-items-center">
+        <div className={`rounded-circle me-2 p-2 ${bg}`}>{icon}</div>
+        <div className="text-center ms-2">
+          <h2 className="text-dark">{value}</h2>
+          <p className={`text-capitalize fw-bold text-${bg}`}>{title}</p>
         </div>
-    )
-  return (
-    <div className="container">
-      <div className="row">
-          {userInfo.map((item, index) => (
-              <InfoCard {...item} key={index}/>
-          ))}
       </div>
     </div>
+  );
+  return (
+    <Wrapper>
+      <div className="container">
+        <div className="row">
+          {userInfo.map((item, index) => (
+            <InfoCard {...item} key={index} />
+          ))}
+        </div>
+      </div>
+    </Wrapper>
   );
 };
 
