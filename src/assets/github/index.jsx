@@ -4,7 +4,7 @@ import { GithubProvider } from "./context/context";
 
 const Index = () => (
   <GithubProvider>
-    <Jumbotron title="Github Project" />
+    <Jumbotron title="Github Project" noGap />
     <Dashboard />
   </GithubProvider>
 );

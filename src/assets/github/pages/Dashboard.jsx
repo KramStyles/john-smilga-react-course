@@ -7,13 +7,15 @@ import { Info, Repos, User, NavBar, Search } from "../components";
 
 const Dashboard = () => {
   return (
-    <div className="container">
-      <NavBar />
-      <Search />
-      <Info />
-      <User />
-      <Repos />
-    </div>
+    <>
+        <NavBar />
+        <div className="container">
+            <Search />
+            <Info />
+            <User />
+            <Repos />
+        </div>
+    </>
   );
 };
 

@@ -3,10 +3,37 @@
  * Filename: Info.jsx
  */
 
+import {useGithubContext} from "../context/context";
+import {VscRepo, VscGist, VscPerson, VscPersonAdd} from "react-icons/vsc";
+
 const Info = () => {
+    const {gitUser} = useGithubContext();
+    const {public_repos, followers, following, public_gists} = gitUser;
+    const userInfo = [
+        {title: "repos", icon: <VscRepo className="text-primary"/>, value: public_repos},
+        {title: "gists", icon: <VscGist className="text-secondary"/>, value: public_gists},
+        {title: "followers", icon: <VscPerson className="text-success"/>, value: followers},
+        {title: "following", icon: <VscPersonAdd className="text-info"/>, value: following},
+    ]
+
+    const InfoCard = ({icon, title, value}) => (
+        <div className="col-md-3">
+            <div className="card shadow d-flex justify-content-center">
+                <div className="rounded-circle">{icon}</div>
+            </div>
+            <div className="text-center">
+                <h2>{value}</h2>
+                <p>{title}</p>
+            </div>
+        </div>
+    )
   return (
     <div className="container">
-      <h1>Info</h1>
+      <div className="row">
+          {userInfo.map((item, index) => (
+              <InfoCard {...item} key={index}/>
+          ))}
+      </div>
     </div>
   );
 };
