@@ -3,7 +3,22 @@
  * Filename: Card.jsx
  */
 
+import { useGithubContext } from "../context/context";
 const Card = () => {
+  const { gitUser } = useGithubContext();
+  const {
+    login,
+    id,
+    avatar_url,
+    html_url: url,
+    name,
+    location,
+    bio,
+    blog,
+    company,
+    twitter_username,
+    created_at,
+  } = gitUser;
   return (
     <div className="container">
       <h1>Card</h1>

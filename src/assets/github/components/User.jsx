@@ -2,11 +2,13 @@
  * Author: kramstyles
  * Filename: User.jsx
  */
-
+import Followers from "./Followers";
+import Card from "./Card";
 const User = () => {
   return (
-    <div className="container">
-      <h1>User</h1>
+    <div className="d-flex justify-content-between my-5">
+      <Card />
+      <Followers />
     </div>
   );
 };

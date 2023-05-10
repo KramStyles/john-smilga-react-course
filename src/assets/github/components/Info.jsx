@@ -59,8 +59,8 @@ const Info = () => {
   const InfoCard = ({ icon, title, value, bg }) => (
     <div className="col-md-3">
       <div className="card shadow flex-row py-3 justify-content-center align-items-center">
-        <div className={`rounded-circle me-2 p-2 ${bg}`}>{icon}</div>
-        <div className="text-center ms-2">
+        <div className={`rounded-circle me-3 p-2 ${bg}`}>{icon}</div>
+        <div className="text-center ms-3">
           <h2 className="text-dark">{value}</h2>
           <p className={`text-capitalize fw-bold text-${bg}`}>{title}</p>
         </div>
