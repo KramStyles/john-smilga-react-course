@@ -8,7 +8,7 @@ import Tab from "./Tab";
 import {
   ImTwitter,
   ImGithub,
-  ImLocation,
+  ImCalendar,
   ImLocation2,
   ImLink,
   ImOffice,
@@ -78,6 +78,9 @@ const Card = () => {
         </p>
         <p>
           <ImLink /> <a href={blog || url}>{blog || url}</a>
+        </p>
+        <p>
+          <ImCalendar /> Member since : <b> {created_at.slice(0, 4)}</b>
         </p>
       </Wrapper>
     </Tab>

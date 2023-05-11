@@ -3,12 +3,47 @@
  * Filename: Followers.jsx
  */
 import Tab from "./Tab";
+import { useGithubContext } from "../context/context";
+import { ImGithub } from "react-icons/im";
+import styled from "styled-components";
 const Followers = () => {
+  const { followers } = useGithubContext();
   return (
     <Tab title="followers">
-      <h1>Followers</h1>
+      <Wrapper>
+        {followers.map((follower, index) => {
+          const { html_url: url, avatar_url: avatar, login, type } = follower;
+          return (
+            <>
+                <div className="d-flex justify-content-between align-items-center">
+                    <div className="d-flex">
+                        <img
+                            src={avatar}
+                            alt={login}
+                            className="rounded-circle"
+                            style={{ width: 80, height: 80 }}
+                        />
+                        <div className="ms-3 d-flex flex-column justify-content-center">
+                            <p className="fw-bold text-capitalize mb-0">{login}</p>
+                            <p className="mb-0">Type: {type}</p>
+                        </div>
+                    </div>
+                    <a
+                        href={url}
+                        className="btn btn-outline-primary d-flex align-items-center"
+                    >
+                        <ImGithub className="me-3" /> Visit
+                    </a>
+                </div>
+                <div className="border-bottom border-primary border-opacity-25 my-3"></div>
+            </>
+          );
+        })}
+      </Wrapper>
     </Tab>
   );
 };
+
+const Wrapper = styled.div`height: 300px; overflow: auto; padding: 0 20px`
 
 export default Followers;
