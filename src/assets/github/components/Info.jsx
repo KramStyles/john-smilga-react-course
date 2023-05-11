@@ -57,7 +57,7 @@ const Info = () => {
   `;
 
   const InfoCard = ({ icon, title, value, bg }) => (
-    <div className="col-md-3">
+    <div className="col-md-3 my-1">
       <div className="card shadow flex-row py-3 justify-content-center align-items-center">
         <div className={`rounded-circle me-3 p-2 ${bg}`}>{icon}</div>
         <div className="text-center ms-3">

@@ -2,12 +2,12 @@
  * Author: kramstyles
  * Filename: Followers.jsx
  */
-
+import Tab from "./Tab";
 const Followers = () => {
   return (
-    <div className="container">
+    <Tab title="followers">
       <h1>Followers</h1>
-    </div>
+    </Tab>
   );
 };
 

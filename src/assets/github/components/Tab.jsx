@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 const Tab = ({ title, children }) => {
   return (
-    <div className="container">
+    <div className="col-md-6">
       <ul className="nav nav-tabs" role="tablist">
         <li className="nav-item" role="presentation">
           <button

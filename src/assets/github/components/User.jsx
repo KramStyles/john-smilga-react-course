@@ -6,7 +6,7 @@ import Followers from "./Followers";
 import Card from "./Card";
 const User = () => {
   return (
-    <div className="d-flex justify-content-between my-5">
+    <div className="row my-5">
       <Card />
       <Followers />
     </div>
