@@ -1,0 +1,38 @@
+const user = {
+  login: "KramStyles",
+  id: 21022645,
+  node_id: "MDQ6VXNlcjIxMDIyNjQ1",
+  avatar_url: "https://avatars.githubusercontent.com/u/21022645?v=4",
+  gravatar_id: "",
+  url: "https://api.github.com/users/KramStyles",
+  html_url: "https://github.com/KramStyles",
+  followers_url: "https://api.github.com/users/KramStyles/followers",
+  following_url:
+    "https://api.github.com/users/KramStyles/following{/other_user}",
+  gists_url: "https://api.github.com/users/KramStyles/gists{/gist_id}",
+  starred_url: "https://api.github.com/users/KramStyles/starred{/owner}{/repo}",
+  subscriptions_url: "https://api.github.com/users/KramStyles/subscriptions",
+  organizations_url: "https://api.github.com/users/KramStyles/orgs",
+  repos_url: "https://api.github.com/users/KramStyles/repos",
+  events_url: "https://api.github.com/users/KramStyles/events{/privacy}",
+  received_events_url:
+    "https://api.github.com/users/KramStyles/received_events",
+  type: "User",
+  site_admin: false,
+  name: "Mark Eke",
+  company: null,
+  blog: "https://mark-eke.netlify.app",
+  location: "Code Space",
+  email: null,
+  hireable: true,
+  bio: "Daily contributor and goal-oriented developer with a die-hard attitude to providing simple solutions to complex problems. ",
+  twitter_username: null,
+  public_repos: 106,
+  public_gists: 0,
+  followers: 23,
+  following: 145,
+  created_at: "2016-08-14T13:45:37Z",
+  updated_at: "2023-04-23T11:30:49Z",
+};
+
+export default user;

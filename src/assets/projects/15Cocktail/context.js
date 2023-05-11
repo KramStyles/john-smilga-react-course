@@ -1,4 +1,10 @@
-import {useState, useContext, createContext, useEffect, useCallback} from "react";
+import {
+  useState,
+  useContext,
+  createContext,
+  useEffect,
+  useCallback,
+} from "react";
 
 const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
@@ -9,64 +15,67 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [cocktails, setCocktails] = useState([]);
 
-  const fetchDrinks = useCallback(async (value) => {
-    setLoading(true);
-    let search_url = `${url}${searchValue}`;
-    sessionStorage.setItem("cocktailSearchTerm", searchValue);
-    try {
-      const storageName = `cocktail_${searchValue}`;
-      const storageDetails = sessionStorage.getItem(storageName);
+  const fetchDrinks = useCallback(
+    async (value) => {
+      setLoading(true);
+      let search_url = `${url}${searchValue}`;
+      sessionStorage.setItem("cocktailSearchTerm", searchValue);
+      try {
+        const storageName = `cocktail_${searchValue}`;
+        const storageDetails = sessionStorage.getItem(storageName);
 
-      if (storageDetails) {
-        setCocktails(JSON.parse(storageDetails));
-        setLoading(false);
-      } else {
-        const response = await fetch(search_url);
-        const data = await response.json();
-        const { drinks } = data;
-        if (drinks) {
-          // Change name of incoming identifier
-          const newCocktails = drinks.map((item) => {
-            const {
-              idDrink,
-              strDrink,
-              strDrinkThumb,
-              strAlcoholic,
-              strGlass,
-              strInstructions,
-              strIngredient1,
-              strIngredient2,
-              strIngredient3,
-              strIngredient4,
-              strIngredient5,
-            } = item;
-            return {
-              id: idDrink,
-              name: strDrink,
-              image: strDrinkThumb,
-              info: strAlcoholic,
-              glass: strGlass,
-              instructions: strInstructions,
-              strIngredient1,
-              strIngredient2,
-              strIngredient3,
-              strIngredient4,
-              strIngredient5,
-            };
-          });
+        if (storageDetails) {
+          setCocktails(JSON.parse(storageDetails));
+          setLoading(false);
+        } else {
+          const response = await fetch(search_url);
+          const data = await response.json();
+          const { drinks } = data;
+          if (drinks) {
+            // Change name of incoming identifier
+            const newCocktails = drinks.map((item) => {
+              const {
+                idDrink,
+                strDrink,
+                strDrinkThumb,
+                strAlcoholic,
+                strGlass,
+                strInstructions,
+                strIngredient1,
+                strIngredient2,
+                strIngredient3,
+                strIngredient4,
+                strIngredient5,
+              } = item;
+              return {
+                id: idDrink,
+                name: strDrink,
+                image: strDrinkThumb,
+                info: strAlcoholic,
+                glass: strGlass,
+                instructions: strInstructions,
+                strIngredient1,
+                strIngredient2,
+                strIngredient3,
+                strIngredient4,
+                strIngredient5,
+              };
+            });
 
-          setCocktails(newCocktails);
+            setCocktails(newCocktails);
 
-          // send details to sessionStorage
-          sessionStorage.setItem(storageName, JSON.stringify(newCocktails));
-        } else setCocktails([]);
+            // send details to sessionStorage
+            sessionStorage.setItem(storageName, JSON.stringify(newCocktails));
+          } else setCocktails([]);
+        }
+      } catch (e) {
+        console.error("Fetch Drink Error");
+        console.log(e);
       }
-    } catch (e) {
-      console.error("Fetch Drink Error");
-      console.log(e);
-    }
-    setLoading(false);
-  }, [searchValue]);
+      setLoading(false);
+    },
+    [searchValue]
+  );
 
   useEffect(() => {
     fetchDrinks(searchValue);

@@ -41,8 +41,11 @@ import Cart from "../projects/14Cart";
 import Cocktails from "../projects/15Cocktail";
 import CocktailDetail from "../projects/15Cocktail/page/CocktailDetail";
 
+// GitHub routes
+import Github from "../github";
+import { GitLogin } from "../github/pages";
 
-import Setup from "../projects/15Cocktail";
+import Setup from "../github";
 
 const MyRouters = () => {
   return (
@@ -98,9 +101,11 @@ const MyRouters = () => {
       <Route path="/projects/sidebar" element={<Sidebar />} />
       <Route path="/projects/stripe_menu" element={<StripeMenu />} />
       <Route path="/projects/cart" element={<Cart />} />
-
       <Route path="/projects/cocktails" element={<Cocktails />} />
       <Route path="/projects/cocktails/:id" element={<CocktailDetail />} />
+
+      <Route path="/github/home" element={<Github />} />
+      <Route path="/github/login" element={<GitLogin />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>

@@ -17,7 +17,7 @@ const Navbar = () => {
     openSubmenu(page, { center, bottom });
   };
   const handleCloseSubmenu = (e) => {
-    if(!e.target.classList.contains("my-nav-link")) closeSubmenu();
+    if (!e.target.classList.contains("my-nav-link")) closeSubmenu();
   };
   return (
     <div

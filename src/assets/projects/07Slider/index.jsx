@@ -4,7 +4,7 @@ import Slider from "./Slider";
 const Index = () => (
   <>
     <Jumbotron title="Slider" />
-      <Slider/>
+    <Slider />
   </>
 );
 

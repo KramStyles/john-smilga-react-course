@@ -6,7 +6,7 @@ export const InlineForm = ({
   feedback,
   handleSubmit,
   handleChange,
-    clearAlert,
+  clearAlert,
   label,
   value,
   feedbackMsg = "",

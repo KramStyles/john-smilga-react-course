@@ -17,12 +17,12 @@ const Slider = () => {
   }, [index]);
 
   useEffect(() => {
-      let sliderInterval = setInterval(()=> {
-          setIndex(index + 1)
-      }, 3000)
+    let sliderInterval = setInterval(() => {
+      setIndex(index + 1);
+    }, 3000);
 
-      return () => clearInterval(sliderInterval);
-  }, [index])
+    return () => clearInterval(sliderInterval);
+  }, [index]);
   return (
     <div className="container position-relative">
       <div className="row">

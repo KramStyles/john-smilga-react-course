@@ -51,11 +51,16 @@ const ColorGenerator = () => {
           </div>
         </form>
       </div>
-        <div className="row">
-            {colorList.map((color, index) => (
-                <SingleColor key={index} {...color} index={index} hexColor={color.hexString()}/>
-            ))}
-        </div>
+      <div className="row">
+        {colorList.map((color, index) => (
+          <SingleColor
+            key={index}
+            {...color}
+            index={index}
+            hexColor={color.hexString()}
+          />
+        ))}
+      </div>
     </div>
   );
 };

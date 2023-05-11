@@ -16,10 +16,7 @@ const Single = ({ id, name, info, image, glass }) => {
         <p className="card-text text-muted m-0">{info}</p>
       </div>
       <div className="card-footer">
-        <Link
-          to={`projects/cocktails/${id}`}
-          className="btn btn-primary btn-sm m-1"
-        >
+        <Link to={`${id}`} className="btn btn-primary btn-sm m-1">
           More Information
         </Link>
       </div>

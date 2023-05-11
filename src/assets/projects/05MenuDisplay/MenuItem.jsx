@@ -3,15 +3,14 @@ import { menuDisplayItems } from "../../data/data";
 import MenuCategory from "./MenuCategory";
 
 const allCategories = [
-    "all",
-    ...new Set(menuDisplayItems.map((items) => items.category)),
+  "all",
+  ...new Set(menuDisplayItems.map((items) => items.category)),
 ];
 
 const MenuItem = () => {
   const [menuItem, setMenuItem] = useState(menuDisplayItems);
 
-  const filterItems = ({category}) => {
-
+  const filterItems = ({ category }) => {
     if (category === "all") {
       setMenuItem(menuDisplayItems);
       return;
@@ -51,7 +50,7 @@ const MenuItem = () => {
 
   return (
     <>
-      <MenuCategory filterItems={filterItems} categories={allCategories}/>
+      <MenuCategory filterItems={filterItems} categories={allCategories} />
       {result}
     </>
   );

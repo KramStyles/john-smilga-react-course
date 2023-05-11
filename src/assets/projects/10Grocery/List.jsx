@@ -12,7 +12,10 @@ const List = ({ items, removeItem, editItem }) => {
           >
             {item.title}
             <span className="badge badge-pill">
-              <RiEdit2Fill className="fs-4 mx-2 cur-pointer text-success" onClick={()=> editItem(item.id)}/>
+              <RiEdit2Fill
+                className="fs-4 mx-2 cur-pointer text-success"
+                onClick={() => editItem(item.id)}
+              />
               <RiDeleteBin2Fill
                 className="fs-4 mx-2 cur-pointer text-danger"
                 onClick={() => removeItem(item.id)}

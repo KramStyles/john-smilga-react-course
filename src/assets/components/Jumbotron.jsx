@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { navData } from "../data/data";
 import NavDropdown from "./NavDropdown";
 
-const Jumbotron = ({title}) => {
+const Jumbotron = ({ title, noGap }) => {
   return (
     <>
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
@@ -30,7 +30,7 @@ const Jumbotron = ({title}) => {
           </div>
         </div>
       </nav>
-      <div className="bg-primary p-5 text-white text-center fs-3 fw-bold text-capitalize mb-5 mt-5">
+      <div className={`bg-primary p-5 text-white text-center fs-3 fw-bold text-capitalize mt-5 ${!noGap && "mb-5"}`}>
         {title}
       </div>
     </>
@@ -38,7 +38,8 @@ const Jumbotron = ({title}) => {
 };
 
 Jumbotron.propTypes = {
-    title: PropTypes.string.isRequired
-}
+  title: PropTypes.string.isRequired,
+  noGap: PropTypes.bool,
+};
 
 export default Jumbotron;

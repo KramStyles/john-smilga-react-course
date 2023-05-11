@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { InlineForm } from "../../components/Forms";
 import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import List from "./List";
@@ -7,8 +7,8 @@ const getLocalStorage = () => {
   // Gets the local stored value if present
   let local = localStorage.getItem("john-smilga-grocery");
   if (local) return JSON.parse(local);
-  else return []
-}
+  else return [];
+};
 const GroceryList = () => {
   const [name, setName] = useState("");
   const [list, setList] = useState(getLocalStorage());
@@ -20,8 +20,8 @@ const GroceryList = () => {
   });
 
   useEffect(() => {
-    localStorage.setItem("john-smilga-grocery", JSON.stringify(list))
-  }, [list])
+    localStorage.setItem("john-smilga-grocery", JSON.stringify(list));
+  }, [list]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,14 +30,16 @@ const GroceryList = () => {
       updateFeedback("Name is missing", "is-invalid");
     } else if (name && editFlag) {
       // Deal with editing
-      setList(list.map(item => {
-        if(item.id === editID)return {...item, title: name}
-        return item
-      }))
-      setEditFlag(false)
-      setEditID(null)
-      setName("")
-      updateFeedback("Value Updated Successfully!", "is-valid")
+      setList(
+        list.map((item) => {
+          if (item.id === editID) return { ...item, title: name };
+          return item;
+        })
+      );
+      setEditFlag(false);
+      setEditID(null);
+      setName("");
+      updateFeedback("Value Updated Successfully!", "is-valid");
     } else {
       const newItem = {
         id: new Date().getTime().toString(),
@@ -63,14 +65,14 @@ const GroceryList = () => {
   const removeItem = (id) => {
     setList(list.filter((item) => item.id !== id));
     updateFeedback("Item removed", "is-valid");
-  }
+  };
 
   const editItem = (id) => {
-    const specificItem = list.find(item => item.id === id);
+    const specificItem = list.find((item) => item.id === id);
     setEditID(id);
     setEditFlag(true);
     setName(specificItem.title);
-  }
+  };
 
   return (
     <div className="container">
@@ -91,7 +93,7 @@ const GroceryList = () => {
               clearAlert={updateFeedback}
             />
             <div className="text-end">
-              <List items={list} removeItem={removeItem} editItem={editItem}/>
+              <List items={list} removeItem={removeItem} editItem={editItem} />
               <button
                 className="btn btn-outline-danger my-4"
                 onClick={clearList}
