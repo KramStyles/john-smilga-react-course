@@ -6,6 +6,7 @@
 import { Bar3D, Column3D, Donut2D, Pie3D } from "./charts";
 
 import { useGithubContext } from "../context/context";
+import styled from "styled-components";
 // import mockChartData from "../mockData/chart";
 
 const Repo = () => {
@@ -16,25 +17,39 @@ const Repo = () => {
     if (!language) return total;
 
     // Add language into object if it doesn't exist
-    if (!total[language]) total[language] = {label: language, value: 1};
-    else total[language] = {...total[language], value: total[language].value + 1}; // Update total
+    if (!total[language]) total[language] = { label: language, value: 1 };
+    else
+      total[language] = {
+        ...total[language],
+        value: total[language].value + 1,
+      }; // Update total
 
     return total;
   }, {});
-    // Remove the key and turn the object into an array
-    languages = Object.values(languages);
+  // Remove the key and turn the object into an array. I.e. it gets the values of the object we pass in
+  languages = Object.values(languages).sort((a, b) => {
+    return b.value - a.value;
+  });
 
-    // We don't need many languages, so we will pick the top 7
-    languages = languages.slice(0, 7)
-    
+  // We don't need many languages, so we will pick the top 7
+  languages = languages.slice(0, 7);
+
   return (
-    <div className="">
-      <Pie3D data={languages} />
-      <Bar3D />
-      <Column3D />
-      <Donut2D />
-    </div>
+    <Wrapper>
+      <div className="row">
+        <Pie3D data={languages} />
+        <Bar3D />
+        <Column3D />
+        <Donut2D />
+      </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  svg, .fusioncharts-container {
+    width: 100% !important;
+  }
+`;
 
 export default Repo;

@@ -14,7 +14,7 @@ ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
 const Pie3D = ({ data }) => {
   const chartConfigs = {
     type: "pie3d",
-    width: "500",
+    width: "100%",
     height: "500",
     dataFormat: "json",
     dataSource: {
@@ -28,7 +28,11 @@ const Pie3D = ({ data }) => {
       data,
     },
   };
-  return <ReactFC {...chartConfigs} />;
+  return (
+    <div className="col-md-5">
+      <ReactFC {...chartConfigs} />
+    </div>
+  );
 };
 
 Pie3D.propTypes = {
