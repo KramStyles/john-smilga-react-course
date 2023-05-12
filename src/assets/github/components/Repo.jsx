@@ -4,31 +4,32 @@
  */
 
 import { Bar3D, Column3D, Donut2D, Pie3D } from "./charts";
+
 import { useGithubContext } from "../context/context";
+// import mockChartData from "../mockData/chart";
 
 const Repo = () => {
   const { repos } = useGithubContext();
-  const chartData = [
-      {
-          label: 'Michael',
-          value: '342'
-      },
-      {
-          label: 'Jamie',
-          value: '123'
-      },
-      {
-          label: 'Mark',
-          value: '1342'
-      },
-      {
-          label: 'Kramstyles',
-          value: '446'
-      },
-  ]
+
+  let languages = repos.reduce((total, item) => {
+    const { language } = item;
+    if (!language) return total;
+
+    // Add language into object if it doesn't exist
+    if (!total[language]) total[language] = {label: language, value: 1};
+    else total[language] = {...total[language], value: total[language].value + 1}; // Update total
+
+    return total;
+  }, {});
+    // Remove the key and turn the object into an array
+    languages = Object.values(languages);
+
+    // We don't need many languages, so we will pick the top 7
+    languages = languages.slice(0, 7)
+    
   return (
     <div className="">
-      <Pie3D data={chartData} />
+      <Pie3D data={languages} />
       <Bar3D />
       <Column3D />
       <Donut2D />
