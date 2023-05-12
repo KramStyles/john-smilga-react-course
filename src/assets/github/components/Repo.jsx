@@ -3,10 +3,35 @@
  * Filename: Repo.jsx
  */
 
+import { Bar3D, Column3D, Donut2D, Pie3D } from "./charts";
+import { useGithubContext } from "../context/context";
+
 const Repo = () => {
+  const { repos } = useGithubContext();
+  const chartData = [
+      {
+          label: 'Michael',
+          value: '342'
+      },
+      {
+          label: 'Jamie',
+          value: '123'
+      },
+      {
+          label: 'Mark',
+          value: '1342'
+      },
+      {
+          label: 'Kramstyles',
+          value: '446'
+      },
+  ]
   return (
-    <div className="container">
-      <h1>Repo</h1>
+    <div className="">
+      <Pie3D data={chartData} />
+      <Bar3D />
+      <Column3D />
+      <Donut2D />
     </div>
   );
 };
