@@ -40,7 +40,7 @@ const Repo = () => {
         <Pie3D data={languages} />
         <Bar3D />
         <Column3D />
-        <Donut2D />
+        <Donut2D data={languages}/>
       </div>
     </Wrapper>
   );

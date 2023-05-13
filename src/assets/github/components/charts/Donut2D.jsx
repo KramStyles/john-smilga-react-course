@@ -3,12 +3,41 @@
  * Filename: Donut2D.jsx
  */
 
-const Donut2D = () => {
+import PropTypes from "prop-types";
+
+import ReactFC from "react-fusioncharts";
+import FusionCharts from "fusioncharts";
+import Charts from "fusioncharts/fusioncharts.charts";
+import Theme from "fusioncharts/themes/fusioncharts.theme.fusion";
+
+ReactFC.fcRoot(FusionCharts, Charts, Theme);
+
+const Donut2D = ({data}) => {
+    const chartConfig = {
+        type: "doughnut2d",
+        width: "100%",
+        height: "500",
+        dataFormat: "json",
+        dataSource: {
+            chart: {
+                caption: "Stars",
+                subCaption: "Stars per Language",
+                theme: "fusion",
+                doughnutRadius: "50%",
+                showPercentValues: 0,
+            },
+            data,
+        }
+    }
   return (
-    <div className="container">
-      <h1>Donut3D</h1>
+    <div className="col-md-5">
+      <ReactFC {...chartConfig} />
     </div>
   );
 };
+
+Donut2D.propTypes = {
+    data: PropTypes.array.isRequired,
+}
 
 export default Donut2D;
