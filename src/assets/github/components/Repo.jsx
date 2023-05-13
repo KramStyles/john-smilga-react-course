@@ -12,42 +12,50 @@ import styled from "styled-components";
 const Repo = () => {
   const { repos } = useGithubContext();
 
-  let languages = repos.reduce((total, item) => {
-    const { language } = item;
+  const languages = repos.reduce((total, item) => {
+    const { language, stargazers_count } = item;
     if (!language) return total;
 
     // Add language into object if it doesn't exist
-    if (!total[language]) total[language] = { label: language, value: 1 };
+    if (!total[language])
+      total[language] = { label: language, value: 1, stars: stargazers_count };
     else
       total[language] = {
         ...total[language],
         value: total[language].value + 1,
+        stars: total[language].stars + stargazers_count,
       }; // Update total
 
     return total;
   }, {});
   // Remove the key and turn the object into an array. I.e. it gets the values of the object we pass in
-  languages = Object.values(languages).sort((a, b) => {
+  let mostUsed = Object.values(languages).sort((a, b) => {
     return b.value - a.value;
   });
-
   // We don't need many languages, so we will pick the top 7
-  languages = languages.slice(0, 7);
+  mostUsed = mostUsed.slice(0, 7);
+
+  const mostStars = Object.values(languages)
+    .sort((a, b) => b.stars - a.stars) //sort based on top stars
+      .map(item => ({...item, value: item.stars})) // Change value to stars
+    .slice(0, 7);
+  
 
   return (
     <Wrapper>
       <div className="row">
-        <Pie3D data={languages} />
+        <Pie3D data={mostUsed} />
         <Bar3D />
         <Column3D />
-        <Donut2D data={languages}/>
+        <Donut2D data={mostStars} />
       </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  svg, .fusioncharts-container {
+  svg,
+  .fusioncharts-container {
     width: 100% !important;
   }
 `;
