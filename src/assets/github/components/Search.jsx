@@ -3,10 +3,55 @@
  * Filename: Search.jsx
  */
 
+import { useState } from "react";
+import { ImGithub } from "react-icons/im";
+
+import { InlineForm } from "../../components/Forms";
+
 const Search = () => {
+  const [feedback, setFeedback] = useState({ message: "", type: "" });
+  const [user, setUser] = useState("kramstyles");
+
+    const updateFeedback = (message = "", type = "") =>
+        setFeedback({ message, type });
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      if (!user) {
+          // show negative feedback
+          updateFeedback("Name is missing", "is-invalid");
+      } else {
+          updateFeedback("Searching...", "is-valid");
+      }
+    console.log(user);
+  };
+
+  const handleChange = (e) => {
+    setUser(e.target.value);
+  };
+
+  const clearAlert = () => {
+    setFeedback({ message: "", type: "" });
+  };
+
   return (
-    <div className="my-4">
-      <h1>Search</h1>
+    <div className="row my-4">
+      <div className="col-md-9">
+        <InlineForm
+          feedback={feedback.type}
+          feedbackMsg={feedback.message}
+          placeholder="kramstyles..."
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          clearAlert={clearAlert}
+          icon={<ImGithub />}
+          label="Input github username"
+          value={user}
+          btnText={`Find ${user}`}
+        />
+      </div>
+        <div className="col-md-3 d-flex align-items-end">
+            <h4 className="pb-2 text-primary">Requests (55 / 60)</h4>
+        </div>
     </div>
   );
 };

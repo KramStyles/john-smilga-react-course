@@ -18,7 +18,6 @@ const Card = () => {
   const { gitUser } = useGithubContext();
   const {
     login,
-    id,
     avatar_url,
     html_url: url,
     name,
