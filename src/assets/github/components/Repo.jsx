@@ -42,6 +42,20 @@ const Repo = () => {
       .map(item => ({...item, value: item.stars})) // Change value to stars
     .slice(0, 7);
 
+  let {stars, forks} = repos.reduce((total, item) => {
+    const {stargazers_count, name, forks} = item;
+    total.stars[stargazers_count] = {label: name, value: stargazers_count};
+    total.forks[forks] = {label: name, value: forks};
+    return total
+  }, {
+    stars: {},
+    forks: {}
+  })
+
+  // Get the highest 10
+  stars = Object.values(stars).slice(-10).reverse();
+  forks = Object.values(forks).slice(-10).reverse();
+
 
   return (
     <Wrapper>
@@ -49,7 +63,9 @@ const Repo = () => {
         <Pie3D data={mostUsed} />
         <Donut2D data={mostStars} />
         <Pareto3D data={paretoData}/>
-        <Column3D />
+
+        {/*Only display most forked if it's up to 7*/}
+        {forks.length > 6 && <Column3D data={forks} />}
       </div>
     </Wrapper>
   );
