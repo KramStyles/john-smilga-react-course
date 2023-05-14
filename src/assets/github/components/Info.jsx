@@ -37,25 +37,6 @@ const Info = () => {
     },
   ];
 
-  const Wrapper = styled.section`
-    .primary {
-      border: 2px solid #2fa4e7;
-      background-color: #2fa4e755;
-    }
-    .dark {
-      border: 2px solid #666;
-      background-color: #e9ecef55;
-    }
-    .success {
-      border: 2px solid #73a839;
-      background-color: #73a83955;
-    }
-    .warning {
-      border: 2px solid #dd5600;
-      background-color: #dd560055;
-    }
-  `;
-
   const InfoCard = ({ icon, title, value, bg }) => (
     <div className="col-md-3 my-1">
       <div className="card shadow flex-row py-3 justify-content-center align-items-center">
@@ -79,5 +60,24 @@ const Info = () => {
     </Wrapper>
   );
 };
+
+const Wrapper = styled.section`
+    .primary {
+      border: 2px solid #2fa4e7;
+      background-color: #2fa4e755;
+    }
+    .dark {
+      border: 2px solid #666;
+      background-color: #e9ecef55;
+    }
+    .success {
+      border: 2px solid #73a839;
+      background-color: #73a83955;
+    }
+    .warning {
+      border: 2px solid #dd5600;
+      background-color: #dd560055;
+    }
+  `;
 
 export default Info;

@@ -14,6 +14,19 @@ import {
   ImOffice,
 } from "react-icons/im";
 import styled from "styled-components";
+
+const Wrapper = styled.div`
+    p {
+      margin-bottom: 0;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+    svg {
+      font-size: 1.2rem;
+      margin-right: 15px;
+    }
+  `;
 const Card = () => {
   const { gitUser } = useGithubContext();
   const {
@@ -28,19 +41,6 @@ const Card = () => {
     twitter_username,
     created_at,
   } = gitUser;
-
-  const Wrapper = styled.div`
-    p {
-      margin-bottom: 0;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-    }
-    svg {
-      font-size: 1.2rem;
-      margin-right: 15px;
-    }
-  `;
 
   return (
     <Tab title={`@${login}`}>

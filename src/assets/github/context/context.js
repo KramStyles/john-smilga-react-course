@@ -14,11 +14,10 @@ const GithubProvider = ({ children }) => {
   const [repos, setRepos] = useState(mockRepos);
   const [followers, setFollowers] = useState(mockFollowers);
   const [requests, setRequests] = useState(0);
-  const [initialLoading, setInitialLoading] = useState(false);
+  const [initialLoading, setInitialLoading] = useState(true);
   const [feedback, setFeedback] = useState({ message: "", type: "" });
 
   const checkRequests = () => {
-    setInitialLoading(true);
     try {
       axios(`${rootUrl}/rate_limit`).then((response) => {
         setInitialLoading(false);
@@ -29,13 +28,22 @@ const GithubProvider = ({ children }) => {
     }
   };
 
-  const getUser = async (githubUser) => {
+  const getUser = (githubUser) => {
     const url = `${rootUrl}/users/${githubUser}`;
     setInitialLoading(true);
     try {
-      await axios(url).then((response) => {
-        setInitialLoading(false);
-        setGitUser(response.data)
+      axios(url).then((response) => {
+        if (response) {
+            setGitUser(response.data)
+            const {followers_url} = response.data;
+            axios.get(`${url}/repos?per_page=100`).then(data => {
+                setRepos(data.data);
+            })
+            axios.get(`${followers_url}?per_page=100`).then(data => {
+                setFollowers(data.data);
+            })
+            checkRequests();
+        }
       });
     } catch (e) {
       console.log(e);
