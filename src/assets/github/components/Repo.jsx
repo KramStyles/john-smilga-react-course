@@ -3,7 +3,7 @@
  * Filename: Repo.jsx
  */
 
-import { Bar3D, Column3D, Donut2D, Pie3D } from "./charts";
+import { Pareto3D, Column3D, Donut2D, Pie3D } from "./charts";
 
 import { useGithubContext } from "../context/context";
 import styled from "styled-components";
@@ -32,6 +32,8 @@ const Repo = () => {
   let mostUsed = Object.values(languages).sort((a, b) => {
     return b.value - a.value;
   });
+
+  const paretoData = mostUsed.slice(0, 10);
   // We don't need many languages, so we will pick the top 7
   mostUsed = mostUsed.slice(0, 7);
 
@@ -39,15 +41,15 @@ const Repo = () => {
     .sort((a, b) => b.stars - a.stars) //sort based on top stars
       .map(item => ({...item, value: item.stars})) // Change value to stars
     .slice(0, 7);
-  
+
 
   return (
     <Wrapper>
       <div className="row">
         <Pie3D data={mostUsed} />
-        <Bar3D />
-        <Column3D />
         <Donut2D data={mostStars} />
+        <Pareto3D data={paretoData}/>
+        <Column3D />
       </div>
     </Wrapper>
   );
