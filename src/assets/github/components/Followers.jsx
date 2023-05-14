@@ -15,7 +15,7 @@ const Followers = () => {
           const { html_url: url, avatar_url: avatar, login, type } = follower;
           return (
             <>
-                <div className="d-flex justify-content-between align-items-center">
+                <div className="d-flex justify-content-between align-items-center" key={index}>
                     <div className="d-flex">
                         <img
                             src={avatar}
