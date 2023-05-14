@@ -3,30 +3,35 @@
  * Filename: Search.jsx
  */
 
-import { useState } from "react";
 import { ImGithub } from "react-icons/im";
 
 import { InlineForm } from "../../components/Forms";
-import {useGithubContext} from "../context/context";
+import { useGithubContext } from "../context/context";
 
 const Search = () => {
-  const [user, setUser] = useState("");
-  const {requests, getUser, feedback, updateFeedback} = useGithubContext();
+  const {
+    requests,
+    getUser,
+    feedback,
+    updateFeedback,
+    userValue,
+    setUserValue,
+  } = useGithubContext();
 
   const handleSubmit = (e) => {
-      e.preventDefault();
-      if (!user) {
-          // show negative feedback
-          updateFeedback("Name is missing", "is-invalid");
-      }else if(requests <= 0) updateFeedback("Login to make more requests", "is-invalid");
-      else {
-          getUser(user);
-          setUser("");
-      }
+    e.preventDefault();
+    if (!userValue) {
+      // show negative feedback
+      updateFeedback("Name is missing", "is-invalid");
+    } else if (requests <= 0)
+      updateFeedback("Login to make more requests", "is-invalid");
+    else {
+      getUser(userValue);
+    }
   };
 
   const handleChange = (e) => {
-    setUser(e.target.value);
+    setUserValue(e.target.value);
   };
 
   const clearAlert = () => {
@@ -44,13 +49,13 @@ const Search = () => {
           clearAlert={clearAlert}
           icon={<ImGithub />}
           placeholder="kramstyles"
-          value={user}
-          btnText={`Find ${user}`}
+          value={userValue}
+          btnText={`Find ${userValue}`}
         />
       </div>
-        <div className="col-md-3 d-flex align-items-end justify-content-center">
-            <h5 className="pb-3 text-primary">Requests ({requests} / 60)</h5>
-        </div>
+      <div className="col-md-3 d-flex align-items-end justify-content-center">
+        <h5 className="pb-3 text-primary">Requests ({requests} / 60)</h5>
+      </div>
     </div>
   );
 };

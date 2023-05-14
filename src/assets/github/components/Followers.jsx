@@ -4,10 +4,10 @@
  */
 import Tab from "./Tab";
 import { useGithubContext } from "../context/context";
-import { ImGithub } from "react-icons/im";
+import {ImGithub, ImSearch} from "react-icons/im";
 import styled from "styled-components";
 const Followers = () => {
-  const { followers } = useGithubContext();
+  const { followers, getUser } = useGithubContext();
   return (
     <Tab title="followers">
       <Wrapper>
@@ -28,12 +28,22 @@ const Followers = () => {
                             <p className="mb-0">Type: {type}</p>
                         </div>
                     </div>
-                    <a
-                        href={url}
-                        className="btn btn-outline-primary d-flex align-items-center"
-                    >
-                        <ImGithub className="me-3" /> Visit
-                    </a>
+                    <div>
+                        <button
+                            className="btn btn-outline-primary d-flex align-items-center btn-sm mb-2"
+                            onClick={() => getUser(login)}
+                        >
+                            <ImSearch className="me-3" /> Find
+                        </button>
+                        <a
+                            href={url}
+                            className="btn btn-outline-primary d-flex align-items-center btn-sm"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            <ImGithub className="me-3" /> Visit
+                        </a>
+                    </div>
                 </div>
                 <div className="border-bottom border-primary border-opacity-25 my-3"></div>
             </>

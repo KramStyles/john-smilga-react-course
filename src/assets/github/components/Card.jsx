@@ -63,6 +63,8 @@ const Card = () => {
         <a
           href={url}
           className="btn btn-outline-primary d-flex align-items-center"
+          rel="noreferrer"
+          target="_blank"
         >
           <ImGithub className="me-3" /> Follow
         </a>

@@ -16,6 +16,7 @@ const GithubProvider = ({ children }) => {
   const [requests, setRequests] = useState(0);
   const [initialLoading, setInitialLoading] = useState(true);
   const [feedback, setFeedback] = useState({ message: "", type: "" });
+  const [userValue, setUserValue] = useState("");
 
   const checkRequests = () => {
     try {
@@ -30,24 +31,25 @@ const GithubProvider = ({ children }) => {
 
   const getUser = (githubUser) => {
     const url = `${rootUrl}/users/${githubUser}`;
+    if (githubUser !== "kramstyles") setUserValue(githubUser);
     setInitialLoading(true);
     try {
       axios(url).then((response) => {
         if (response) {
-            setGitUser(response.data)
-            const {followers_url} = response.data;
-            axios.get(`${url}/repos?per_page=100`).then(data => {
-                setRepos(data.data);
-            })
-            axios.get(`${followers_url}?per_page=100`).then(data => {
-                setFollowers(data.data);
-            })
-            checkRequests();
+          setGitUser(response.data);
+          const { followers_url } = response.data;
+          axios.get(`${url}/repos?per_page=100`).then((data) => {
+            setRepos(data.data);
+          });
+          axios.get(`${followers_url}?per_page=100`).then((data) => {
+            setFollowers(data.data);
+          });
+          checkRequests();
         }
       });
     } catch (e) {
       console.log(e);
-      updateFeedback(e.response.data.message, "is-invalid")
+      updateFeedback(e.response.data.message, "is-invalid");
       setInitialLoading(false);
     }
   };
@@ -55,7 +57,12 @@ const GithubProvider = ({ children }) => {
   const updateFeedback = (message = "", type = "") =>
     setFeedback({ message, type });
 
-  useEffect(checkRequests, []);
+  // useEffect(checkRequests, []);
+
+  useEffect(() => {
+    getUser("kramstyles");
+    checkRequests();
+  }, []);
 
   return (
     <GithubContext.Provider
@@ -70,6 +77,8 @@ const GithubProvider = ({ children }) => {
         getUser,
         feedback,
         updateFeedback,
+        userValue,
+        setUserValue,
       }}
     >
       {children}
