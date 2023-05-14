@@ -14,6 +14,19 @@ import {
   ImOffice,
 } from "react-icons/im";
 import styled from "styled-components";
+
+const Wrapper = styled.div`
+    p {
+      margin-bottom: 0;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+    svg {
+      font-size: 1.2rem;
+      margin-right: 15px;
+    }
+  `;
 const Card = () => {
   const { gitUser } = useGithubContext();
   const {
@@ -28,19 +41,6 @@ const Card = () => {
     twitter_username,
     created_at,
   } = gitUser;
-
-  const Wrapper = styled.div`
-    p {
-      margin-bottom: 0;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-    }
-    svg {
-      font-size: 1.2rem;
-      margin-right: 15px;
-    }
-  `;
 
   return (
     <Tab title={`@${login}`}>
@@ -63,6 +63,8 @@ const Card = () => {
         <a
           href={url}
           className="btn btn-outline-primary d-flex align-items-center"
+          rel="noreferrer"
+          target="_blank"
         >
           <ImGithub className="me-3" /> Follow
         </a>
@@ -76,7 +78,7 @@ const Card = () => {
           <ImLocation2 /> {location || "Somewhere on earth."}
         </p>
         <p>
-          <ImLink /> <a href={blog || url}>{blog || url}</a>
+          <ImLink /> <a href={blog || url} target="_blank" rel="noreferrer">{blog || url}</a>
         </p>
         <p>
           <ImCalendar /> Member since : <b> {created_at.slice(0, 4)}</b>

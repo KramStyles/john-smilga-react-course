@@ -3,34 +3,39 @@
  * Filename: Search.jsx
  */
 
-import { useState } from "react";
 import { ImGithub } from "react-icons/im";
 
 import { InlineForm } from "../../components/Forms";
+import { useGithubContext } from "../context/context";
 
 const Search = () => {
-  const [feedback, setFeedback] = useState({ message: "", type: "" });
-  const [user, setUser] = useState("kramstyles");
+  const {
+    requests,
+    getUser,
+    feedback,
+    updateFeedback,
+    userValue,
+    setUserValue,
+  } = useGithubContext();
 
-    const updateFeedback = (message = "", type = "") =>
-        setFeedback({ message, type });
   const handleSubmit = (e) => {
-      e.preventDefault();
-      if (!user) {
-          // show negative feedback
-          updateFeedback("Name is missing", "is-invalid");
-      } else {
-          updateFeedback("Searching...", "is-valid");
-      }
-    console.log(user);
+    e.preventDefault();
+    if (!userValue) {
+      // show negative feedback
+      updateFeedback("Name is missing", "is-invalid");
+    } else if (requests <= 0)
+      updateFeedback("Login to make more requests", "is-invalid");
+    else {
+      getUser(userValue);
+    }
   };
 
   const handleChange = (e) => {
-    setUser(e.target.value);
+    setUserValue(e.target.value);
   };
 
   const clearAlert = () => {
-    setFeedback({ message: "", type: "" });
+    updateFeedback();
   };
 
   return (
@@ -39,19 +44,18 @@ const Search = () => {
         <InlineForm
           feedback={feedback.type}
           feedbackMsg={feedback.message}
-          placeholder="kramstyles..."
           handleSubmit={handleSubmit}
           handleChange={handleChange}
           clearAlert={clearAlert}
           icon={<ImGithub />}
-          label="Input github username"
-          value={user}
-          btnText={`Find ${user}`}
+          placeholder="kramstyles"
+          value={userValue}
+          btnText={`Find ${userValue}`}
         />
       </div>
-        <div className="col-md-3 d-flex align-items-end">
-            <h4 className="pb-2 text-primary">Requests (55 / 60)</h4>
-        </div>
+      <div className="col-md-3 d-flex align-items-end justify-content-center">
+        <h5 className="pb-3 text-primary">Requests ({requests} / 60)</h5>
+      </div>
     </div>
   );
 };

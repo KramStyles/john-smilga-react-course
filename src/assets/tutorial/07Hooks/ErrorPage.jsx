@@ -2,12 +2,12 @@ import Jumbotron from "../../components/Jumbotron";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const ErrorPage = () => {
-  const Wrapper = styled.section`
+const Wrapper = styled.section`
     .error-title {
       font-size: 10rem;
     }
   `;
+const ErrorPage = () => {
   return (
     <Wrapper>
       <Jumbotron title="You accessed an invalid page" />
