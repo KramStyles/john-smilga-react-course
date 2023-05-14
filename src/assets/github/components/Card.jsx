@@ -76,7 +76,7 @@ const Card = () => {
           <ImLocation2 /> {location || "Somewhere on earth."}
         </p>
         <p>
-          <ImLink /> <a href={blog || url}>{blog || url}</a>
+          <ImLink /> <a href={blog || url} target="_blank" rel="noreferrer">{blog || url}</a>
         </p>
         <p>
           <ImCalendar /> Member since : <b> {created_at.slice(0, 4)}</b>

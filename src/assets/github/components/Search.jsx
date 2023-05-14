@@ -7,22 +7,22 @@ import { useState } from "react";
 import { ImGithub } from "react-icons/im";
 
 import { InlineForm } from "../../components/Forms";
+import {useGithubContext} from "../context/context";
 
 const Search = () => {
-  const [feedback, setFeedback] = useState({ message: "", type: "" });
-  const [user, setUser] = useState("kramstyles");
+  const [user, setUser] = useState("");
+  const {requests, getUser, feedback, updateFeedback} = useGithubContext();
 
-    const updateFeedback = (message = "", type = "") =>
-        setFeedback({ message, type });
   const handleSubmit = (e) => {
       e.preventDefault();
       if (!user) {
           // show negative feedback
           updateFeedback("Name is missing", "is-invalid");
-      } else {
-          updateFeedback("Searching...", "is-valid");
+      }else if(requests <= 0) updateFeedback("Login to make more requests", "is-invalid");
+      else {
+          getUser(user);
+          setUser("");
       }
-    console.log(user);
   };
 
   const handleChange = (e) => {
@@ -30,7 +30,7 @@ const Search = () => {
   };
 
   const clearAlert = () => {
-    setFeedback({ message: "", type: "" });
+    updateFeedback();
   };
 
   return (
@@ -39,18 +39,17 @@ const Search = () => {
         <InlineForm
           feedback={feedback.type}
           feedbackMsg={feedback.message}
-          placeholder="kramstyles..."
           handleSubmit={handleSubmit}
           handleChange={handleChange}
           clearAlert={clearAlert}
           icon={<ImGithub />}
-          label="Input github username"
+          placeholder="kramstyles"
           value={user}
           btnText={`Find ${user}`}
         />
       </div>
-        <div className="col-md-3 d-flex align-items-end">
-            <h4 className="pb-2 text-primary">Requests (55 / 60)</h4>
+        <div className="col-md-3 d-flex align-items-end justify-content-center">
+            <h5 className="pb-3 text-primary">Requests ({requests} / 60)</h5>
         </div>
     </div>
   );

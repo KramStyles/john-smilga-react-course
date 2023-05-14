@@ -1,11 +1,12 @@
 .loader-body {
-  background-color: #22222290;
+  background-color: var(--bs-primary);
   height: 100vh;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   display: flex;
+  z-index: 100;
 }
 
 .loader-text {
@@ -19,11 +20,18 @@
   flex-direction: column;
   align-items: center;
 }
-.loader-shape {
-  border: 1.5rem double white;
-  height: 3.5rem;
-  width: 3.5rem;
-  animation: spin 1s infinite linear;
+.loader-shape, .loader-shape div {
+  /*border: 1.5rem double white;*/
+  border: 1px solid white;
+  border-left-color: black;
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;
+  animation: spin 4s infinite linear;
+}
+.loader-shape div {
+  height: 90%;
+  width: 90%;
 }
 
 @keyframes spin {

@@ -10,8 +10,22 @@ const Loader = ({ error }) => {
           <div className="loader-text fs-3 fw-bold text-warning">{error}</div>
         ) : (
           <>
-            <div className="loader-shape"></div>
-            <div className="loader-text fs-1 fw-bold">Processing...</div>
+            <div className="loader-shape">
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <div>
+                        <div>
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="loader-text fs-1 fw-bold mt-5">Processing...</div>
           </>
         )}
       </div>

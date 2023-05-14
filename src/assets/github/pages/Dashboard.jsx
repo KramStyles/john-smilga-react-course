@@ -4,17 +4,21 @@
  */
 
 import { Info, Repos, User, NavBar, Search } from "../components";
+import Loader from "../../components/Loader";
+import { useGithubContext } from "../context/context";
 
 const Dashboard = () => {
+  const { initialLoading } = useGithubContext();
+  if (initialLoading) return <Loader />;
   return (
     <>
-        <NavBar />
-        <div className="container">
-            <Search />
-            <Info />
-            <User />
-            <Repos />
-        </div>
+      <NavBar />
+      <div className="container">
+        <Search />
+        <Info />
+        <User />
+        <Repos />
+      </div>
     </>
   );
 };
