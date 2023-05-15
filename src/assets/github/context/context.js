@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {createContext, useCallback, useContext, useEffect, useState} from "react";
 import axios from "axios";
 
 import mockUser from "../mockData/user";
@@ -29,30 +29,38 @@ const GithubProvider = ({ children }) => {
     }
   };
 
-  const getUser = (githubUser) => {
-    const url = `${rootUrl}/users/${githubUser}`;
-    if (githubUser !== "kramstyles") setUserValue(githubUser);
-    setInitialLoading(true);
-    try {
-      axios(url).then((response) => {
-        if (response) {
-          setGitUser(response.data);
-          const { followers_url } = response.data;
-          axios.get(`${url}/repos?per_page=100`).then((data) => {
-            setRepos(data.data);
-          });
-          axios.get(`${followers_url}?per_page=100`).then((data) => {
-            setFollowers(data.data);
-          });
-          checkRequests();
-        }
-      });
-    } catch (e) {
-      console.log(e);
-      updateFeedback(e.response.data.message, "is-invalid");
-      setInitialLoading(false);
-    }
-  };
+  const getUser = useCallback((githubUser) => {
+      const url = `${rootUrl}/users/${githubUser}`;
+      if (githubUser !== "kramstyles") setUserValue(githubUser);
+      setInitialLoading(true);
+      try {
+          if(requests <= 0) {
+              updateFeedback("Login to make more requests", "is-invalid");
+              setInitialLoading(false);
+          }
+          else{
+              axios(url).then((response) => {
+                  if (response) {
+                      setGitUser(response.data);
+                      const { followers_url } = response.data;
+                      console.log("repos")
+                      axios.get(`${url}/repos?per_page=100`).then((data) => {
+                          setRepos(data.data);
+                      });
+                      console.log("followers")
+                      axios.get(`${followers_url}?per_page=100`).then((data) => {
+                          setFollowers(data.data);
+                      });
+                      checkRequests();
+                  }
+              });
+          }
+      } catch (e) {
+          console.log(e);
+          updateFeedback(e.response.data.message, "is-invalid");
+          setInitialLoading(false);
+      }
+  }, []);
 
   const updateFeedback = (message = "", type = "") =>
     setFeedback({ message, type });
@@ -62,7 +70,7 @@ const GithubProvider = ({ children }) => {
   useEffect(() => {
     getUser("kramstyles");
     checkRequests();
-  }, []);
+  }, [getUser]);
 
   return (
     <GithubContext.Provider

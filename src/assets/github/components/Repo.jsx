@@ -53,7 +53,7 @@ const Repo = () => {
   })
 
   // Get the highest 10
-  stars = Object.values(stars).slice(-10).reverse();
+  // stars = Object.values(stars).slice(-10).reverse();
   forks = Object.values(forks).slice(-10).reverse();
 
 
