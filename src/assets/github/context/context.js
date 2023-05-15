@@ -34,19 +34,27 @@ const GithubProvider = ({ children }) => {
       if (githubUser !== "kramstyles") setUserValue(githubUser);
       setInitialLoading(true);
       try {
-          axios(url).then((response) => {
-              if (response) {
-                  setGitUser(response.data);
-                  const { followers_url } = response.data;
-                  axios.get(`${url}/repos?per_page=100`).then((data) => {
-                      setRepos(data.data);
-                  });
-                  axios.get(`${followers_url}?per_page=100`).then((data) => {
-                      setFollowers(data.data);
-                  });
-                  checkRequests();
-              }
-          });
+          if(requests <= 0) {
+              updateFeedback("Login to make more requests", "is-invalid");
+              setInitialLoading(false);
+          }
+          else{
+              axios(url).then((response) => {
+                  if (response) {
+                      setGitUser(response.data);
+                      const { followers_url } = response.data;
+                      console.log("repos")
+                      axios.get(`${url}/repos?per_page=100`).then((data) => {
+                          setRepos(data.data);
+                      });
+                      console.log("followers")
+                      axios.get(`${followers_url}?per_page=100`).then((data) => {
+                          setFollowers(data.data);
+                      });
+                      checkRequests();
+                  }
+              });
+          }
       } catch (e) {
           console.log(e);
           updateFeedback(e.response.data.message, "is-invalid");
