@@ -51,13 +51,22 @@ const NavBar = () => {
               </button>
             </>
           ) : (
-            <button
-              className="btn btn-primary"
-              type="button"
-              onClick={loginWithRedirect}
-            >
-              Login
-            </button>
+            <>
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={() => logout({ returnTo: window.location.origin })}
+              >
+                Logout
+              </button>
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={loginWithRedirect}
+              >
+                Login
+              </button>
+            </>
           )}
         </div>
       </div>
@@ -65,4 +74,5 @@ const NavBar = () => {
   );
 };
 
+// honesty, family oriented, a kind person, you working to make something out of yourself
 export default NavBar;
