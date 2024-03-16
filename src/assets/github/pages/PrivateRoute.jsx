@@ -3,11 +3,17 @@
  * Filename: PrivateRoute.jsx
  */
 
-const PrivateRoute = () => {
+import { Route, Navigate } from "react-router-dom";
+
+const PrivateRoute = ({ children, ...rest }) => {
+  const isUser = true;
   return (
-    <div className="container">
-      <h1>PrivateRoute</h1>
-    </div>
+    <Route
+      {...rest}
+      render={() => {
+        return isUser ? children : <Navigate to={"/github/login"}></Navigate>;
+      }}
+    ></Route>
   );
 };
 
