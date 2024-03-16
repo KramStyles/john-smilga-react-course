@@ -2,23 +2,27 @@
  * Author: kramstyles
  * Filename: Login.jsx
  */
+import {useAuth0} from "@auth0/auth0-react";
+
+import AuthWrapper from "./AuthWrapper";
 import Jumbotron from "../../components/Jumbotron";
 import LoginImage from "../components/images/user-login2.png";
 const Login = () => {
+    const {loginWithRedirect} = useAuth0()
   return (
-    <>
+    <AuthWrapper>
       <Jumbotron title="Github Login" />
       <div className="container">
         <div className="row">
           <div className="col-md-6 offset-md-3 text-center">
             <img src={LoginImage} alt="Github Login" className="w-75" />
             <div>
-              <button className="btn btn-dark px-5 my-3">Login</button>
+              <button className="btn btn-dark px-5 my-3" onClick={loginWithRedirect}>Login</button>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </AuthWrapper>
   );
 };
 

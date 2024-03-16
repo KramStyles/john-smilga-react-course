@@ -9,15 +9,12 @@ import { useEffect } from "react";
 const NavBar = () => {
   const { isAuthenticated, loginWithRedirect, logout, user, isLoading } =
     useAuth0();
-  useEffect(() => {
-    console.log({
-      isAuthenticated,
-      loginWithRedirect,
-      logout,
-      user,
-      isLoading,
-    });
-  }, []);
+  isAuthenticated && sessionStorage.setItem("isGitUser", "true");
+
+  const myLogOut = () => {
+    sessionStorage.setItem("isGitUser", "false");
+    logout({ returnTo: window.location.origin })
+  }
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
       <div className="container-fluid">
@@ -57,7 +54,8 @@ const NavBar = () => {
               <button
                 className="btn btn-primary"
                 type="button"
-                onClick={() => logout({ returnTo: window.location.origin })}
+                // onClick={() => logout({ returnTo: window.location.origin })}
+                  onClick={myLogOut}
               >
                 Logout
               </button>
