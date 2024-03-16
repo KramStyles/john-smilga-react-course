@@ -32,6 +32,7 @@ const GithubProvider = ({ children }) => {
   const getUser = useCallback((githubUser) => {
       const url = `${rootUrl}/users/${githubUser}`;
       if (githubUser !== "kramstyles") setUserValue(githubUser);
+      return
       setInitialLoading(true);
       try {
           if(requests <= 0) {
@@ -43,11 +44,9 @@ const GithubProvider = ({ children }) => {
                   if (response) {
                       setGitUser(response.data);
                       const { followers_url, repos_url } = response.data;
-                      console.log("repos")
                       axios.get(`${repos_url}?per_page=100`).then((data) => {
                           setRepos(data.data);
                       });
-                      console.log("followers")
                       axios.get(`${followers_url}?per_page=100`).then((data) => {
                           setFollowers(data.data);
                       });
@@ -60,7 +59,7 @@ const GithubProvider = ({ children }) => {
           updateFeedback(e.response.data.message, "is-invalid");
           setInitialLoading(false);
       }
-  }, []);
+  }, [requests]);
 
   const updateFeedback = (message = "", type = "") =>
     setFeedback({ message, type });

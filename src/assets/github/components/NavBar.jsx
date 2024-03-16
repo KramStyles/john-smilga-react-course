@@ -35,13 +35,25 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="authnavbar">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <a className="nav-link" href="javascript:void(0)">
-                Link
-              </a>
+              <span className="nav-link">
+                {isAuthenticated && `@${user.name}`}
+              </span>
+            </li>
+            <li className="nav-item">
+              <span className="nav-link text-lowercase">
+                <small>{isAuthenticated && `${user.email}`}</small>
+              </span>
             </li>
           </ul>
           {isAuthenticated ? (
             <>
+              <img
+                src={user.picture}
+                height={50}
+                width={50}
+                style={{ borderRadius: "50%", marginRight: 10 }}
+                alt={user.nickname}
+              />
               <button
                 className="btn btn-primary"
                 type="button"
@@ -52,13 +64,6 @@ const NavBar = () => {
             </>
           ) : (
             <>
-              <button
-                className="btn btn-primary"
-                type="button"
-                onClick={() => logout({ returnTo: window.location.origin })}
-              >
-                Logout
-              </button>
               <button
                 className="btn btn-primary"
                 type="button"
@@ -74,5 +79,4 @@ const NavBar = () => {
   );
 };
 
-// honesty, family oriented, a kind person, you working to make something out of yourself
 export default NavBar;
