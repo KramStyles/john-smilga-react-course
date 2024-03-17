@@ -43,7 +43,7 @@ import CocktailDetail from "../projects/15Cocktail/page/CocktailDetail";
 
 // GitHub routes
 import Github from "../github";
-import { GitLogin } from "../github/pages";
+import { GitLogin, GitPrivateRoute } from "../github/pages";
 
 import Setup from "../github";
 
@@ -103,8 +103,9 @@ const MyRouters = () => {
       <Route path="/projects/cart" element={<Cart />} />
       <Route path="/projects/cocktails" element={<Cocktails />} />
       <Route path="/projects/cocktails/:id" element={<CocktailDetail />} />
-
-      <Route path="/github/home" element={<Github />} />
+        <Route element={<GitPrivateRoute />}>
+            <Route path="/github/home" element={<Github />} />
+        </Route>
       <Route path="/github/login" element={<GitLogin />} />
 
       <Route path="*" element={<ErrorPage />} />

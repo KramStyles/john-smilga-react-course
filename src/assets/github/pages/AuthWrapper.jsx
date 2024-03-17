@@ -3,11 +3,23 @@
  * Filename: AuthWrapper.jsx
  */
 
-const AuthWrapper = () => {
+import { Auth0Provider } from "@auth0/auth0-react";
+import { GithubProvider } from "../context/context";
+
+// Domain & Client ID
+const DOMAIN = process.env.REACT_APP_AUTH_DOMAIN;
+const CLIENT_ID = process.env.REACT_APP_AUTH_CLIENT_ID;
+
+const AuthWrapper = ({ children }) => {
   return (
-    <div className="container">
-      <h1>AuthWrapper</h1>
-    </div>
+    <Auth0Provider
+      domain={DOMAIN}
+      clientId={CLIENT_ID}
+      redirectUri={window.location.origin}
+      cacheLocation={"localstorage"} // to remain logged in as you visit other pages
+    >
+      <GithubProvider>{children}</GithubProvider>
+    </Auth0Provider>
   );
 };
 

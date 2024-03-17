@@ -3,11 +3,20 @@
  * Filename: PrivateRoute.jsx
  */
 
+import { Outlet, Navigate } from "react-router-dom";
+
 const PrivateRoute = () => {
+  let user = sessionStorage.getItem("isGitUser");
+  if (!user) {
+    user = false
+  } else{
+    user = JSON.parse(user);
+  }
   return (
-    <div className="container">
-      <h1>PrivateRoute</h1>
-    </div>
+      user ? <Outlet /> : <Navigate to={"/github/login"} />
+    // <Outlet{...rest}>
+    //     {!isUser ? <Navigate to={"/github/login"}/> : children}
+    // </Outlet>
   );
 };
 
