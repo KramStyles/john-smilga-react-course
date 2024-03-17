@@ -15,8 +15,8 @@ const AuthWrapper = ({ children }) => {
     <Auth0Provider
       domain={DOMAIN}
       clientId={CLIENT_ID}
-      // redirectUri={window.location.origin}
-      authorizationParams={window.location.origin}
+      redirectUri={window.location.origin}
+      cacheLocation={"localstorage"} // to remain logged in as you visit other pages
     >
       <GithubProvider>{children}</GithubProvider>
     </Auth0Provider>
