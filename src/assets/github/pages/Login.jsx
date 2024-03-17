@@ -4,13 +4,13 @@
  */
 import {useAuth0} from "@auth0/auth0-react";
 
-import AuthWrapper from "./AuthWrapper";
 import Jumbotron from "../../components/Jumbotron";
 import LoginImage from "../components/images/user-login2.png";
 const Login = () => {
-    const {loginWithRedirect} = useAuth0()
+    const {loginWithRedirect, isAuthenticated} = useAuth0()
+    console.log(isAuthenticated, loginWithRedirect)
   return (
-    <AuthWrapper>
+    <>
       <Jumbotron title="Github Login" />
       <div className="container">
         <div className="row">
@@ -22,7 +22,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </AuthWrapper>
+    </>
   );
 };
 
