@@ -42,7 +42,7 @@ const Repo = () => {
       .map(item => ({...item, value: item.stars})) // Change value to stars
     .slice(0, 7);
 
-  let {stars, forks} = repos.reduce((total, item) => {
+  let {forks} = repos.reduce((total, item) => {
     const {stargazers_count, name, forks} = item;
     total.stars[stargazers_count] = {label: name, value: stargazers_count};
     total.forks[forks] = {label: name, value: forks};

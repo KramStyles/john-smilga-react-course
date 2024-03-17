@@ -32,7 +32,6 @@ const GithubProvider = ({ children }) => {
   const getUser = useCallback((githubUser) => {
       const url = `${rootUrl}/users/${githubUser}`;
       if (githubUser !== "kramstyles") setUserValue(githubUser);
-      return
       setInitialLoading(true);
       try {
           if(requests <= 0) {

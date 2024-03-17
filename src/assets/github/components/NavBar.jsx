@@ -6,7 +6,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
 const NavBar = () => {
-  const { isAuthenticated, loginWithRedirect, logout, user, isLoading } =
+  const { isAuthenticated, loginWithRedirect, logout, user } =
     useAuth0();
   isAuthenticated && sessionStorage.setItem("isGitUser", "true");
 
@@ -17,9 +17,9 @@ const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="javascript:void(0)">
+        <span className="navbar-brand">
           Github with Auth
-        </a>
+        </span>
         <button
           className="navbar-toggler"
           type="button"
