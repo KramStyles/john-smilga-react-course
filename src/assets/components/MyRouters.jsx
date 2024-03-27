@@ -45,7 +45,10 @@ import CocktailDetail from "../projects/15Cocktail/page/CocktailDetail";
 import Github from "../github";
 import { GitLogin, GitPrivateRoute } from "../github/pages";
 
-import Setup from "../github";
+// E-Commerce Routes
+import Ecommerce from "../ecommerce";
+
+import Setup from "../ecommerce";
 
 const MyRouters = () => {
   return (
@@ -102,11 +105,14 @@ const MyRouters = () => {
       <Route path="/projects/stripe_menu" element={<StripeMenu />} />
       <Route path="/projects/cart" element={<Cart />} />
       <Route path="/projects/cocktails" element={<Cocktails />} />
+      
       <Route path="/projects/cocktails/:id" element={<CocktailDetail />} />
         <Route element={<GitPrivateRoute />}>
             <Route path="/github/home" element={<Github />} />
         </Route>
       <Route path="/github/login" element={<GitLogin />} />
+
+      <Route path="/ecommerce/home" element={<Ecommerce />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>

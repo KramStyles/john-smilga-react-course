@@ -108,6 +108,7 @@ export const navData = [
     ],
   },
   { name: "github", links: ["home", "login"] },
+  { name: "ecommerce", links: ["home", "login"] },
 ];
 
 export const reviews = [
