@@ -1,10 +1,7 @@
-import Jumbotron from "../components/Jumbotron";
+import { Home } from "./pages";
 
 const Index = () => (
-  <>
-    <Jumbotron title="E-Commerce" />
-    <div className="container">Hello</div>
-  </>
+  <Home />
 );
 
 export default Index;
