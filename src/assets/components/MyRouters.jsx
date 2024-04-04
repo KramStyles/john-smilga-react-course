@@ -46,7 +46,7 @@ import Github from "../github";
 import { GitLogin, GitPrivateRoute } from "../github/pages";
 
 // E-Commerce Routes
-import Ecommerce from "../ecommerce";
+import { About, Cart as EcommerceCart, Checkout, Home as Ecommerce, Products, SingleProduct } from "../ecommerce/pages";
 
 import Setup from "../ecommerce";
 
@@ -113,6 +113,11 @@ const MyRouters = () => {
       <Route path="/github/login" element={<GitLogin />} />
 
       <Route path="/ecommerce/home" element={<Ecommerce />} />
+      <Route path="/ecommerce/about" element={<About />} />
+      <Route path="/ecommerce/checkout" element={<Checkout />} />
+      <Route path="/ecommerce/cart" element={<EcommerceCart />} />
+      <Route path="/ecommerce/products" element={<Products />} />
+      <Route path="/ecommerce/product/:id" element={<SingleProduct />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>
