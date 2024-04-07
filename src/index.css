@@ -17,6 +17,17 @@ body {
   background-color: #f1f5f8;
   color: #222;
 }
+.raleway {
+  font-family: Raleway, sans-serif !important;
+}
+
+.poppins {
+  font-family: Poppins, sans-serif !important;
+}
+
+.montserrat {
+  font-family: Montserrat, sans-serif !important;
+}
 
 .booklist {
   margin: 5rem auto;
@@ -75,7 +86,7 @@ h6 {
 }
 
 a {
-  font-family: Raleway, sans-serif !important;
+  font-family: Raleway, Poppins, Montserrat, sans-serif !important;
 }
 
 .throb {

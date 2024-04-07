@@ -42,14 +42,14 @@ const NavContainer = styled.nav`
 
 const Index = () => {
   return (
-    <NavContainer className="d-flex align-items-center justify-content-center bg-danger">
-      <div className="nav-center bg-success">
+    <NavContainer className="d-flex align-items-center justify-content-center poppins">
+      <div className="nav-center p-2">
         <div className="d-flex align-items-center justify-content-between h-100">
           <Link to="/" className="h-100 ms-2">
             <img src={Logo} alt="react store" height="90%" />
           </Link>
             <div className="nav-links">
-                <ul>
+                <ul className="align-items-center mb-0 me-5">
                     {links.map((item) => {
                         const { id, text, url } = item;
                         return (
