@@ -8,6 +8,8 @@ import { links } from "../../../data";
 
 const NavContainer = styled.nav`
   height: 5rem;
+  position: sticky;
+  top: 60px;
 
   .nav-center {
     width: 90vw;

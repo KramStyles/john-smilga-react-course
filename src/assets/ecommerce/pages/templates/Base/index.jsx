@@ -4,10 +4,13 @@ import { NavBar, SideBar, Footer } from "../../../components";
 const Index = ({ children }) => {
   return (
     <>
-      <Jumbotron title="E-Commerce" noGap/>
-      <NavBar />
-      <div className="container-fluid">{children}</div>
-      <Footer/>
+      <Jumbotron title="E-Commerce" noGap />
+      <div className="position-relative">
+        <NavBar />
+        <SideBar />
+        <div className="container-fluid">{children}</div>
+        <Footer />
+      </div>
     </>
   );
 };
